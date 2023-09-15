@@ -127,14 +127,36 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        product.setName(txtName.getText());
-        product.setDescr(txtDescr.getText());
-        product.setAvailNum(txtAvailNum.getText());
-        product.setPrice(txtPrice.getText());
-
-        JOptionPane.showMessageDialog(this, "Product Information Saved");
+        
+        String name = txtName.getText();
+        String description = txtDescr.getText();
+        String price = txtPrice.getText();
+        String availNum = txtAvailNum.getText();
+        
+        
+        if(name.equals("") || description.equals("") || price.equals("") || availNum.equals("")){
+           JOptionPane.showMessageDialog(this, "Please enter all the values");
+        } else if(!isANumber(price) || Integer.parseInt(price) < 0){
+            JOptionPane.showMessageDialog(this, "Please enter a valid price");      
+        } else if(!isANumber(availNum) || Integer.parseInt(availNum) < 0){
+            JOptionPane.showMessageDialog(this, "Please enter a valid availability");      
+        } else {
+            product.setName(name);
+            product.setDescr(description);
+            product.setPrice(price);
+            product.setAvailNum(availNum);
+            JOptionPane.showMessageDialog(this, "Product Information Saved"); 
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    public static boolean isANumber(String str) { 
+        try {  
+          Double.parseDouble(str);  
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
