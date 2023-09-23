@@ -145,15 +145,12 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmailId)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSpeciality))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSpeciality))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLicenseNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLicenseNo))
                 .addGap(18, 18, 18)
@@ -175,6 +172,39 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(null, "Please enter all the fields");
             return; 
         }
+        
+        // validations for number field and phone number
+        boolean checkIfNumber;
+        
+        String drId = (txtDoctorId.getText());
+        checkIfNumber = drId.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Doctor Id must have digits only");
+            return;
+        }        
+        
+        String phoneNo = txtContactNo.getText();
+        checkIfNumber = phoneNo.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Contact Number must have digits only");
+            return;
+        }
+        
+        if(txtContactNo.getText().length() != 10)
+        {
+            JOptionPane.showMessageDialog(null, "Contact Number must be of 10 digits");
+            return;
+        }
+        
+       // vliadation for email
+       boolean checkEmailflag;
+       checkEmailflag = txtEmail.getText().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        
+       if(!checkEmailflag) {
+            JOptionPane.showMessageDialog(null, "Email Address must be in format of X@Y.Z");
+            return;
+        }
+      
         
         long doctorId =Long.parseLong(txtDoctorId.getText()); 
         String name = txtName.getText();

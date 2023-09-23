@@ -143,23 +143,22 @@ public class CreatePerJPanel extends javax.swing.JPanel {
                         .addComponent(lblWebUrl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCountry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPerPhone)
-                            .addComponent(txtPerEmail)
-                            .addComponent(txtPerSsn)
-                            .addComponent(genderComboBox, 0, 140, Short.MAX_VALUE)
-                            .addComponent(txtPerBirthDate)
-                            .addComponent(txtPerWebsiteUrl)
-                            .addComponent(txtPerCountry)
-                            .addComponent(txtPerAge, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSave)
-                                .addComponent(BtnUpldPhoto))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PersonPic, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtPerPhone)
+                        .addComponent(txtPerEmail)
+                        .addComponent(txtPerSsn)
+                        .addComponent(genderComboBox, 0, 140, Short.MAX_VALUE)
+                        .addComponent(txtPerBirthDate)
+                        .addComponent(txtPerWebsiteUrl)
+                        .addComponent(txtPerCountry)
+                        .addComponent(txtPerAge, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSave)
+                            .addComponent(BtnUpldPhoto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PersonPic, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtPerName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -236,6 +235,27 @@ public class CreatePerJPanel extends javax.swing.JPanel {
             return; 
         }
         
+        // Phone no validations
+        boolean checkIfNumber;
+        String phoneNo = txtPerPhone.getText();
+        checkIfNumber = phoneNo.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Contact Number must have digits only");
+            return;
+        }
+        if(txtPerPhone.getText().length() != 10)
+        {
+            JOptionPane.showMessageDialog(null, "Contact Number must be of 10 digits");
+            return;
+        }
+       boolean checkEmailflag;
+       checkEmailflag = txtPerEmail.getText().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        
+       if(!checkEmailflag) {
+            JOptionPane.showMessageDialog(null, "Email Address must be in format of X@Y.Z");
+            return;
+        }
+        
         String name = txtPerName.getText();
         String age = txtPerAge.getText();
         String email = txtPerEmail.getText();
@@ -246,7 +266,7 @@ public class CreatePerJPanel extends javax.swing.JPanel {
         String gender = (String) genderComboBox.getSelectedItem();
         String birthDate = txtPerBirthDate.getText();
         ImageIcon img = (ImageIcon) PersonPic.getIcon();
-        
+                
         person.setName(name);
         person.setAge(age);
         person.setGender(gender);

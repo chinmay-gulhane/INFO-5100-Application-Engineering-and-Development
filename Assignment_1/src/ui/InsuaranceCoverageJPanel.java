@@ -186,6 +186,21 @@ public class InsuaranceCoverageJPanel extends javax.swing.JPanel {
             return; 
         }
         
+        boolean checkIfNumber;
+        String prAmt = (txtPremiumAmt.getText());
+        checkIfNumber = prAmt.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Premium Amount must have digits only");
+            return;
+        }        
+        
+        String dedAmt = txtDeductableAmt.getText();
+        checkIfNumber = dedAmt.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Deductable Amount must have digits only");
+            return;
+        }
+        
         String corporateId = txtCorporateId.getText();
         long premiumAmt =Long.parseLong(txtPremiumAmt.getText()); 
         long deductableAmt =Long.parseLong(txtDeductableAmt.getText()); 

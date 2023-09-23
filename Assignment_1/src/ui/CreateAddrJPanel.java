@@ -159,6 +159,14 @@ public class CreateAddrJPanel extends javax.swing.JPanel {
             return; 
         }
         
+        boolean checkIfNumber;
+        String phoneNo = txtZipCode.getText();
+        checkIfNumber = phoneNo.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Contact Number must have digits only");
+            return;
+        }
+        
         String street = txtStreet.getText();
         String city = txtCity.getText();
         String state = txtState.getText();

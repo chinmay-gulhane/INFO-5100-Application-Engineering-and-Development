@@ -72,20 +72,15 @@
                   <Component id="lblPrimaryDoctor" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPrimaryDoctor" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lbLastVisitDate" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtLastVisitDate" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtLastVisitDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbLastVisitDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtNextAppointmentDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNextAppointmentDate" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtNextAppointmentDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNextAppointmentDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

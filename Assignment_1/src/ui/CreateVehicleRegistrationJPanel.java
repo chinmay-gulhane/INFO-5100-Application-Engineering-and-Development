@@ -149,6 +149,14 @@ public class CreateVehicleRegistrationJPanel extends javax.swing.JPanel {
             return; 
         }
         
+        boolean checkIfNumber;
+        String yr = (txtYear.getText());
+        checkIfNumber = yr.matches("^[0-9]+$");
+        if(!checkIfNumber) {
+            JOptionPane.showMessageDialog(null, "Year must have digits only");
+            return;
+        } 
+        
         String registrationNo = txtRegistrationNo.getText();
         String issueDate = txtIssueDate.getText();
         String expirationDate = txtExpirationDate.getText();
