@@ -54,6 +54,8 @@ public class InsuaranceCoverageJPanel extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lblBenefits.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBenefits.setText("Benefits:");
 
@@ -63,7 +65,7 @@ public class InsuaranceCoverageJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add Insuarance Coverage");
 

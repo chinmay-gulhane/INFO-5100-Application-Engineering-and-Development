@@ -44,7 +44,9 @@ public class CreateVehicleRegistrationJPanel extends javax.swing.JPanel {
         txtYear = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
 
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add Vehicle Registration");
 

@@ -50,6 +50,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         jRadioButtonAllergiesYes = new javax.swing.JRadioButton();
         jRadioButtonAllergiesNo = new javax.swing.JRadioButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lblPatientId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPatientId.setText("Paient Id:");
 
@@ -77,7 +79,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         lblOnMedication.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOnMedication.setText("On Medication:");
 
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add Patient");
 

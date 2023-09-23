@@ -64,6 +64,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        controlPanel.setBackground(new java.awt.Color(255, 255, 255));
         controlPanel.setPreferredSize(new java.awt.Dimension(200, 600));
 
         btnCreatePerson.setText("Create Person");
@@ -167,6 +168,8 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateAdress, btnCreateDoctor, btnCreateDriver, btnCreateInsuaranceCoverage, btnCreatePaitient, btnCreatePerson, btnDisplayPatientReport, btnVehicleRegistration});
 
         splitPane.setLeftComponent(controlPanel);
+
+        workArea.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
