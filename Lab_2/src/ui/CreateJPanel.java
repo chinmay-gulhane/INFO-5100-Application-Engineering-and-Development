@@ -112,9 +112,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
                 .addComponent(lblTitle)
-                .addGap(52, 52, 52)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblrTemperature)
                     .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,7 +132,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(btnSave)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,14 +152,54 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPulseActionPerformed
 
+    public static boolean isANumber(String str) { 
+        try {  
+          Double.parseDouble(str);  
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
+     }
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
+        // Validation if any field is left empty
+        if(txtTemperature.getText().isEmpty() || txtPressure.getText().isEmpty() || txtPulse.getText().isEmpty() 
+           || txtDate.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Please enter all the fields");
+            return; 
+        }
+        
+        // Validation to check double number format        
+        double doubleNumber;
+        try{
+            doubleNumber = Double.parseDouble(txtTemperature.getText());
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Temperature"); 
+            return;
+        }
+        try{
+           doubleNumber = Double.parseDouble(txtPressure.getText());
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Blood Pressure"); 
+            return;
+        }
+        
+        // Validation to check integer number format
+        int integerNumber; 
+        try{
+           integerNumber = Integer.parseInt(txtPulse.getText());
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Pulse"); 
+            return;
+        }
+                  
         double temperature = Double.parseDouble(txtTemperature.getText());
         double pressure = Double.parseDouble(txtPressure.getText());
         int pulse = Integer.parseInt(txtPulse.getText());
         String date = txtDate.getText();
-        
+                
         VitalSigns vs = history.addNewVitals();
         
         vs.setTemperature(temperature);
