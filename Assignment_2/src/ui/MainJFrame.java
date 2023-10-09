@@ -259,7 +259,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(195, 195, 195)
+                .addGap(180, 180, 180)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -964,7 +964,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtPerNuIdp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPerCityp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPerCountryp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         UserProfileJPanelLayout.setVerticalGroup(
             UserProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1008,7 +1008,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(UserProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelPersonProfile)
                     .addComponent(btnSavePersonProfile))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         UserHomeJpanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -1306,6 +1306,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPersonActionPerformed
         btnAdminUpdatePerson.setEnabled(true);
+        txtPerNuId.setEditable(false);
         int selectedRowIndex = PersonTbl.getSelectedRow();
         if (selectedRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please Select a Row to View.");
@@ -1406,6 +1407,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnAdminSavePerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminSavePerson1ActionPerformed
         // TODO add your handling code here:
         clearPersonDetails();
+        txtPerNuId.setEditable(true);
     }//GEN-LAST:event_btnAdminSavePerson1ActionPerformed
 
     private void btnSearchPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPersonActionPerformed
