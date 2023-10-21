@@ -27,16 +27,15 @@ public class StudentsDirectory {
         this.studentList = studentList;
     }
 
-    public Student addStudent(String studentId,String name,String username, ArrayList<String>passwordHistory, String currentPassword, String email, String phone, String gpa, ArrayList<Course>courseList, boolean isBlock, boolean isPartOfOrganization ) {
+    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, ArrayList<String>scheduleId, boolean isBlock, boolean isPartOfOrganization ) {
         Student student = new Student();
-        student.setCourseList(courseList);
+        student.setScheduleId(scheduleId);
         student.setCurrentPassword(currentPassword);
         student.setEmail(email);
         student.setGpa(gpa);
         student.setIsBlock(isBlock);
         student.setIsPartOfOrganization(isPartOfOrganization);
         student.setName(name);
-        student.setPasswordHistory(passwordHistory);
         student.setPhone(phone);
         student.setStudentId(studentId);
         student.setUsername(username);

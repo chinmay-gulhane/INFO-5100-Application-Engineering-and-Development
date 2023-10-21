@@ -19,11 +19,12 @@ public class Student {
     private String currentPassword;
     private String email;
     private String phone;
-    private String gpa;
-    private ArrayList<Course>courseList = new ArrayList<Course>();
+    private double gpa;
+    private ArrayList<String>scheduleId = new ArrayList<String>();
     private boolean isBlock;
     private boolean isPartOfOrganization;
 
+    
     public String getName() {
         return name;
     }
@@ -80,21 +81,22 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getGpa() {
+    public double getGpa() {
         return gpa;
     }
 
-    public void setGpa(String gpa) {
+    public void setGpa(double gpa) {
         this.gpa = gpa;
     }
 
-    public ArrayList<Course> getCourseList() {
-        return courseList;
+    public ArrayList<String> getScheduleId() {
+        return scheduleId;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
-        this.courseList = courseList;
+    public void setScheduleId(ArrayList<String> scheduleId) {
+        this.scheduleId = scheduleId;
     }
+
 
     public boolean isIsBlock() {
         return isBlock;
