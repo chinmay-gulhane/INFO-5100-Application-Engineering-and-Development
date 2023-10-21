@@ -4,11 +4,16 @@
  */
 package Education;
 
+
+import Education.Admin.Admin;
 import Education.Courses.CoursesDirectory;
 import Education.Professor.ProfessorsDirectory;
 import Education.Student.StudentsDirectory;
-import Education.Admin.Admin;
 import Education.Courses.CourseSchedulesDirectory;
+import Education.Professor.Professor;
+import Education.Student.Student;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -21,10 +26,12 @@ public class Education {
     private StudentsDirectory studentsDirectory;
     private CoursesDirectory courseDirectory;
     private CourseSchedulesDirectory courseScheduleDirectory;
+    private ArrayList<Professor> professorAwaitingRegistration = new ArrayList();
+    private ArrayList<Student> studentAwaitingRegistration = new ArrayList();
 
     public Education(String name) {
         this.name = name;
-        this.admin = new Admin("admin","admin");
+       // this.admin = new Admin("admin","admin",professorAwaitingRegistration,studentAwaitingRegistration);
         this.professorsDirectory = new ProfessorsDirectory();
         this.studentsDirectory = new StudentsDirectory();
         this.courseDirectory = new CoursesDirectory();

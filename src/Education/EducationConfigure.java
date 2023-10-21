@@ -21,9 +21,9 @@ public class EducationConfigure {
         education.getCourseDirectory().addCourse("Concepts of Object-Oriented Design", "CSYE 6200", "Computer Systems Engineering", "AA113", 4, 8.5);
         education.getCourseDirectory().addCourse("Enterprise Software Design", "CSYE 6620", "Computer Systems Engineering", "AA114", 4, 8.5);
         education.getCourseDirectory().addCourse("Introduction to Cooperative Education", "CSYE 6200", "Computer Systems Engineering", "AA113", 4, 8.5);
-        education.getProfessorsDirectory().addProfessor(professorId, username, name, currentPassword, email, phone, courseList, courseScheduleList);
-        education.getCourseScheduleDirectory().addCourseSchedule(scheduleId, courseList, startDate, endDate, term, 0, teachingProfessor);
-        education.getStudentsDirectory().addStudent(studentId, name, username, passwordHistory, currentPassword, email, phone, gpa, courseList, true, true);
+      //  education.getProfessorsDirectory().addProfessor(professorId, username, name, currentPassword, email, phone, courseList, courseScheduleList);
+      //  education.getCourseScheduleDirectory().addCourseSchedule(scheduleId, courseList, startDate, endDate, term, 0, teachingProfessor);
+      //  education.getStudentsDirectory().addStudent(studentId, name, username, passwordHistory, currentPassword, email, phone, gpa, courseList, true, true);
         return education;
     }
 }
