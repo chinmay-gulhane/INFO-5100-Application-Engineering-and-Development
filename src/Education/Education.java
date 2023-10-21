@@ -8,6 +8,7 @@ import Education.Courses.CoursesDirectory;
 import Education.Professor.ProfessorsDirectory;
 import Education.Student.StudentsDirectory;
 import Education.Admin.Admin;
+import Education.Courses.CourseSchedulesDirectory;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Education {
     private ProfessorsDirectory professorsDirectory;
     private StudentsDirectory studentsDirectory;
     private CoursesDirectory courseDirectory;
+    private CourseSchedulesDirectory courseScheduleDirectory;
 
     public Education(String name) {
         this.name = name;
@@ -26,6 +28,7 @@ public class Education {
         this.professorsDirectory = new ProfessorsDirectory();
         this.studentsDirectory = new StudentsDirectory();
         this.courseDirectory = new CoursesDirectory();
+        this.courseScheduleDirectory = new CourseSchedulesDirectory();
     }
 
     public String getName() {
@@ -48,4 +51,7 @@ public class Education {
         return courseDirectory;
     }
     
+    public CourseSchedulesDirectory getCourseScheduleDirectory() {
+        return courseScheduleDirectory;
+    }
 }

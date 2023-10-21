@@ -4,6 +4,8 @@
  */
 package Education.Professor;
 
+import Education.Courses.Course;
+import Education.Courses.CourseSchedule;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +15,11 @@ import java.util.ArrayList;
 public class ProfessorsDirectory {
     private ArrayList<Professor>professorList;
     
-        public ProfessorsDirectory(){
+    public ProfessorsDirectory(){
         this.professorList = new ArrayList<Professor>();
-        Professor professor = new Professor();
     }
         
-        public ArrayList<Professor> getProfessorList() {
+    public ArrayList<Professor> getProfessorList() {
         return professorList;
     }
 
@@ -26,18 +27,26 @@ public class ProfessorsDirectory {
         this.professorList = professorList;
     }
    
-   public Professor addProfessor(){
-       Professor person = new Professor();
-       professorList.add(person);
-       return person;
+    public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,ArrayList<Course>courseList,ArrayList<CourseSchedule>courseScheduleList){
+       Professor prof = new Professor();
+       prof.setUsername(username);
+       prof.setProfessorId(professorId);
+       prof.setName(name);
+       prof.setCurrentPassword(currentPassword);
+       prof.setEmail(email);
+       prof.setPhone(phone);
+       prof.setCourseList(courseList);
+       prof.setCourseScheduleList(courseScheduleList);
+       professorList.add(prof);
+       return prof;
    } 
    
     
-   public void deleteProfessor(Professor professor){
+    public void deleteProfessor(Professor professor){
        professorList.remove(professor);
-   }
+    }
    
-   public Professor searchProfessor(String professorId){
+    public Professor searchProfessor(String professorId){
        for(Professor us: professorList){
            if(us.getProfessorId().equals(professorId)){
                return us;

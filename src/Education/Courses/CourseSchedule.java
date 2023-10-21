@@ -17,7 +17,25 @@ public class CourseSchedule {
     private String endDate;
     private String term;
     private int year;
-    private String professorId;
+    private String teachingProfessor;
+    private String language;
+    private String region;
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+    
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
     public String getScheduleId() {
         return scheduleId;
@@ -67,13 +85,14 @@ public class CourseSchedule {
         this.year = year;
     }
 
-    public String getProfessorId() {
-        return professorId;
+    public String getTeachingProfessor() {
+        return teachingProfessor;
     }
 
-    public void setProfessorId(String professorId) {
-        this.professorId = professorId;
+    public void setTeachingProfessor(String teachingProfessor) {
+        this.teachingProfessor = teachingProfessor;
     }
-    
+
+
     
 }

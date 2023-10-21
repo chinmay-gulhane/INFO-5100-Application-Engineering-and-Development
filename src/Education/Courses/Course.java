@@ -15,13 +15,9 @@ public class Course {
     private String name;
     private String courseId;
     private String topic;
-    private Professor professor;
-    private String credit;
-    private String region;
-    private String language;
-    private String reputationIndex;
-    private String grade;
-    private boolean isPassed;
+    private String professorOwnerId;
+    private int credit;
+    private double reputationIndex;
 
     public String getName() {
         return name;
@@ -47,61 +43,27 @@ public class Course {
         this.topic = topic;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public String getProfessorOwnerId() {
+        return professorOwnerId;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setProfessorOwnerId(String professorOwnerId) {
+        this.professorOwnerId = professorOwnerId;
     }
 
-    public String getCredit() {
+    public int getCredit() {
         return credit;
     }
 
-    public void setCredit(String credit) {
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getReputationIndex() {
+    public double getReputationIndex() {
         return reputationIndex;
     }
 
-    public void setReputationIndex(String reputationIndex) {
+    public void setReputationIndex(double reputationIndex) {
         this.reputationIndex = reputationIndex;
     }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public boolean isIsPassed() {
-        return isPassed;
-    }
-
-    public void setIsPassed(boolean isPassed) {
-        this.isPassed = isPassed;
-    }
-
-    
-}
+ }

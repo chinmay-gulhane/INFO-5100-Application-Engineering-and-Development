@@ -22,6 +22,8 @@ public class Professor {
     private String phone;
     private ArrayList<Course>courseList = new ArrayList<Course>();
     private ArrayList<CourseSchedule>courseScheduleList = new ArrayList<CourseSchedule>();
+    private boolean isBlock;
+    private boolean isPartOfOrganization;
 
     public String getName() {
         return name;
@@ -93,6 +95,22 @@ public class Professor {
 
     public void setCourseScheduleList(ArrayList<CourseSchedule> courseScheduleList) {
         this.courseScheduleList = courseScheduleList;
+    }
+
+    public boolean isIsBlock() {
+        return isBlock;
+    }
+
+    public void setIsBlock(boolean isBlock) {
+        this.isBlock = isBlock;
+    }
+
+    public boolean isIsPartOfOrganization() {
+        return isPartOfOrganization;
+    }
+
+    public void setIsPartOfOrganization(boolean isPartOfOrganization) {
+        this.isPartOfOrganization = isPartOfOrganization;
     }
     
     
