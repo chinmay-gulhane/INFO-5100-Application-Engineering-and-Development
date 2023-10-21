@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CourseSchedule {
     private String scheduleId;
-    private ArrayList<Course>courseList = new ArrayList<Course>();
+    private String courseId;
     private String startDate;
     private String endDate;
     private String term;
@@ -45,12 +45,12 @@ public class CourseSchedule {
         this.scheduleId = scheduleId;
     }
 
-    public ArrayList<Course> getCourseList() {
-        return courseList;
+    public String getCourseId() {
+        return courseId;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
-        this.courseList = courseList;
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 
     public String getStartDate() {

@@ -20,9 +20,7 @@ public class Professor {
     private String currentPassword;
     private String email;
     private String phone;
-    private ArrayList<Course>courseList = new ArrayList<Course>();
-    private ArrayList<CourseSchedule>courseScheduleList = new ArrayList<CourseSchedule>();
-    private boolean isBlock;
+    private String status;
     private boolean isPartOfOrganization;
 
     public String getName() {
@@ -81,28 +79,12 @@ public class Professor {
         this.phone = phone;
     }
 
-    public ArrayList<Course> getCourseList() {
-        return courseList;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
-        this.courseList = courseList;
-    }
-
-    public ArrayList<CourseSchedule> getCourseScheduleList() {
-        return courseScheduleList;
-    }
-
-    public void setCourseScheduleList(ArrayList<CourseSchedule> courseScheduleList) {
-        this.courseScheduleList = courseScheduleList;
-    }
-
-    public boolean isIsBlock() {
-        return isBlock;
-    }
-
-    public void setIsBlock(boolean isBlock) {
-        this.isBlock = isBlock;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public boolean isIsPartOfOrganization() {
@@ -112,6 +94,5 @@ public class Professor {
     public void setIsPartOfOrganization(boolean isPartOfOrganization) {
         this.isPartOfOrganization = isPartOfOrganization;
     }
-    
     
 }

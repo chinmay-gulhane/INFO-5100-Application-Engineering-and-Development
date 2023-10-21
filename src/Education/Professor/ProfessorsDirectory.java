@@ -27,7 +27,7 @@ public class ProfessorsDirectory {
         this.professorList = professorList;
     }
    
-    public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,ArrayList<Course>courseList,ArrayList<CourseSchedule>courseScheduleList,boolean isBlock,boolean isPartOfOrganization){
+    public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,String status,boolean isPartOfOrganization){
        Professor prof = new Professor();
        prof.setUsername(username);
        prof.setProfessorId(professorId);
@@ -35,9 +35,7 @@ public class ProfessorsDirectory {
        prof.setCurrentPassword(currentPassword);
        prof.setEmail(email);
        prof.setPhone(phone);
-       prof.setCourseList(courseList);
-       prof.setCourseScheduleList(courseScheduleList);
-       prof.setIsBlock(isBlock);
+       prof.setStatus(status);
        prof.setIsPartOfOrganization(isPartOfOrganization);
        professorList.add(prof);
        return prof;
