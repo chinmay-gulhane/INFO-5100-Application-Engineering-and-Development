@@ -41,9 +41,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         optionsRole = new javax.swing.JComboBox<>();
         lblUsername = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
         lblContactInfo = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
@@ -60,8 +58,6 @@ public class RegisterJPanel extends javax.swing.JPanel {
         optionsRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student" }));
 
         lblUsername.setText("Username:");
-
-        lblID.setText("EduVerse ID:");
 
         lblContactInfo.setText("Contact Info:");
 
@@ -92,14 +88,12 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                    .addComponent(lblID, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(lblContactInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtName)
                     .addComponent(optionsRole, 0, 313, Short.MAX_VALUE)
                     .addComponent(txtUsername)
-                    .addComponent(txtID)
                     .addComponent(txtPassword)
                     .addComponent(txtContactInfo)
                     .addComponent(txtEmail)
@@ -108,14 +102,14 @@ public class RegisterJPanel extends javax.swing.JPanel {
             .addComponent(lblPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblID, lblName, lblPassword, lblRole, lblUsername});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblName, lblPassword, lblRole, lblUsername});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {optionsRole, txtContactInfo, txtEmail, txtID, txtName, txtPassword, txtUsername});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {optionsRole, txtContactInfo, txtEmail, txtName, txtPassword, txtUsername});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(lblPage, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -131,10 +125,6 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblID)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -147,26 +137,28 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(123, 123, 123))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblID, lblName, lblPassword, lblRole, lblUsername});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblName, lblPassword, lblRole, lblUsername});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {optionsRole, txtContactInfo, txtEmail, txtID, txtName, txtPassword, txtUsername});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {optionsRole, txtContactInfo, txtEmail, txtName, txtPassword, txtUsername});
 
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         String username = txtUsername.getText();
-        String ID = txtID.getText();
         String name = txtName.getText();
         String contactInfo = txtContactInfo.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
         
         if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
-            
+           education.getProfessorsDirectory().addProfessor("", username, name, password, email, contactInfo, "Register", false);
+        }
+        if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
+           education.getStudentsDirectory().addStudent(username, name, password, email, contactInfo, null, null, false, false);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -175,7 +167,6 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblContactInfo;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPage;
     private javax.swing.JLabel lblPassword;
@@ -184,7 +175,6 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> optionsRole;
     private javax.swing.JTextField txtContactInfo;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

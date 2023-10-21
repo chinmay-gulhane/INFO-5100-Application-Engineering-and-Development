@@ -24,7 +24,6 @@
                   <Component id="lblName" linkSize="1" max="32767" attributes="0"/>
                   <Component id="lblRole" linkSize="1" max="32767" attributes="0"/>
                   <Component id="lblUsername" linkSize="1" alignment="1" pref="148" max="32767" attributes="0"/>
-                  <Component id="lblID" linkSize="1" alignment="0" pref="148" max="32767" attributes="0"/>
                   <Component id="lblContactInfo" linkSize="1" alignment="0" pref="148" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -32,7 +31,6 @@
                   <Component id="txtName" linkSize="3" max="32767" attributes="0"/>
                   <Component id="optionsRole" linkSize="3" pref="313" max="32767" attributes="0"/>
                   <Component id="txtUsername" linkSize="3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtID" linkSize="3" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtPassword" linkSize="3" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtContactInfo" linkSize="3" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtEmail" linkSize="3" alignment="0" max="32767" attributes="0"/>
@@ -46,7 +44,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="lblPage" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -65,11 +63,6 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblID" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtID" linkSize="4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblContactInfo" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="txtContactInfo" linkSize="4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -85,7 +78,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnRegister" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,14 +114,7 @@
         <Property name="text" type="java.lang.String" value="Username:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblID">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="EduVerse ID:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtUsername">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtID">
     </Component>
     <Component class="javax.swing.JLabel" name="lblContactInfo">
       <Properties>

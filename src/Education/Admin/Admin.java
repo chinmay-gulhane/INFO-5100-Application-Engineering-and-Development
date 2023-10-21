@@ -15,14 +15,10 @@ import java.util.ArrayList;
 public class Admin {
     private String username;
     private String password;
-    private ArrayList<Professor> professorAwaitingRegistration;
-    private ArrayList<Student> studentAwaitingRegistration;
-
+    
     public Admin(String username, String password, ArrayList<Professor> professorAwaitingRegistration, ArrayList<Student> studentAwaitingRegistration) {
         this.username = username;
         this.password = password;
-        this.professorAwaitingRegistration = new ArrayList<Professor>();
-        this.studentAwaitingRegistration = new ArrayList<Student>();
     }
 
     public String getUsername() {
@@ -40,21 +36,5 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public ArrayList<Professor> getProfessorAwaitingRegistration() {
-        return professorAwaitingRegistration;
-    }
-
-    public void setProfessorAwaitingRegistration(ArrayList<Professor> professorAwaitingRegistration) {
-        this.professorAwaitingRegistration = professorAwaitingRegistration;
-    }
-
-    public ArrayList<Student> getStudentAwaitingRegistration() {
-        return studentAwaitingRegistration;
-    }
-
-    public void setStudentAwaitingRegistration(ArrayList<Student> studentAwaitingRegistration) {
-        this.studentAwaitingRegistration = studentAwaitingRegistration;
-    }
-      
+  
 }

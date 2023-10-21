@@ -14,9 +14,11 @@ import java.util.ArrayList;
  */
 public class ProfessorsDirectory {
     private ArrayList<Professor>professorList;
+    int profCount;
     
     public ProfessorsDirectory(){
         this.professorList = new ArrayList<Professor>();
+        profCount = 1021;
     }
         
     public ArrayList<Professor> getProfessorList() {
@@ -30,7 +32,10 @@ public class ProfessorsDirectory {
     public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,String status,boolean isPartOfOrganization){
        Professor prof = new Professor();
        prof.setUsername(username);
-       prof.setProfessorId(professorId);
+       if(professorId == null){
+           prof.setProfessorId("P" + profCount);
+           profCount++;
+       }
        prof.setName(name);
        prof.setCurrentPassword(currentPassword);
        prof.setEmail(email);

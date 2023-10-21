@@ -31,7 +31,7 @@ public class Education {
 
     public Education(String name) {
         this.name = name;
-       // this.admin = new Admin("admin","admin",professorAwaitingRegistration,studentAwaitingRegistration);
+        this.admin = new Admin("admin","admin",professorAwaitingRegistration,studentAwaitingRegistration);
         this.professorsDirectory = new ProfessorsDirectory();
         this.studentsDirectory = new StudentsDirectory();
         this.courseDirectory = new CoursesDirectory();
