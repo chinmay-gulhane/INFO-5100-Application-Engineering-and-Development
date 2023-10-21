@@ -4,9 +4,6 @@
  */
 package Education;
 
-import Education.Professor.Professor;
-import Education.Student.Student;
-
 /**
  *
  * @author ASUS
@@ -42,19 +39,19 @@ public class EducationConfigure {
                                 
         education.getProfessorsDirectory().addProfessor("P1000", "SarMil", "Dr. Sarah Miller", "SarMil", "sarah.miller@eduverse.edu", "(555) 555-5555", "Active", true);
         education.getProfessorsDirectory().addProfessor("P1001", "MicJoh", "Dr. Michael Johnson", "MicJoh", "michael.johnson@eduverse.edu", "(555) 555-5556", "Active", true);
-        education.getProfessorsDirectory().addProfessor("P1002", "EmiSmi", "Dr. Emily Smith", "EmiSmi", "emily.smith@eduverse.edu", "(781) 555-5557",  "Active", true);
+        education.getProfessorsDirectory().addProfessor("P1002", "EmiSmi", "Prof. Emily Smith", "EmiSmi", "emily.smith@eduverse.edu", "(781) 555-5557",  "Active", true);
         education.getProfessorsDirectory().addProfessor("P1003", "DavDav", "Dr. David Davis", "DavDav", "david.davis@eduverse.edu", "(721) 555-5558",  "Active", true);
         education.getProfessorsDirectory().addProfessor("P1004", "JenWhi", "Dr. Jennifer White", "JenWhi", "jennifer.white@eduverse.edu", "(581) 555-5559",  "Active", true);
-        education.getProfessorsDirectory().addProfessor("P1005", "RicBro", "Dr. Richard Brown", "RicBro", "richard.brown@eduverse.edu", "(555) 555-5225",  "Active", true);
+        education.getProfessorsDirectory().addProfessor("P1005", "RicBro", "Prof. Richard Brown", "RicBro", "richard.brown@eduverse.edu", "(555) 555-5225",  "Active", true);
         education.getProfessorsDirectory().addProfessor("P1006", "MarGon", "Dr. Maria Gonzalez", "MarGon", "sarah.miller@eduverse.edu", "(452) 555-2322","Active", true);
         education.getProfessorsDirectory().addProfessor("P1007", "BenWil", "Dr. Benjamin Wilson", "BenWil", "sarah.miller@eduverse.edu", "(555) 214-5555",  "Active", true);
-        education.getProfessorsDirectory().addProfessor("P1008", "LauTay", "Dr. Laura Taylor", "LauTay", "sarah.miller@eduverse.edu", "(651) 555-3024",  "Active", true);
+        education.getProfessorsDirectory().addProfessor("P1008", "LauTay", "Prof. Laura Taylor", "LauTay", "sarah.miller@eduverse.edu", "(651) 555-3024",  "Active", true);
         education.getProfessorsDirectory().addProfessor("P1009", "MatCla", "Dr. Matthew Clark", "MatCla", "sarah.miller@eduverse.edu", "(872) 555-1045", "Active", true);
         education.getProfessorsDirectory().addProfessor("P1010", "OliTur", "Dr. Olivia Turner", "OliTur", "olivia.turner@eduverse.edu", "(555) 781-5874", "Active", false);
-        education.getProfessorsDirectory().addProfessor("P1011", "HenMit", "Dr. Henry Mitchell", "HenMit", "henry.mitchell@eduverse.edu", "(555) 234-5555",  "Active", true);
-        education.getProfessorsDirectory().addProfessor("P1012", "SopAnd", "Dr. Sophia Anderson", "SopAnd", "sophia.anderson@eduverse.edu", "(555) 124-2365",  "Active", true);        
+        education.getProfessorsDirectory().addProfessor("P1011", "HenMit", "Prof. Henry Mitchell", "HenMit", "henry.mitchell@eduverse.edu", "(555) 234-5555",  "Active", true);
+        education.getProfessorsDirectory().addProfessor("P1012", "SopAnd", "Prof. Sophia Anderson", "SopAnd", "sophia.anderson@eduverse.edu", "(555) 124-2365",  "Active", true);        
         
-    //    education.getStudentsDirectory().addStudent(studentId, name, username, passwordHistory, currentPassword, email, phone, gpa, courseList, true, true);
+    //    education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", "samiksha.baral@eduverse.edu", "(555) 555-5555", 9.2, courseList, false, true);
         
         return education;
     }
