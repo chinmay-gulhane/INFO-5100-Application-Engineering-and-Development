@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Education/EducationConfigure.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>15</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/AED_Group_Assignment_1/src/Education/Courses/CourseSchedule.java</file>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/AED_Group_Assignment_1/src/Education/Courses/Course.java</file>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/AED_Group_Assignment_1/src/Education/Professor/Professor.java</file>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/AED_Group_Assignment_1/src/Education/Student/Student.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/StudentRole/StudentJPanel.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Professor/ProfessorsDirectory.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Education.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/EducationConfigure.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,2 +1,6 @@
 /build/
+<<<<<<< Updated upstream
 /dist/
+=======
+/nbproject/private/
+>>>>>>> Stashed changes
