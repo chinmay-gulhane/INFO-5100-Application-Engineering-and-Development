@@ -14,9 +14,11 @@ import java.util.ArrayList;
 public class StudentsDirectory {
 
     private ArrayList<Student> studentList;
-
+    int studCount;
+    
     public StudentsDirectory() {
         this.studentList = new ArrayList<Student>();
+        studCount = 1051;
     }
 
     public ArrayList<Student> getStudentList() {
@@ -27,16 +29,20 @@ public class StudentsDirectory {
         this.studentList = studentList;
     }
 
-    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, ArrayList<String>scheduleId, boolean isBlock, boolean isPartOfOrganization ) {
+    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, ArrayList<String>scheduleId, String status, boolean isPartOfOrganization ) {
         Student student = new Student();
         student.setScheduleId(scheduleId);
         student.setCurrentPassword(currentPassword);
         student.setEmail(email);
         student.setGpa(gpa);
-        student.setIsBlock(isBlock);
+        student.setStatus(status);
         student.setIsPartOfOrganization(isPartOfOrganization);
         student.setName(name);
         student.setPhone(phone);
+        if(studentId.equals("")){
+           student.setStudentId("S" + studCount);
+           studCount++;
+        }
         student.setStudentId(studentId);
         student.setUsername(username);
         studentList.add(student);

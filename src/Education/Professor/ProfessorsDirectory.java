@@ -32,7 +32,7 @@ public class ProfessorsDirectory {
     public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,String status,boolean isPartOfOrganization){
        Professor prof = new Professor();
        prof.setUsername(username);
-       if(professorId == null){
+       if(professorId.equals("")){
            prof.setProfessorId("P" + profCount);
            profCount++;
        }

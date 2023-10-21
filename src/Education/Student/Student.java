@@ -21,7 +21,7 @@ public class Student {
     private String phone;
     private double gpa;
     private ArrayList<String>scheduleId = new ArrayList<String>();
-    private boolean isBlock;
+    private String status;
     private boolean isPartOfOrganization;
 
     
@@ -97,13 +97,12 @@ public class Student {
         this.scheduleId = scheduleId;
     }
 
-
-    public boolean isIsBlock() {
-        return isBlock;
+    public String getStatus() {
+        return status;
     }
 
-    public void setIsBlock(boolean isBlock) {
-        this.isBlock = isBlock;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public boolean isIsPartOfOrganization() {
