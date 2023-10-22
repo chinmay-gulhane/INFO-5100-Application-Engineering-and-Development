@@ -113,5 +113,9 @@ public class Student {
         this.isPartOfOrganization = isPartOfOrganization;
     }
     
+    @Override
+    public String toString(){
+        return this.getStudentId();
+    }
     
 }

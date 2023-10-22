@@ -4,6 +4,10 @@
  */
 package UI.WorkAreas.AdminRole;
 
+import Education.Education;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
@@ -13,8 +17,13 @@ public class AdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminJPanel
      */
-    public AdminJPanel() {
+    Education education;
+    private JPanel userProcessContainer;
+    
+    public AdminJPanel(JPanel userProcessContainer, Education education) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.education = education;
     }
 
     /**
@@ -26,30 +35,99 @@ public class AdminJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblWelcomeAdmin = new javax.swing.JLabel();
+        btnViewStudent = new javax.swing.JButton();
+        btnViewProfessor = new javax.swing.JButton();
+        btnPendingReg = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
-        jLabel1.setText("Hi admin");
+        lblWelcomeAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWelcomeAdmin.setText("Welcome Admin");
+
+        btnViewStudent.setText("View Students");
+        btnViewStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewStudentActionPerformed(evt);
+            }
+        });
+
+        btnViewProfessor.setText("View Professors");
+
+        btnPendingReg.setText("View Pending Registration");
+        btnPendingReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPendingRegActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jLabel1)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnViewStudent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewProfessor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPendingReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(jLabel1)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnViewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPendingReg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(260, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPendingRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendingRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPendingRegActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStudentActionPerformed
+        // TODO add your handling code here:
+        ViewStudentAdminJPanel panel = new ViewStudentAdminJPanel(userProcessContainer,education);
+        userProcessContainer.add("ViewStudentAdminJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewStudentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnPendingReg;
+    private javax.swing.JButton btnViewProfessor;
+    private javax.swing.JButton btnViewStudent;
+    private javax.swing.JLabel lblWelcomeAdmin;
     // End of variables declaration//GEN-END:variables
 }

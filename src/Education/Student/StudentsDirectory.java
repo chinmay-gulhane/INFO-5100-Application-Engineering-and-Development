@@ -42,8 +42,9 @@ public class StudentsDirectory {
         if(studentId.equals("")){
            student.setStudentId("S" + studCount);
            studCount++;
-        }
-        student.setStudentId(studentId);
+        }else{
+           student.setStudentId(studentId);
+       }
         student.setUsername(username);
         studentList.add(student);
         return student;

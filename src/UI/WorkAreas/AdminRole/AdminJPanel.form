@@ -17,27 +17,82 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnViewStudent" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnViewProfessor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnPendingReg" alignment="0" pref="180" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblWelcomeAdmin" min="-2" pref="201" max="-2" attributes="0"/>
+                      <EmptySpace pref="283" max="32767" attributes="0"/>
+                      <Component id="btnLogout" min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="172" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnLogout" max="32767" attributes="0"/>
+                  <Component id="lblWelcomeAdmin" pref="43" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnViewStudent" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnViewProfessor" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnPendingReg" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="260" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblWelcomeAdmin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Hi admin"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Welcome Admin"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnViewStudent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Students"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewStudentActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnViewProfessor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Professors"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPendingReg">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Pending Registration"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPendingRegActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLogout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logout"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

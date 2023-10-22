@@ -5,6 +5,9 @@
 package UI.WorkAreas.Register;
 
 import Education.Education;
+import Education.Professor.Professor;
+import Education.Student.Student;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 
@@ -50,6 +53,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
         lblPage = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         lblRole.setText("Role:");
 
@@ -76,6 +80,13 @@ public class RegisterJPanel extends javax.swing.JPanel {
         lblPage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPage.setText("Registration Page");
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,6 +111,10 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addComponent(lblPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(59, 59, 59))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblName, lblPassword, lblRole, lblUsername});
@@ -137,7 +152,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBack)
+                .addGap(89, 89, 89))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblContactInfo, lblEmail, lblName, lblPassword, lblRole, lblUsername});
@@ -160,10 +177,34 @@ public class RegisterJPanel extends javax.swing.JPanel {
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
            education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false);
         }
+        
+        txtUsername.setText("");
+        txtName.setText("");
+        txtContactInfo.setText("");
+        txtEmail.setText("");
+        txtPassword.setText("");
+        
+        for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
+            System.out.println(professor.getProfessorId());
+            System.out.println(professor.getName());
+        }
+        
+        for(Student student : education.getStudentsDirectory().getStudentList()){
+            System.out.println(student.getStudentId());
+            System.out.println(student.getName());
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblContactInfo;
     private javax.swing.JLabel lblEmail;

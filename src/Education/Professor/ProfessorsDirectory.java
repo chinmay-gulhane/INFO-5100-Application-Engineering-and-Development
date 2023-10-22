@@ -35,6 +35,8 @@ public class ProfessorsDirectory {
        if(professorId.equals("")){
            prof.setProfessorId("P" + profCount);
            profCount++;
+       }else{
+           prof.setProfessorId(professorId);
        }
        prof.setName(name);
        prof.setCurrentPassword(currentPassword);

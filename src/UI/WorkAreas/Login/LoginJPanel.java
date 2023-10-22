@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import UI.WorkAreas.Register.RegisterJPanel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -137,6 +138,16 @@ public class LoginJPanel extends javax.swing.JPanel {
             for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
                 if((usernameInput.equals(professor.getUsername())) && (passwordInput.equals(professor.getCurrentPassword())))
                 {
+                    if(professor.getStatus().equals("Register")){
+                        JOptionPane.showMessageDialog(this, "User account verification pending. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);
+                        txtPassword.setText("");
+                        return;
+                    }
+                    if(professor.getStatus().equals("Block")){
+                        JOptionPane.showMessageDialog(this, "User account is blocked. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);
+                        txtPassword.setText("");
+                        return;
+                    }
                     System.out.println("Professor");
                     ProfessorJPanel panel = new ProfessorJPanel();
                     userProcessContainer.add("ProfessorJPanel", panel);
@@ -149,6 +160,16 @@ public class LoginJPanel extends javax.swing.JPanel {
             for(Student student : education.getStudentsDirectory().getStudentList()){
                 if((usernameInput.equals(student.getUsername())) && (passwordInput.equals(student.getCurrentPassword())))
                 {
+                    if(student.getStatus().equals("Register")){
+                        JOptionPane.showMessageDialog(this, "User account verification pending. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);
+                        txtPassword.setText("");
+                        return;
+                    }
+                    if(student.getStatus().equals("Block")){
+                        JOptionPane.showMessageDialog(this, "User account is blocked. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);
+                        txtPassword.setText("");
+                        return;
+                    }
                     StudentJPanel panel = new StudentJPanel();
                     userProcessContainer.add("StudentJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -159,7 +180,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         if("Admin".equals(String.valueOf(optionsRole.getSelectedItem()))){
                 if((usernameInput.equals(education.getAdmin().getUsername())) && (passwordInput.equals(education.getAdmin().getPassword())))
                 {
-                    AdminJPanel panel = new AdminJPanel();
+                    AdminJPanel panel = new AdminJPanel(userProcessContainer,education);
                     userProcessContainer.add("AdminJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
