@@ -134,7 +134,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         String passwordInput = txtPassword.getText();
 
         if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
-            System.out.println("Professor");
             for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
                 if((usernameInput.equals(professor.getUsername())) && (passwordInput.equals(professor.getCurrentPassword())))
                 {
@@ -148,7 +147,6 @@ public class LoginJPanel extends javax.swing.JPanel {
                         txtPassword.setText("");
                         return;
                     }
-                    System.out.println("Professor");
                     ProfessorJPanel panel = new ProfessorJPanel();
                     userProcessContainer.add("ProfessorJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -186,6 +184,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                     layout.next(userProcessContainer);
                 }
         }
+        JOptionPane.showMessageDialog(this, "Incorrect Username or Password.", "Credentials Error", JOptionPane.ERROR_MESSAGE);
+        txtPassword.setText("");
+                    
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

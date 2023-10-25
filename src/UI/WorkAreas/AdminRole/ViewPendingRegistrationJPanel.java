@@ -1,48 +1,72 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UI.WorkAreas.AdminRole;
 
 import Education.Education;
+import Education.Professor.Professor;
 import Education.Student.Student;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+
 /**
  *
  * @author ASUS
  */
-public class ViewStudentAdminJPanel extends javax.swing.JPanel {
+public class ViewPendingRegistrationJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewStudentAdminJPanel
+     * Creates new form ViewPendingRegistrationJPanel
      */
     private JPanel userProcessContainer;
     private Education education;
     DefaultTableModel dtm;
     
-    public ViewStudentAdminJPanel(JPanel userProcessContainer, Education education) {
+    public ViewPendingRegistrationJPanel(JPanel userProcessContainer, Education education) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.education = education;
-        dtm = (DefaultTableModel) tblStudents.getModel();
+        dtm = (DefaultTableModel) tblPendingRegistration.getModel();
         populateTable();
         lblStatus.setVisible(false);
         optionsStatus.setVisible(false);
         btnSaveStatus.setVisible(false);
     }
     
-    public void populateTable(){
+        public void populateTable(){
         dtm.setRowCount(0);
+        for(Professor professor: education.getProfessorsDirectory().getProfessorList()){
+            if(!("Register".equals(professor.getStatus()))){
+                continue;
+            }
+            Object[] row = new Object[5];
+            row[0] = professor;
+            row[1] = professor.getName();
+            row[2] = professor.getEmail();
+            row[3] = "Professor";
+            if("Register".equals(professor.getStatus())){
+                row[4] = "Unregistered";
+            }
+            else if("Block".equals(professor.getStatus())){
+                row[4] = "Blocked";
+            }else{
+                row[4] = "Active";
+            }
+            dtm.addRow(row);
+        }
         for(Student student: education.getStudentsDirectory().getStudentList()){
+            if(!("Register".equals(student.getStatus()))){
+                continue;
+            }
             Object[] row = new Object[5];
             row[0] = student;
             row[1] = student.getName();
             row[2] = student.getEmail();
-            row[3] = student.getPhone();
+            row[3] = "Student";
             if("Register".equals(student.getStatus())){
                 row[4] = "Unregistered";
             }
@@ -54,7 +78,6 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
             dtm.addRow(row);
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,15 +88,22 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblStudents = new javax.swing.JTable();
+        tblPendingRegistration = new javax.swing.JTable();
         btnUpdateStatus = new javax.swing.JButton();
         optionsStatus = new javax.swing.JComboBox<>();
         lblStatus = new javax.swing.JLabel();
         btnSaveStatus = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
-        tblStudents.setModel(new javax.swing.table.DefaultTableModel(
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        tblPendingRegistration.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -81,7 +111,7 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "EduVerse ID", "Name", "Email", "Phone Number", "Status"
+                "EduVerse ID", "Name", "Email", "Role", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -92,13 +122,11 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblStudents);
-        if (tblStudents.getColumnModel().getColumnCount() > 0) {
-            tblStudents.getColumnModel().getColumn(0).setResizable(false);
-            tblStudents.getColumnModel().getColumn(1).setResizable(false);
-            tblStudents.getColumnModel().getColumn(2).setResizable(false);
-            tblStudents.getColumnModel().getColumn(3).setResizable(false);
-            tblStudents.getColumnModel().getColumn(4).setResizable(false);
+        jScrollPane1.setViewportView(tblPendingRegistration);
+        if (tblPendingRegistration.getColumnModel().getColumnCount() > 0) {
+            tblPendingRegistration.getColumnModel().getColumn(0).setResizable(false);
+            tblPendingRegistration.getColumnModel().getColumn(1).setResizable(false);
+            tblPendingRegistration.getColumnModel().getColumn(3).setResizable(false);
         }
 
         btnUpdateStatus.setText("Update Status");
@@ -121,13 +149,6 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
         btnSaveStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveStatusActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
             }
         });
 
@@ -172,25 +193,16 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStatusActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblStudents.getSelectedRow();
-        Student studentU = (Student)tblStudents.getValueAt(selectedRow, 0);
-        for(Student student: education.getStudentsDirectory().getStudentList()){
-            if(student.getStudentId().equals(studentU.getStudentId())){
-                student.setStatus(String.valueOf(optionsStatus.getSelectedItem()));
-                lblStatus.setVisible(false);
-                optionsStatus.setVisible(false);
-                btnSaveStatus.setVisible(false);
-                populateTable();
-                return;
-            }
-         }
-    }//GEN-LAST:event_btnSaveStatusActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnUpdateStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStatusActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblStudents.getSelectedRow();
+        int selectedRow = tblPendingRegistration.getSelectedRow();
         if(selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select a person from the list!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
@@ -204,12 +216,35 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_optionsStatusActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnSaveStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStatusActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
+        int selectedRow = tblPendingRegistration.getSelectedRow();
+        if("Professor".equals(tblPendingRegistration.getValueAt(selectedRow, 3))){
+            Professor professorU = (Professor)tblPendingRegistration.getValueAt(selectedRow, 0);
+            for(Professor professor: education.getProfessorsDirectory().getProfessorList()){
+                if(professor.getProfessorId().equals(professorU.getProfessorId())){
+                    professor.setStatus(String.valueOf(optionsStatus.getSelectedItem()));
+                    lblStatus.setVisible(false);
+                    optionsStatus.setVisible(false);
+                    btnSaveStatus.setVisible(false);
+                    populateTable();
+                    return;
+                }
+            }
+        }else {
+            Student studentU = (Student)tblPendingRegistration.getValueAt(selectedRow, 0);
+            for(Student student: education.getStudentsDirectory().getStudentList()){
+                if(student.getStudentId().equals(studentU.getStudentId())){
+                    student.setStatus(String.valueOf(optionsStatus.getSelectedItem()));
+                    lblStatus.setVisible(false);
+                    optionsStatus.setVisible(false);
+                    btnSaveStatus.setVisible(false);
+                    populateTable();
+                    return;
+                }
+            }
+        }       
+    }//GEN-LAST:event_btnSaveStatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -219,6 +254,6 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JComboBox<String> optionsStatus;
-    private javax.swing.JTable tblStudents;
+    private javax.swing.JTable tblPendingRegistration;
     // End of variables declaration//GEN-END:variables
 }

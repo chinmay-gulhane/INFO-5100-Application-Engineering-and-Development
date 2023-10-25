@@ -52,6 +52,11 @@ public class AdminJPanel extends javax.swing.JPanel {
         });
 
         btnViewProfessor.setText("View Professors");
+        btnViewProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewProfessorActionPerformed(evt);
+            }
+        });
 
         btnPendingReg.setText("View Pending Registration");
         btnPendingReg.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +110,10 @@ public class AdminJPanel extends javax.swing.JPanel {
 
     private void btnPendingRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendingRegActionPerformed
         // TODO add your handling code here:
+        ViewPendingRegistrationJPanel panel = new ViewPendingRegistrationJPanel(userProcessContainer,education);
+        userProcessContainer.add("ViewPendingRegistrationJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPendingRegActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -122,6 +131,13 @@ public class AdminJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewStudentActionPerformed
 
+    private void btnViewProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProfessorActionPerformed
+        // TODO add your handling code here:
+        ViewProfessorAdminJPanel panel = new ViewProfessorAdminJPanel(userProcessContainer,education);
+        userProcessContainer.add("ViewProfessorAdminJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewProfessorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;

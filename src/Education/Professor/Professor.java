@@ -95,4 +95,9 @@ public class Professor {
         this.isPartOfOrganization = isPartOfOrganization;
     }
     
+    @Override
+    public String toString(){
+        return this.getProfessorId();
+    }
+    
 }
