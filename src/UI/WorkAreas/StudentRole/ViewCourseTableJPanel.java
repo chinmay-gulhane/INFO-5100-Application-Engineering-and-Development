@@ -50,12 +50,13 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                         if(p.getProfessorId().equals(cs.getTeachingProfessorId()))
                         {
                             if(cs.getCourseId().equals(c.getCourseId())){
-                            Object[] row = new Object[5];
+                            Object[] row = new Object[6];
                             row[0] = c.getCourseId();
                             row[1] = c.getTopic();
                             row[2] = c.getName();
                             row[3] = p.getName();
                             row[4] = cs.getStartDate();
+                            row[5] = c.getReputationIndex();
                             dtm.addRow(row);
                             }
                         }
@@ -84,17 +85,17 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule"
+                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Course Reputation Index"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -108,6 +109,7 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
             tblViewCourse.getColumnModel().getColumn(2).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(3).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(4).setResizable(false);
+            tblViewCourse.getColumnModel().getColumn(5).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
