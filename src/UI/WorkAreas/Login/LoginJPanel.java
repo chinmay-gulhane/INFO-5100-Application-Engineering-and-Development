@@ -147,10 +147,11 @@ public class LoginJPanel extends javax.swing.JPanel {
                         txtPassword.setText("");
                         return;
                     }
-                    ProfessorJPanel panel = new ProfessorJPanel();
+                    ProfessorJPanel panel = new ProfessorJPanel(userProcessContainer,education,professor);
                     userProcessContainer.add("ProfessorJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
+                    return;
                 }
             }
         }
@@ -172,6 +173,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     userProcessContainer.add("StudentJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
+                    return;
                 }
             }
         }
@@ -182,6 +184,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     userProcessContainer.add("AdminJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
+                    return;
                 }
         }
         JOptionPane.showMessageDialog(this, "Incorrect Username or Password.", "Credentials Error", JOptionPane.ERROR_MESSAGE);
