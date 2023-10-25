@@ -24,10 +24,16 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         education = EducationConfigure.initialize();
-        LoginJPanel panel = new LoginJPanel(MainPanel,education);
-        MainPanel.add("LoginJPanel",panel);
+        LandingPageJPanel panel = new LandingPageJPanel();
+        MainPanel.add("LandingPageJPanel",panel);
         CardLayout layout = (CardLayout) MainPanel.getLayout();
         layout.next(MainPanel);
+        
+        
+//        headerLoginJPanel createPanel = new headerLoginJPanel();
+//        splitPane.setLeftComponent(createPanel);
+//         logout text is hidden when landing page is loaded        
+//        lblLogout.setVisible(false);
     }
 
     /**
@@ -39,29 +45,107 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        splitPane = new javax.swing.JSplitPane();
+        headerJPanel = new javax.swing.JPanel();
+        WebsiteLabel = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
+        lblSignUp = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(32767, 32767));
         setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(400, 500));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
 
-        MainPanel.setMinimumSize(new java.awt.Dimension(600, 500));
+        splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        headerJPanel.setBackground(new java.awt.Color(0, 0, 0));
+        headerJPanel.setPreferredSize(new java.awt.Dimension(900, 80));
+
+        WebsiteLabel.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        WebsiteLabel.setForeground(new java.awt.Color(255, 255, 255));
+        WebsiteLabel.setText("Eduverse");
+
+        lblLogin.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin.setText("Log in");
+        lblLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginMouseClicked(evt);
+            }
+        });
+
+        lblSignUp.setBackground(new java.awt.Color(255, 255, 255));
+        lblSignUp.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        lblSignUp.setText("Sign up");
+        lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSignUp.setMinimumSize(new java.awt.Dimension(82, 29));
+        lblSignUp.setPreferredSize(new java.awt.Dimension(82, 29));
+
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/eduverse.png"))); // NOI18N
+        lblIcon.setText("jLabel1");
+
+        javax.swing.GroupLayout headerJPanelLayout = new javax.swing.GroupLayout(headerJPanel);
+        headerJPanel.setLayout(headerJPanelLayout);
+        headerJPanelLayout.setHorizontalGroup(
+            headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerJPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(WebsiteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(lblSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+        headerJPanelLayout.setVerticalGroup(
+            headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(lblSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(WebsiteLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        splitPane.setTopComponent(headerJPanel);
+
+        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPanel.setMinimumSize(new java.awt.Dimension(900, 600));
         MainPanel.setLayout(new java.awt.CardLayout());
+        splitPane.setRightComponent(MainPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(splitPane)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+        // TODO add your handling code here:
+        LoginJPanel panel = new LoginJPanel(MainPanel,education);
+        MainPanel.add("LoginJPanel",panel);
+        CardLayout layout = (CardLayout) MainPanel.getLayout();
+        layout.next(MainPanel);
+    }//GEN-LAST:event_lblLoginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -100,5 +184,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JLabel WebsiteLabel;
+    private javax.swing.JPanel headerJPanel;
+    private javax.swing.JLabel lblIcon;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblSignUp;
+    private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }
