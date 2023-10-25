@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< Updated upstream
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/AdminRole/ViewProfessorAdminJPanel.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/AdminRole/ViewPendingRegistrationJPanel.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/AdminRole/ViewStudentAdminJPanel.java</file>
-=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
         <file>
             <url>src/Education/EducationConfigure.java</url>
@@ -20,13 +12,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Student/Student.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/StudentRole/ViewCourseDetailsJPanel.java</file>
             <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/StudentRole/ViewCourseTableJPanel.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Courses/CoursesDirectory.java</file>
             <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/StudentRole/StudentJPanel.java</file>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Courses/CourseSchedule.java</file>
             <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Courses/Course.java</file>
-            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/UI/WorkAreas/Login/LoginJPanel.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/Student/StudentsDirectory.java</file>
+            <file>file:/C:/Users/samik/OneDrive/Documents/NetBeansProjects/assignment-3-teamsca/src/Education/EducationConfigure.java</file>
         </group>
     </open-files>
 </project-private>

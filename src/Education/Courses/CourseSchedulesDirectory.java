@@ -36,6 +36,7 @@ public class CourseSchedulesDirectory {
        cs.setCourseId(courseId);
        cs.setLanguage(language);
        cs.setRegion(region);
+       coursesScheduleList.add(cs);
        return cs;
    } 
    

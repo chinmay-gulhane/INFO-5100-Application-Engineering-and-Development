@@ -4,7 +4,6 @@
  */
 package Education.Courses;
 
-import Education.Professor.Professor;
 import java.util.ArrayList;
 
 /**
@@ -34,6 +33,7 @@ public class CoursesDirectory {
        cs.setProfessorOwnerId(professorOwnerId);
        cs.setReputationIndex(reputationIndex);
        cs.setTopic(topic);
+       coursesList.add(cs);
        return cs;
    } 
    

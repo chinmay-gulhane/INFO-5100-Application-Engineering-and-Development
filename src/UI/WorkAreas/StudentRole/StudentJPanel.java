@@ -21,11 +21,10 @@ public class StudentJPanel extends javax.swing.JPanel {
     /**
      * Creates new form StudentJPanel
      */
-    public StudentJPanel() {
-        initComponents();
-    }
 
     public StudentJPanel(JPanel userProcessContainer, Student student, Education education) {
+        initComponents();
+        
         this.userProcessContainer = userProcessContainer;
         this.education = education; 
         this.student = student;
