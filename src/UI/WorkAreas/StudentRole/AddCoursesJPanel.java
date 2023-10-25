@@ -4,17 +4,61 @@
  */
 package UI.WorkAreas.StudentRole;
 
+import Education.Courses.Course;
+import Education.Courses.CourseSchedule;
+import Education.Education;
+import Education.Professor.Professor;
+import Education.Student.Student;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author samik
  */
 public class AddCoursesJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Education education;
+    private Student student;
+    private String selectedTerm;
+
     /**
      * Creates new form AddCoursesJPanel
      */
-    public AddCoursesJPanel() {
+    AddCoursesJPanel(JPanel userProcessContainer, Education education, Student student, String selectedTerm) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.education = education;
+        this.student = student;
+        this.selectedTerm = selectedTerm;
+        populateTable();
+    }
+
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();
+        dtm.setRowCount(0);
+        for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
+            System.out.println(selectedTerm);
+            if ((cs.getTerm() + " " + cs.getYear() ).equals(selectedTerm)) {
+                System.out.println("Hii");
+                for (Course c : education.getCourseDirectory().getCourseList()) {
+                    for (Professor p : education.getProfessorsDirectory().getProfessorList()) {
+                        if (p.getProfessorId().equals(cs.getTeachingProfessorId())) {
+                            if (cs.getCourseId().equals(c.getCourseId())) {
+                            Object[] row = new Object[6];
+                            row[0] = c.getTopic();
+                            row[1] = c.getName();
+                            row[2] = p.getName();
+                            row[3] = cs.getStartDate();
+                            row[4] = cs.getTeachingProfessorRating();
+                            dtm.addRow(row);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**

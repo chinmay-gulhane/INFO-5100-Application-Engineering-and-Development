@@ -25,7 +25,7 @@ public class CourseSchedulesDirectory {
         this.coursesScheduleList = coursesScheduleList;
     }
    
-    public CourseSchedule addCourseSchedule(String scheduleId, String courseId, String startDate, String endDate, String term, int year, String teachingProfessorId, String language, String region){
+    public CourseSchedule addCourseSchedule(String scheduleId, String courseId, String startDate, String endDate, String term, int year, String teachingProfessorId, String language, String region, double teachingProfessorRating){
        CourseSchedule cs = new CourseSchedule();
        cs.setEndDate(endDate);
        cs.setScheduleId(scheduleId);
@@ -36,6 +36,7 @@ public class CourseSchedulesDirectory {
        cs.setCourseId(courseId);
        cs.setLanguage(language);
        cs.setRegion(region);
+       cs.setTeachingProfessorRating(teachingProfessorRating);
        coursesScheduleList.add(cs);
        return cs;
    } 

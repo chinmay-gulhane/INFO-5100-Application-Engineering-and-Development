@@ -34,7 +34,6 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
         populateTable();
     }
     
-    
     private void populateTable(){
         System.out.println("Hii");
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();

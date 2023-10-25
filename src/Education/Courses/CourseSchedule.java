@@ -4,7 +4,6 @@
  */
 package Education.Courses;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -18,9 +17,18 @@ public class CourseSchedule {
     private String term;
     private int year;
     private String teachingProfessorId;
+    private double teachingProfessorRating;
     private String language;
     private String region;
 
+    public double getTeachingProfessorRating() {
+        return teachingProfessorRating;
+    }
+
+    public void setTeachingProfessorRating(double teachingProfessorRating) {
+        this.teachingProfessorRating = teachingProfessorRating;
+    }    
+    
     public String getRegion() {
         return region;
     }

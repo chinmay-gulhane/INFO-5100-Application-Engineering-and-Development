@@ -58,6 +58,11 @@ public class StudentJPanel extends javax.swing.JPanel {
         btnTranscript.setText("Transcript");
 
         btnAddCourses.setText("Add Courses");
+        btnAddCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCoursesActionPerformed(evt);
+            }
+        });
 
         btnViewProfile.setText("View Profile");
 
@@ -110,6 +115,14 @@ public class StudentJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewCoursesActionPerformed
+
+    private void btnAddCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCoursesActionPerformed
+        // TODO add your handling code here:
+        SelectTermJPanel panel = new SelectTermJPanel(userProcessContainer,education,student);
+        userProcessContainer.add("SelectTermJPanel",panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddCoursesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
