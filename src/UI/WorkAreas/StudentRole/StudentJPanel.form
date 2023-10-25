@@ -21,15 +21,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButton4" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewGrades" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewProfile" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddCourses" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewCourses" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBilling" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTranscript" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
               </Group>
@@ -43,18 +43,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewCourses" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBilling" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddCourses" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTranscript" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnViewProfile" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnViewGrades" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -62,32 +62,35 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnViewCourses">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Courses"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCoursesActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btnBilling">
       <Properties>
         <Property name="text" type="java.lang.String" value="Billing"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btnTranscript">
       <Properties>
         <Property name="text" type="java.lang.String" value="Transcript"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnAddCourses">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Courses"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnViewProfile">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Profile"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnViewGrades">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Grades"/>
       </Properties>

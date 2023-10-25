@@ -168,7 +168,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                         txtPassword.setText("");
                         return;
                     }
-                    StudentJPanel panel = new StudentJPanel();
+                    StudentJPanel panel = new StudentJPanel(userProcessContainer,student,education);
                     userProcessContainer.add("StudentJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);

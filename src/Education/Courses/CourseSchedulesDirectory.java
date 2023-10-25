@@ -30,7 +30,7 @@ public class CourseSchedulesDirectory {
        cs.setEndDate(endDate);
        cs.setScheduleId(scheduleId);
        cs.setStartDate(startDate);
-       cs.setTeachingProfessor(teachingProfessorId);
+       cs.setTeachingProfessorId(teachingProfessorId);
        cs.setTerm(term);
        cs.setYear(year);
        cs.setCourseId(courseId);

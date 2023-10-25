@@ -4,17 +4,31 @@
  */
 package UI.WorkAreas.StudentRole;
 
+import Education.Education;
+import Education.Student.Student;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
  */
 public class StudentJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Education education;
+    private Student student;
     /**
      * Creates new form StudentJPanel
      */
     public StudentJPanel() {
         initComponents();
+    }
+
+    public StudentJPanel(JPanel userProcessContainer, Student student, Education education) {
+        this.userProcessContainer = userProcessContainer;
+        this.education = education; 
+        this.student = student;
     }
 
     /**
@@ -26,24 +40,29 @@ public class StudentJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnViewCourses = new javax.swing.JButton();
+        btnBilling = new javax.swing.JButton();
+        btnTranscript = new javax.swing.JButton();
+        btnAddCourses = new javax.swing.JButton();
+        btnViewProfile = new javax.swing.JButton();
+        btnViewGrades = new javax.swing.JButton();
 
-        jButton1.setText("View Courses");
+        btnViewCourses.setText("View Courses");
+        btnViewCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCoursesActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Billing");
+        btnBilling.setText("Billing");
 
-        jButton6.setText("Transcript");
+        btnTranscript.setText("Transcript");
 
-        jButton2.setText("Add Courses");
+        btnAddCourses.setText("Add Courses");
 
-        jButton3.setText("View Profile");
+        btnViewProfile.setText("View Profile");
 
-        jButton4.setText("View Grades");
+        btnViewGrades.setText("View Grades");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,14 +73,14 @@ public class StudentJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(73, 73, 73)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4)
-                        .addComponent(jButton3)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1))
+                        .addComponent(btnViewGrades)
+                        .addComponent(btnViewProfile)
+                        .addComponent(btnAddCourses)
+                        .addComponent(btnViewCourses))
                     .addGap(71, 71, 71)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6))
+                        .addComponent(btnBilling)
+                        .addComponent(btnTranscript))
                     .addContainerGap(74, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -71,27 +90,35 @@ public class StudentJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(42, 42, 42)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton5))
+                        .addComponent(btnViewCourses)
+                        .addComponent(btnBilling))
                     .addGap(49, 49, 49)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton6))
+                        .addComponent(btnAddCourses)
+                        .addComponent(btnTranscript))
                     .addGap(42, 42, 42)
-                    .addComponent(jButton3)
+                    .addComponent(btnViewProfile)
                     .addGap(36, 36, 36)
-                    .addComponent(jButton4)
+                    .addComponent(btnViewGrades)
                     .addContainerGap(43, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViewCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCoursesActionPerformed
+        // TODO add your handling code here:
+        ViewCourseTableJPanel panel = new ViewCourseTableJPanel(userProcessContainer,education,student);
+        userProcessContainer.add("ViewCourseTableJPanel",panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewCoursesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnAddCourses;
+    private javax.swing.JButton btnBilling;
+    private javax.swing.JButton btnTranscript;
+    private javax.swing.JButton btnViewCourses;
+    private javax.swing.JButton btnViewGrades;
+    private javax.swing.JButton btnViewProfile;
     // End of variables declaration//GEN-END:variables
 }
