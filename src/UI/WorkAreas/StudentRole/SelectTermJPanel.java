@@ -42,6 +42,7 @@ initComponents();
         lblSelectTerm = new javax.swing.JLabel();
         optionsTerms = new javax.swing.JComboBox<>();
         btnContinue = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         lblSelectTerm.setText("Select Term:");
 
@@ -51,6 +52,13 @@ initComponents();
         btnContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinueActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -66,7 +74,11 @@ initComponents();
                         .addComponent(lblSelectTerm)
                         .addGap(46, 46, 46)
                         .addComponent(optionsTerms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(623, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +89,9 @@ initComponents();
                     .addComponent(lblSelectTerm))
                 .addGap(31, 31, 31)
                 .addComponent(btnContinue)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -90,8 +104,16 @@ initComponents();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnContinueActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnContinue;
     private javax.swing.JLabel lblSelectTerm;
     private javax.swing.JComboBox<String> optionsTerms;

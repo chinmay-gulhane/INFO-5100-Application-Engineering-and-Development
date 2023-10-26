@@ -45,6 +45,7 @@ public class StudentJPanel extends javax.swing.JPanel {
         btnAddCourses = new javax.swing.JButton();
         btnViewProfile = new javax.swing.JButton();
         btnViewGrades = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         btnViewCourses.setText("View Courses");
         btnViewCourses.addActionListener(new java.awt.event.ActionListener() {
@@ -78,43 +79,59 @@ public class StudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnViewGrades)
+                    .addComponent(btnAddCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBilling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTranscript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(73, 73, 73)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnViewGrades)
-                        .addComponent(btnViewProfile)
-                        .addComponent(btnAddCourses)
-                        .addComponent(btnViewCourses))
-                    .addGap(71, 71, 71)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnBilling)
-                        .addComponent(btnTranscript))
-                    .addContainerGap(74, Short.MAX_VALUE)))
+                    .addComponent(btnViewCourses)
+                    .addContainerGap(717, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnBilling)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddCourses)
+                    .addComponent(btnTranscript))
+                .addGap(33, 33, 33)
+                .addComponent(btnViewProfile)
+                .addGap(41, 41, 41)
+                .addComponent(btnViewGrades)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(17, 17, 17))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(42, 42, 42)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnViewCourses)
-                        .addComponent(btnBilling))
-                    .addGap(49, 49, 49)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAddCourses)
-                        .addComponent(btnTranscript))
-                    .addGap(42, 42, 42)
-                    .addComponent(btnViewProfile)
-                    .addGap(36, 36, 36)
-                    .addComponent(btnViewGrades)
-                    .addContainerGap(43, Short.MAX_VALUE)))
+                    .addComponent(btnViewCourses)
+                    .addContainerGap(435, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,9 +167,17 @@ public class StudentJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewGradesActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourses;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnTranscript;
     private javax.swing.JButton btnViewCourses;
