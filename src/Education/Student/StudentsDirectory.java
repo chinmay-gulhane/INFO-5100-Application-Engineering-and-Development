@@ -50,7 +50,6 @@ public class StudentsDirectory {
         student.setUsername(username);
         student.setAmountOwed(amountOwed);
         studentList.add(student);
-        System.out.println("Student-" + student.getGraduationStatus());
         return student;
     }
 

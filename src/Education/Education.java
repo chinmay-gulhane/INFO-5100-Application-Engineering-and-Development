@@ -6,6 +6,7 @@ package Education;
 
 
 import Education.Admin.Admin;
+import Education.Authority.Authority;
 import Education.Courses.CoursesDirectory;
 import Education.Professor.ProfessorsDirectory;
 import Education.Student.StudentsDirectory;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class Education {
     private String name;
     private Admin admin;
+    private Authority authority;
     private ProfessorsDirectory professorsDirectory;
     private StudentsDirectory studentsDirectory;
     private CoursesDirectory courseDirectory;
@@ -32,6 +34,7 @@ public class Education {
     public Education(String name) {
         this.name = name;
         this.admin = new Admin("admin","admin",professorAwaitingRegistration,studentAwaitingRegistration);
+        this.authority = new Authority("authority","authority");
         this.professorsDirectory = new ProfessorsDirectory();
         this.studentsDirectory = new StudentsDirectory();
         this.courseDirectory = new CoursesDirectory();
@@ -45,6 +48,10 @@ public class Education {
     public Admin getAdmin() {
         return admin;
     }
+    
+    public Authority getAuthority() {
+        return authority;
+    }
 
     public ProfessorsDirectory getProfessorsDirectory() {
         return professorsDirectory;
@@ -53,7 +60,7 @@ public class Education {
     public StudentsDirectory getStudentsDirectory() {
         return studentsDirectory;
     }
-
+    
     public CoursesDirectory getCourseDirectory() {
         return courseDirectory;
     }
