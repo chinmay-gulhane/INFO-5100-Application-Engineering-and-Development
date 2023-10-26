@@ -31,8 +31,7 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="btnAddCourse" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnViewProfile" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnCreateCourseSchedule" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnViewCourseSchedule" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnViewCourseSchedule" alignment="0" pref="155" max="32767" attributes="0"/>
                               <Component id="btnViewCourse" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -54,9 +53,7 @@
               <Component id="btnAddCourse" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnViewCourse" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCreateCourseSchedule" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Component id="btnViewCourseSchedule" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnViewProfile" min="-2" pref="38" max="-2" attributes="0"/>
@@ -96,11 +93,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCourseActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCreateCourseSchedule">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Create Course Schedule"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnViewCourseSchedule">
       <Properties>

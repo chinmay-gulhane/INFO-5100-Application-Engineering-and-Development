@@ -4,7 +4,6 @@
  */
 package Education.Courses;
 
-
 /**
  *
  * @author ASUS
@@ -64,5 +63,10 @@ package Education.Courses;
 
     public void setReputationIndex(double reputationIndex) {
         this.reputationIndex = reputationIndex;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getCourseId();
     }
  }

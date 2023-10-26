@@ -8,6 +8,8 @@ import Education.Courses.Course;
 import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,29 +33,20 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         this.education = education; 
         this.professor = professor;
         dtm = (DefaultTableModel) tblCourse.getModel();
-
+        populateTable();
     }
     
     public void populateTable(){
         dtm.setRowCount(0);
         for(Course course: education.getCourseDirectory().getCourseList()){
-            if(!("Register".equals(professor.getStatus()))){
-                continue;
+            if(course.getProfessorOwnerId().equals(professor.getProfessorId())){
+                Object[] row = new Object[4];
+                row[0] = course;
+                row[1] = course.getName();
+                row[2] = course.getTopic();
+                row[3] = course.getCredit();
+                dtm.addRow(row);
             }
-            Object[] row = new Object[5];
-            row[0] = professor;
-            row[1] = professor.getName();
-            row[2] = professor.getEmail();
-            row[3] = "Professor";
-            if("Register".equals(professor.getStatus())){
-                row[4] = "Unregistered";
-            }
-            else if("Block".equals(professor.getStatus())){
-                row[4] = "Blocked";
-            }else{
-                row[4] = "Active";
-            }
-            dtm.addRow(row);
         }
     }
 
@@ -70,6 +63,8 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         tblCourse = new javax.swing.JTable();
         btnUpdateCourse = new javax.swing.JButton();
         btnRemoveCourse = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnCreateSchedule = new javax.swing.JButton();
 
         tblCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,7 +74,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Course ID", "Topic", "Credit"
+                "Course ID", "Name", "Topic", "Credit"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -99,38 +94,133 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         }
 
         btnUpdateCourse.setText("Update Course");
+        btnUpdateCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateCourseActionPerformed(evt);
+            }
+        });
 
         btnRemoveCourse.setText("Remove Course");
+        btnRemoveCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveCourseActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnCreateSchedule.setText("Create Course Schedule");
+        btnCreateSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateScheduleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCreateSchedule)
+                        .addGap(41, 41, 41)
                         .addComponent(btnUpdateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRemoveCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addComponent(btnRemoveCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateSchedule, btnRemoveCourse, btnUpdateCourse});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnUpdateCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(btnRemoveCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveCourse)
+                    .addComponent(btnCreateSchedule))
+                .addGap(101, 101, 101)
+                .addComponent(btnBack)
+                .addGap(44, 44, 44))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateSchedule, btnRemoveCourse, btnUpdateCourse});
+
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCourseActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblCourse.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row from table first to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Course course = (Course)tblCourse.getValueAt(selectedRow, 0);
+            UpdateCourseProfessorJPanel panel = new UpdateCourseProfessorJPanel(userProcessContainer,education, course);
+            userProcessContainer.add("UpdateCourseProfessorJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }   
+    }//GEN-LAST:event_btnUpdateCourseActionPerformed
+
+    private void btnRemoveCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCourseActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblCourse.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row from table first to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Course course = (Course)tblCourse.getValueAt(selectedRow, 0);
+            for(Course courseS : education.getCourseDirectory().getCourseList()){
+                if(courseS.getCourseId().equals(course.getCourseId())){
+                    education.getCourseDirectory().getCourseList().remove(courseS);
+                    JOptionPane.showMessageDialog(this,"Course removed successfuly!");
+                }
+            }
+        }   
+    }//GEN-LAST:event_btnRemoveCourseActionPerformed
+
+    private void btnCreateScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateScheduleActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblCourse.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row from table first to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Course course = (Course)tblCourse.getValueAt(selectedRow, 0);
+            CreateCourseScheduleJPanel panel = new CreateCourseScheduleJPanel(userProcessContainer,education, course);
+            userProcessContainer.add("CreateCourseScheduleJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_btnCreateScheduleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreateSchedule;
     private javax.swing.JButton btnRemoveCourse;
     private javax.swing.JButton btnUpdateCourse;
     private javax.swing.JScrollPane jScrollPane1;
