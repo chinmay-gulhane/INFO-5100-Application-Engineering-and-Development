@@ -4,9 +4,9 @@
  */
 package Education.Student;
 
-import Education.Courses.Course;
 import java.util.ArrayList;
-
+import java.util.Map;
+import java.util.HashMap; 
 /**
  *
  * @author samik
@@ -20,7 +20,7 @@ public class Student {
     private String email;
     private String phone;
     private double gpa;
-    private ArrayList<String>scheduleId = new ArrayList<String>();
+    Map<String, Double> grades = new HashMap<>();
     private String status;
     private boolean isPartOfOrganization;
 
@@ -89,13 +89,14 @@ public class Student {
         this.gpa = gpa;
     }
 
-    public ArrayList<String> getScheduleId() {
-        return scheduleId;
+    public Map<String, Double> getGrades() {
+        return grades;
     }
 
-    public void setScheduleId(ArrayList<String> scheduleId) {
-        this.scheduleId = scheduleId;
+    public void setGrades(Map<String, Double> grades) {
+        this.grades = grades;
     }
+
 
     public String getStatus() {
         return status;

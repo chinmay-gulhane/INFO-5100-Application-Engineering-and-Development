@@ -100,6 +100,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Grades"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewGradesActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

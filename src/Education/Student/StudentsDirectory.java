@@ -5,6 +5,7 @@
 package Education.Student;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -28,9 +29,9 @@ public class StudentsDirectory {
         this.studentList = studentList;
     }
 
-    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, ArrayList<String>scheduleId, String status, boolean isPartOfOrganization ) {
+    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, Map<String, Double> grades, String status, boolean isPartOfOrganization ) {
         Student student = new Student();
-        student.setScheduleId(scheduleId);
+        student.setGrades(grades);
         student.setCurrentPassword(currentPassword);
         student.setEmail(email);
         student.setGpa(gpa);
