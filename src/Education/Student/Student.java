@@ -4,6 +4,7 @@
  */
 package Education.Student;
 
+import Utiltities.GraduationStatus;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap; 
@@ -24,6 +25,15 @@ public class Student {
     private String status;
     private boolean isPartOfOrganization; 
     private double amountOwed;
+    private GraduationStatus graduationStatus;
+
+    public GraduationStatus getGraduationStatus() {
+        return graduationStatus;
+    }
+
+    public void setGraduationStatus(GraduationStatus graduationStatus) {
+        this.graduationStatus = graduationStatus;
+    }
 
     public double getAmountOwed() {
         return amountOwed;

@@ -7,6 +7,7 @@ package UI.WorkAreas.Register;
 import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
+import Utiltities.GraduationStatus;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -175,7 +176,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
            education.getProfessorsDirectory().addProfessor("", username, name, password, email, contactInfo, "Register", false);
         }
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
-           education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false, 0.0);
+           education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false, 0.0, GraduationStatus.NOTAPPLIED);
         }
         
         txtUsername.setText("");

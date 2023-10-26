@@ -46,6 +46,7 @@ public class StudentJPanel extends javax.swing.JPanel {
         btnViewProfile = new javax.swing.JButton();
         btnViewGrades = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnGraduation = new javax.swing.JButton();
 
         btnViewCourses.setText("View Courses");
         btnViewCourses.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +92,13 @@ public class StudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGraduation.setText("Graduation");
+        btnGraduation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraduationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,8 +112,9 @@ public class StudentJPanel extends javax.swing.JPanel {
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBilling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTranscript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(558, Short.MAX_VALUE))
+                    .addComponent(btnTranscript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGraduation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(552, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
@@ -126,7 +135,9 @@ public class StudentJPanel extends javax.swing.JPanel {
                     .addComponent(btnAddCourses)
                     .addComponent(btnTranscript))
                 .addGap(33, 33, 33)
-                .addComponent(btnViewProfile)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewProfile)
+                    .addComponent(btnGraduation))
                 .addGap(41, 41, 41)
                 .addComponent(btnViewGrades)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
@@ -188,12 +199,21 @@ public class StudentJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBillingActionPerformed
 
+    private void btnGraduationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraduationActionPerformed
+        // TODO add your handling code here:
+        GraduationJPanel panel = new GraduationJPanel(userProcessContainer,education,student);
+        userProcessContainer.add("GraduationJPanel",panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnGraduationActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourses;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBilling;
+    private javax.swing.JButton btnGraduation;
     private javax.swing.JButton btnTranscript;
     private javax.swing.JButton btnViewCourses;
     private javax.swing.JButton btnViewGrades;

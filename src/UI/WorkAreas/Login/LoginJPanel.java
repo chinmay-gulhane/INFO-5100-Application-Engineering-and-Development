@@ -23,6 +23,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Education education;
+//    private JSplitPane main;
     /**
      * Creates new form LoginJPanel
      */
@@ -31,6 +32,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.education = education;
+//        headerSignoutJPanel headerPanel = new headerSignoutJPanel(userProcessContainer, education);
+//        main.setLeftComponent(headerPanel);
     }
 
     /**

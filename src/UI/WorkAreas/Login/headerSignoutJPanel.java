@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  *
  * @author chinmaygulhane
  */
-public class headerLoginJPanel extends javax.swing.JPanel {
+public class headerSignoutJPanel extends javax.swing.JPanel {
     
     private JPanel userProcessContainer;
     private Education education;
@@ -20,7 +20,7 @@ public class headerLoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form headerLoginJPanel
      */
-    public headerLoginJPanel(JPanel userProcessContainer,Education education) {
+    public headerSignoutJPanel(JPanel userProcessContainer,Education education) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.education = education;
@@ -37,9 +37,8 @@ public class headerLoginJPanel extends javax.swing.JPanel {
 
         headerJPanel = new javax.swing.JPanel();
         WebsiteLabel1 = new javax.swing.JLabel();
-        lblLogin1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblLogout1 = new javax.swing.JLabel();
+        lblLogout = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(900, 80));
@@ -51,26 +50,16 @@ public class headerLoginJPanel extends javax.swing.JPanel {
         WebsiteLabel1.setForeground(new java.awt.Color(255, 255, 255));
         WebsiteLabel1.setText("Eduverse");
 
-        lblLogin1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        lblLogin1.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogin1.setText("Log in");
-        lblLogin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblLogin1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblLogin1MouseClicked(evt);
-            }
-        });
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/eduverse.png"))); // NOI18N
         jLabel2.setText("jLabel1");
 
-        lblLogout1.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogout1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        lblLogout1.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogout1.setText("Logout");
-        lblLogout1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblLogout1.setMinimumSize(new java.awt.Dimension(82, 29));
-        lblLogout1.setPreferredSize(new java.awt.Dimension(82, 29));
+        lblLogout.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogout.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblLogout.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogout.setText("Sign Out");
+        lblLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLogout.setMinimumSize(new java.awt.Dimension(82, 29));
+        lblLogout.setPreferredSize(new java.awt.Dimension(82, 29));
 
         javax.swing.GroupLayout headerJPanelLayout = new javax.swing.GroupLayout(headerJPanel);
         headerJPanel.setLayout(headerJPanelLayout);
@@ -81,25 +70,21 @@ public class headerLoginJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WebsiteLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
-                .addComponent(lblLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
+                .addContainerGap(660, Short.MAX_VALUE))
             .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerJPanelLayout.createSequentialGroup()
-                    .addContainerGap(1071, Short.MAX_VALUE)
-                    .addComponent(lblLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(751, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(30, 30, 30)))
         );
         headerJPanelLayout.setVerticalGroup(
             headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(WebsiteLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+            .addComponent(WebsiteLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(headerJPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblLogout1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -122,20 +107,11 @@ public class headerLoginJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblLogin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogin1MouseClicked
-        // TODO add your handling code here:
-//        LoginJPanel panel = new LoginJPanel(userProcessContainer,education);
-//        userProcessContainer.add("LoginJPanel",panel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
-    }//GEN-LAST:event_lblLogin1MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel WebsiteLabel1;
     private javax.swing.JPanel headerJPanel;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblLogin1;
-    private javax.swing.JLabel lblLogout1;
+    private javax.swing.JLabel lblLogout;
     // End of variables declaration//GEN-END:variables
 }

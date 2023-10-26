@@ -4,6 +4,7 @@
  */
 package Education.Student;
 
+import Utiltities.GraduationStatus;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class StudentsDirectory {
         this.studentList = studentList;
     }
 
-    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, Map<String, Double> grades, String status, boolean isPartOfOrganization, double amountOwed) {
+    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, Map<String, Double> grades, String status, boolean isPartOfOrganization, double amountOwed, GraduationStatus graduationStatus) {
         Student student = new Student();
         student.setGrades(grades);
         student.setCurrentPassword(currentPassword);
@@ -39,6 +40,7 @@ public class StudentsDirectory {
         student.setIsPartOfOrganization(isPartOfOrganization);
         student.setName(name);
         student.setPhone(phone);
+        student.setGraduationStatus(graduationStatus);
         if(studentId.equals("")){
            student.setStudentId("S" + studCount);
            studCount++;
@@ -48,6 +50,7 @@ public class StudentsDirectory {
         student.setUsername(username);
         student.setAmountOwed(amountOwed);
         studentList.add(student);
+        System.out.println("Student-" + student.getGraduationStatus());
         return student;
     }
 
