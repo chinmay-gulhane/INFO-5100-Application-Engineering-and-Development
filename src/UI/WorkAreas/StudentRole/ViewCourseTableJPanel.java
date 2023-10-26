@@ -10,6 +10,9 @@ import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import java.awt.CardLayout;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,6 +40,7 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
     
     private void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();
+        Map<String, Double> grades = new HashMap<>();
         dtm.setRowCount(0);
         for(CourseSchedule cs:education.getCourseScheduleDirectory().getCourseScheduleList()){
             if(student.getGrades().containsKey(cs.getScheduleId()))
@@ -48,14 +52,17 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                         if(p.getProfessorId().equals(cs.getTeachingProfessorId()))
                         {
                             if(cs.getCourseId().equals(c.getCourseId())){
-                            Object[] row = new Object[6];
-                            row[0] = c.getCourseId();
+                            Object[] row = new Object[8];
+                            row[0] = c;
                             row[1] = c.getTopic();
                             row[2] = c.getName();
                             row[3] = p.getName();
                             row[4] = cs.getStartDate();
                             row[5] = c.getReputationIndex();
+                            row[6] = cs.getRegion();
+                            row[7] = cs.getLanguage();
                             dtm.addRow(row);
+                            grades.put(cs.getScheduleId(), 0.0);
                             }
                         }
                     }
@@ -81,20 +88,21 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewCourse = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Course Reputation Index"
+                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Course Reputation Index", "Region", "Language"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -109,12 +117,21 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
             tblViewCourse.getColumnModel().getColumn(3).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(4).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(5).setResizable(false);
+            tblViewCourse.getColumnModel().getColumn(6).setResizable(false);
+            tblViewCourse.getColumnModel().getColumn(7).setResizable(false);
         }
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -128,6 +145,8 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnDelete)
+                        .addGap(18, 18, 18)
                         .addComponent(btnBack)))
                 .addContainerGap())
         );
@@ -137,7 +156,9 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnDelete))
                 .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -149,9 +170,27 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblViewCourse.getSelectedRow();
+        if(selectedRow >= 0){
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to delete the person details", "Warning", dialogButton);
+            if(dialogResult == JOptionPane.YES_OPTION){
+                CourseSchedule csh = (CourseSchedule) tblViewCourse.getValueAt(selectedRow, 0);
+                education.getCourseScheduleDirectory().deleteCourseSchedule(csh);
+                populateTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblViewCourse;
     // End of variables declaration//GEN-END:variables

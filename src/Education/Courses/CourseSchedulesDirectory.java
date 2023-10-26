@@ -34,7 +34,7 @@ public class CourseSchedulesDirectory {
            cs.setScheduleId("SH" + shCount);
            shCount++;
        }else{
-           cs.setScheduleId(courseId);
+           cs.setScheduleId(scheduleId);
        }
        cs.setStartDate(startDate);
        cs.setTeachingProfessorId(teachingProfessorId);

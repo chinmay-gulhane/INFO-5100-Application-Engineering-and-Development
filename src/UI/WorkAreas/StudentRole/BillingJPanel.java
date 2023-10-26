@@ -4,6 +4,8 @@
  */
 package UI.WorkAreas.StudentRole;
 
+import Education.Courses.Course;
+import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Student.Student;
 import javax.swing.JPanel;
@@ -30,7 +32,11 @@ initComponents();
     
     private void showBilling()
     {
-        
+        for(CourseSchedule cs:education.getCourseScheduleDirectory().getCourseScheduleList()){
+            for(Course c:education.getCourseDirectory().getCourseList()){
+                
+            }
+        }
     }
 
     /**

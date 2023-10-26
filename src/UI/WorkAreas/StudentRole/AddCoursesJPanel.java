@@ -10,6 +10,7 @@ import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author samik
  */
 public class AddCoursesJPanel extends javax.swing.JPanel {
-    
+
     private JPanel userProcessContainer;
     private Education education;
     private Student student;
@@ -35,7 +36,7 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         this.selectedTerm = selectedTerm;
         populateTable();
     }
-    
+
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();
         dtm.setRowCount(0);
@@ -45,13 +46,15 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                     for (Professor p : education.getProfessorsDirectory().getProfessorList()) {
                         if (p.getProfessorId().equals(cs.getTeachingProfessorId())) {
                             if (cs.getCourseId().equals(c.getCourseId())) {
-                                Object[] row = new Object[6];
-                                row[0] = c.getCourseId();
+                                Object[] row = new Object[8];
+                                row[0] = c;
                                 row[1] = c.getTopic();
                                 row[2] = c.getName();
                                 row[3] = p.getName();
                                 row[4] = cs.getStartDate();
                                 row[5] = cs.getTeachingProfessorRating();
+                                row[6] = cs.getRegion();
+                                row[7] = cs.getLanguage();
                                 dtm.addRow(row);
                             }
                         }
@@ -77,20 +80,21 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Professor Rating"
+                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Professor Rating", "Region", "Language"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -117,6 +121,13 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
 
         btnBack.setText("Back");
 
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,6 +148,8 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
                 .addGap(31, 31, 31))
         );
@@ -152,7 +165,9 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnAdd))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -166,55 +181,50 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         populateTable();
     }//GEN-LAST:event_btnResetActionPerformed
-    
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblViewCourse.getSelectedRow();
+        if (selectedRow >= 0) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to add the course", "Warning", dialogButton);
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                CourseSchedule sc = (CourseSchedule) tblViewCourse.getValueAt(selectedRow, 0);
+
+                populateTable();
+            }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
     private void populateSearch(String search) {
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();
         dtm.setRowCount(0);
         for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
-            if ((cs.getCourseId().equals(search) && (cs.getTerm() + " " + cs.getYear()).equals(selectedTerm))) {
+            if ((cs.getTerm() + " " + cs.getYear()).equals(selectedTerm)) {
                 for (Course c : education.getCourseDirectory().getCourseList()) {
                     for (Professor p : education.getProfessorsDirectory().getProfessorList()) {
-                        if (p.getProfessorId().equals(cs.getTeachingProfessorId())) {
-                            if (cs.getCourseId().equals(c.getCourseId())) {
-                                Object[] row = new Object[6];
-                                row[0] = c.getCourseId();
-                                row[1] = c.getTopic();
-                                row[2] = c.getName();
-                                row[3] = p.getName();
-                                row[4] = cs.getStartDate();
-                                row[5] = cs.getTeachingProfessorRating();
-                                dtm.addRow(row);
-                            }
+                        if((p.getProfessorId().equals(cs.getTeachingProfessorId())) && (cs.getCourseId().equals(c.getCourseId())))
+                        if(cs.getRegion().equals(search) || cs.getLanguage().equals(search) || p.getName().equals(search) || c.getTopic().equals(search) || cs.getCourseId().equals(search)){
+                            Object[] row = new Object[8];
+                            row[0] = c.getCourseId();
+                            row[1] = c.getTopic();
+                            row[2] = c.getName();
+                            row[3] = p.getName();
+                            row[4] = cs.getStartDate();
+                            row[5] = cs.getTeachingProfessorRating();
+                            row[6] = cs.getRegion();
+                            row[7] = cs.getLanguage();
+                            dtm.addRow(row);                            
                         }
                     }
                 }
-            } 
-//            else {
-//                for (CourseSchedule csh : education.getCourseScheduleDirectory().getCourseScheduleList()) {
-//                    if ((csh.getTerm() + " " + csh.getYear()).equals(selectedTerm)) {
-//                        for (Course c : education.getCourseDirectory().getCourseList()) {
-//                            if (c.getTopic().equals(search)&& csh.getCourseId().equals(c.getCourseId())) {
-//                                for (Professor p : education.getProfessorsDirectory().getProfessorList()) {
-//                                    if (p.getProfessorId().equals(csh.getTeachingProfessorId())) {
-//                                            Object[] row = new Object[6];
-//                                            row[0] = c.getCourseId();
-//                                            row[1] = c.getTopic();
-//                                            row[2] = c.getName();
-//                                            row[3] = p.getName();
-//                                            row[4] = csh.getStartDate();
-//                                            row[5] = csh.getTeachingProfessorRating();
-//                                            dtm.addRow(row);
-//                                        
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            }
         }
-    }    
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
