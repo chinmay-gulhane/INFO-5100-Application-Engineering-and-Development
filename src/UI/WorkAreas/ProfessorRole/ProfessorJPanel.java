@@ -6,6 +6,7 @@ package UI.WorkAreas.ProfessorRole;
 
 import Education.Education;
 import Education.Professor.Professor;
+import UI.WorkAreas.AdminRole.ViewStudentAdminJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 /**
@@ -40,9 +41,10 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         btnAddCourse = new javax.swing.JButton();
         btnViewCourse = new javax.swing.JButton();
-        btnViewCourse1 = new javax.swing.JButton();
-        btnViewCourse2 = new javax.swing.JButton();
-        btnViewCourse3 = new javax.swing.JButton();
+        btnCreateCourseSchedule = new javax.swing.JButton();
+        btnViewCourseSchedule = new javax.swing.JButton();
+        btnViewProfile = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         lblHeader.setText("Hi Professor");
 
@@ -61,12 +63,24 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         });
 
         btnViewCourse.setText("View Courses");
+        btnViewCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCourseActionPerformed(evt);
+            }
+        });
 
-        btnViewCourse1.setText("Create Course Schedule");
+        btnCreateCourseSchedule.setText("Create Course Schedule");
 
-        btnViewCourse2.setText("View Course Schedule");
+        btnViewCourseSchedule.setText("View Course Schedule");
+        btnViewCourseSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCourseScheduleActionPerformed(evt);
+            }
+        });
 
-        btnViewCourse3.setText("View Profile");
+        btnViewProfile.setText("View Profile");
+
+        jButton1.setText("Add Grades");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,12 +95,14 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnAddCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewCourse3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewCourse1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewCourse2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnAddCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnViewProfile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCreateCourseSchedule, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnViewCourseSchedule, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnViewCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -101,12 +117,14 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewCourse1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCreateCourseSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewCourse2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewCourseSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewCourse3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addComponent(btnViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -119,16 +137,33 @@ public class ProfessorJPanel extends javax.swing.JPanel {
 
     private void btnAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCourseActionPerformed
         // TODO add your handling code here:
+        AddCourseProfessorJPanel panel = new AddCourseProfessorJPanel(userProcessContainer,education, professor);
+        userProcessContainer.add("AddCourseJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddCourseActionPerformed
+
+    private void btnViewCourseScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseScheduleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewCourseScheduleActionPerformed
+
+    private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
+        // TODO add your handling code here:
+        ViewCourseProfessorJPanel panel = new ViewCourseProfessorJPanel(userProcessContainer,education, professor);
+        userProcessContainer.add("ViewCourseProfessorJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewCourseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourse;
+    private javax.swing.JButton btnCreateCourseSchedule;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewCourse;
-    private javax.swing.JButton btnViewCourse1;
-    private javax.swing.JButton btnViewCourse2;
-    private javax.swing.JButton btnViewCourse3;
+    private javax.swing.JButton btnViewCourseSchedule;
+    private javax.swing.JButton btnViewProfile;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblHeader;
     // End of variables declaration//GEN-END:variables
 }
