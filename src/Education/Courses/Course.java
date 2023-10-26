@@ -4,8 +4,6 @@
  */
 package Education.Courses;
 
-import Education.Professor.Professor;
-
 /**
  *
  * @author ASUS
@@ -65,5 +63,10 @@ import Education.Professor.Professor;
 
     public void setReputationIndex(double reputationIndex) {
         this.reputationIndex = reputationIndex;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getCourseId();
     }
  }

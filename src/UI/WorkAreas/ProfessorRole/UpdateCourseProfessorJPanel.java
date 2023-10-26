@@ -8,6 +8,7 @@ import Education.Courses.Course;
 import Education.Education;
 import Education.Professor.Professor;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -15,20 +16,24 @@ import javax.swing.JPanel;
  *
  * @author ASUS
  */
-public class AddCourseProfessorJPanel extends javax.swing.JPanel {
-
-    private JPanel userProcessContainer;
-    private Education education;
-    private Professor professor;
+public class UpdateCourseProfessorJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form AddCourseJPanel
+     * Creates new form UpdateCourseProfessorJPanel
      */
-    public AddCourseProfessorJPanel(JPanel userProcessContainer, Education education, Professor professor) {
+    private JPanel userProcessContainer;
+    private Education education;
+    private Course course;
+    
+    public UpdateCourseProfessorJPanel(JPanel userProcessContainer, Education education, Course course) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.education = education; 
-        this.professor = professor;
+        this.course = course;
+        txtCourseName.setText(course.getName());
+        txtCourseID.setText(course.getCourseId());
+        optionsTopic.setSelectedItem(course.getTopic());
+        txtCourseCredit.setText(String.valueOf(course.getCredit()));
     }
 
     /**
@@ -45,24 +50,28 @@ public class AddCourseProfessorJPanel extends javax.swing.JPanel {
         txtCourseName = new javax.swing.JTextField();
         lblCourseID = new javax.swing.JLabel();
         txtCourseID = new javax.swing.JTextField();
+        optionsTopic = new javax.swing.JComboBox<>();
         lblCourseTopic = new javax.swing.JLabel();
         lblCourseCredit = new javax.swing.JLabel();
         txtCourseCredit = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
-        optionsTopic = new javax.swing.JComboBox<>();
+        btnUpdate = new javax.swing.JButton();
 
-        lblHeader.setText("Add Course");
+        lblHeader.setText("Update Course");
 
         lblCourseName.setText("Course Name:");
 
         lblCourseID.setText("Course ID:");
 
+        txtCourseID.setEditable(false);
+        txtCourseID.setEnabled(false);
         txtCourseID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCourseIDActionPerformed(evt);
             }
         });
+
+        optionsTopic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Information Systems Programs", "Computer Systems Engineering", "Engineering Cooperative Education", "Data Science", "Data Analytics", "Cybersecurity", "Project Management" }));
 
         lblCourseTopic.setText("Course Topic:");
 
@@ -75,14 +84,12 @@ public class AddCourseProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-
-        optionsTopic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Information Systems Programs", "Computer Systems Engineering", "Engineering Cooperative Education", "Data Science", "Data Analytics", "Cybersecurity", "Project Management" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,9 +113,9 @@ public class AddCourseProfessorJPanel extends javax.swing.JPanel {
                         .addComponent(lblCourseCredit, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSave)
+                            .addComponent(btnUpdate)
                             .addComponent(txtCourseCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(24, 24, 24))
         );
@@ -139,56 +146,14 @@ public class AddCourseProfessorJPanel extends javax.swing.JPanel {
                     .addComponent(lblCourseCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCourseCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addComponent(btnUpdate)
+                .addContainerGap(202, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void txtCourseIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseIDActionPerformed
         // TODO add your handling code here:
-        String courseName = txtCourseName.getText().trim();
-        String courseID = txtCourseID.getText().trim();
-        String courseTopic = String.valueOf(optionsTopic.getSelectedItem());
-        
-        
-        if (courseName.isEmpty() || courseID.isEmpty() || txtCourseCredit.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please make sure all fields are filled in before proceeding.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        int courseCredit;
-        try{
-            courseCredit = Integer.valueOf(txtCourseCredit.getText().trim());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Course credit should be an Integer.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (courseCredit <= 0 || courseCredit > 4){
-            JOptionPane.showMessageDialog(this, "Please make sure course credit is between 1 and 4.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        for(Course course : education.getCourseDirectory().getCourseList()){
-            if(course.getCourseId().equals(courseID)){
-                JOptionPane.showMessageDialog(this, "Please make sure course ID is unique.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-        }
-        
-        if(!courseID.matches("[A-Z]{4} \\d{4}")){
-            JOptionPane.showMessageDialog(this, "Please enter valid course ID following format 'XXXX 0000'.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        education.getCourseDirectory().addCourse(courseName, courseID, courseTopic, professor.getProfessorId(), courseCredit, 0);
-        JOptionPane.showMessageDialog(this,"Course added successfuly!");
-        txtCourseName.setText("");
-        txtCourseID.setText("");
-        optionsTopic.setSelectedIndex(0);
-        txtCourseCredit.setText("");
-
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_txtCourseIDActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -197,14 +162,53 @@ public class AddCourseProfessorJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtCourseIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseIDActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCourseIDActionPerformed
+        String courseName = txtCourseName.getText().trim();
+        String courseID = txtCourseID.getText().trim();
+        String courseTopic = String.valueOf(optionsTopic.getSelectedItem());
+
+        if (courseName.isEmpty() || courseID.isEmpty() || txtCourseCredit.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please make sure all fields are filled in before proceeding.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int courseCredit;
+        try{
+            courseCredit = Integer.valueOf(txtCourseCredit.getText().trim());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Course credit should be an Integer.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (courseCredit <= 0 || courseCredit > 4){
+            JOptionPane.showMessageDialog(this, "Please make sure course credit is between 1 and 4.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        for(Course course : education.getCourseDirectory().getCourseList()){
+            if(course.getCourseId().equals(courseID)){
+                course.setName(courseName);
+                course.setCourseId(courseID);
+                course.setTopic(courseTopic);
+                course.setCredit(courseCredit);
+                break;
+            }
+        }
+        JOptionPane.showMessageDialog(this,"Course updated successfuly!");
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 1);
+        if(component instanceof ViewCourseProfessorJPanel viewCourseProfessorJPanel) {
+            viewCourseProfessorJPanel.populateTable();
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel lblCourseCredit;
     private javax.swing.JLabel lblCourseID;
     private javax.swing.JLabel lblCourseName;

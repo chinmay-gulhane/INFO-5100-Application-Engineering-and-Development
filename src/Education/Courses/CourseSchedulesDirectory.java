@@ -12,9 +12,10 @@ import java.util.ArrayList;
  */
 public class CourseSchedulesDirectory {
     private ArrayList<CourseSchedule> coursesScheduleList;
-    
+    int shCount;
     public CourseSchedulesDirectory(){
         this.coursesScheduleList = new ArrayList<CourseSchedule>();
+        this.shCount = 1050;
     }
         
     public ArrayList<CourseSchedule> getCourseScheduleList() {
@@ -29,6 +30,12 @@ public class CourseSchedulesDirectory {
        CourseSchedule cs = new CourseSchedule();
        cs.setEndDate(endDate);
        cs.setScheduleId(scheduleId);
+       if(courseId.equals("")){
+           cs.setScheduleId("SH" + shCount);
+           shCount++;
+       }else{
+           cs.setScheduleId(courseId);
+       }
        cs.setStartDate(startDate);
        cs.setTeachingProfessorId(teachingProfessorId);
        cs.setTerm(term);
