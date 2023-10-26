@@ -6,7 +6,9 @@ package UI.WorkAreas.StudentRole;
 
 import Education.Education;
 import Education.Student.Student;
+import Utiltities.GraduationStatus;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -27,6 +29,39 @@ public class GraduationJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.education = education; 
         this.student = student;
+        setGraduationStatus();
+        renderPageAccordingToGraduationStatus();
+    }
+    
+    private void setGraduationStatus(){
+        String notApplied = "";
+        String graduated = "Congratulations you have Graduated";
+        String rejected = "We regret to inform you that your graduation request has been declined. Please apply again.";
+        String applied = "Your graduation request is being reviewed by the Authorities";
+        
+        if(student.getGraduationStatus() == GraduationStatus.NOTAPPLIED){
+            txtGraduationStatus.setText("Not Applied");
+            btnApplyGraduation.setVisible(true);
+        } else if(student.getGraduationStatus() == GraduationStatus.APPLIED){
+            txtGraduationStatus.setText("Applied");
+            lblGraduationMessage.setText(applied);
+            btnApplyGraduation.setVisible(false);
+        } else if(student.getGraduationStatus() == GraduationStatus.ACCEPTED){
+            txtGraduationStatus.setText("Accepted"); 
+            lblGraduationMessage.setText(graduated);
+            btnApplyGraduation.setVisible(false);
+        } else if(student.getGraduationStatus() == GraduationStatus.REJECTED){
+            txtGraduationStatus.setText("Rejected");
+            lblGraduationMessage.setText(rejected);
+            btnApplyGraduation.setVisible(true);
+        }
+    }
+    
+    private void renderPageAccordingToGraduationStatus(){
+        String notApplied = "";
+        String graduated = "Congratulations you have Graduated";
+        String rejected = "We regret to inform you that your graduation request has been declined. Please apply again.";
+        String inProgress = "Your graduation request is being reviewed by the Authorities";
     }
 
     /**
@@ -40,8 +75,16 @@ public class GraduationJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnApplyGraduation = new javax.swing.JButton();
+        txtGraduationStatus = new javax.swing.JTextField();
+        lblGraduationMessage = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        jLabel1.setText("In graduation jpanel");
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Graduation Section");
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -50,25 +93,82 @@ public class GraduationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setText("Graduation Status:");
+
+        btnApplyGraduation.setText("Apply For Graduation");
+        btnApplyGraduation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApplyGraduationActionPerformed(evt);
+            }
+        });
+
+        txtGraduationStatus.setEditable(false);
+
+        lblGraduationMessage.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+
+        jButton1.setText("Accept");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Reject");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jLabel1)
-                .addContainerGap(167, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(14, 14, 14))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblGraduationMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack)))
+                        .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(28, 28, 28)
+                                .addComponent(jButton2))
+                            .addComponent(btnApplyGraduation)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtGraduationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(519, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtGraduationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(btnApplyGraduation)
+                .addGap(43, 43, 43)
+                .addComponent(lblGraduationMessage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(70, 70, 70)
                 .addComponent(btnBack)
                 .addGap(16, 16, 16))
         );
@@ -81,9 +181,37 @@ public class GraduationJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnApplyGraduationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplyGraduationActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to apply for graduation ?", "Warning", dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            student.setGraduationStatus(GraduationStatus.APPLIED);
+            setGraduationStatus();
+        }
+    }//GEN-LAST:event_btnApplyGraduationActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+            student.setGraduationStatus(GraduationStatus.ACCEPTED);
+            setGraduationStatus();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+            student.setGraduationStatus(GraduationStatus.REJECTED);
+            setGraduationStatus();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnApplyGraduation;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblGraduationMessage;
+    private javax.swing.JTextField txtGraduationStatus;
     // End of variables declaration//GEN-END:variables
 }
