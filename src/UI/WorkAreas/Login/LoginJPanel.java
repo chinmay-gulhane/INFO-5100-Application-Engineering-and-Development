@@ -12,6 +12,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import Education.Professor.Professor;
 import Education.Student.Student;
+import UI.WorkAreas.Authority.AuthorityJPanel;
 import UI.WorkAreas.Register.RegisterJPanel;
 import javax.swing.JOptionPane;
 
@@ -70,7 +71,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         lblRole.setText("Role:");
 
-        optionsRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student", "Admin" }));
+        optionsRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student", "Admin", "Authority" }));
 
         lblPassword.setText("Password:");
 
@@ -189,6 +190,16 @@ public class LoginJPanel extends javax.swing.JPanel {
                     layout.next(userProcessContainer);
                     return;
                 }
+        }
+        if("Authority".equals(String.valueOf(optionsRole.getSelectedItem()))){
+             if((usernameInput.equals(education.getAuthority().getUsername())) && (passwordInput.equals(education.getAuthority().getPassword())))
+               {
+                    AuthorityJPanel panel = new AuthorityJPanel(userProcessContainer,education);
+                    userProcessContainer.add("AuthorityJPanel", panel);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+                    return;
+               }
         }
         JOptionPane.showMessageDialog(this, "Incorrect Username or Password.", "Credentials Error", JOptionPane.ERROR_MESSAGE);
         txtPassword.setText("");
