@@ -175,7 +175,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
            education.getProfessorsDirectory().addProfessor("", username, name, password, email, contactInfo, "Register", false);
         }
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
-           education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false);
+           education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false, 0.0);
         }
         
         txtUsername.setText("");

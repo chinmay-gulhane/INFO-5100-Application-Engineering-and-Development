@@ -55,6 +55,11 @@ public class StudentJPanel extends javax.swing.JPanel {
         });
 
         btnBilling.setText("Billing");
+        btnBilling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillingActionPerformed(evt);
+            }
+        });
 
         btnTranscript.setText("Transcript");
 
@@ -167,12 +172,22 @@ public class StudentJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewGradesActionPerformed
 
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
+        // TODO add your handling code here:
+        BillingJPanel panel = new BillingJPanel(userProcessContainer,education,student);
+        userProcessContainer.add("BillingJPanel",panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBillingActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

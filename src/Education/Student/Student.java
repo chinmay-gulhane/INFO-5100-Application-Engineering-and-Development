@@ -22,8 +22,16 @@ public class Student {
     private double gpa;
     Map<String, Double> grades = new HashMap<>();
     private String status;
-    private boolean isPartOfOrganization;
+    private boolean isPartOfOrganization; 
+    private double amountOwed;
 
+    public double getAmountOwed() {
+        return amountOwed;
+    }
+
+    public void setAmountOwed(double amountOwed) {
+        this.amountOwed = amountOwed;
+    }
     
     public String getName() {
         return name;

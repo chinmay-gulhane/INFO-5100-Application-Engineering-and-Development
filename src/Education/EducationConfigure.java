@@ -60,13 +60,13 @@ public class EducationConfigure {
         Map<String, Double> grades1 = new HashMap<>();
         grades1.put("SH1000", 3.8);
         grades1.put("SH1002", 4.0);
-        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", "sambar", "samiksha.baral@eduverse.edu", "(555) 555-5555", 9.2, grades1, "Active", true);
+        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", "sambar", "samiksha.baral@eduverse.edu", "(555) 555-5555", 9.2, grades1, "Active", true, 2000);
 
 // Student 2
         Map<String, Double> grades2 = new HashMap<>();
         grades2.put("SH1002", 3.5);
         grades2.put("SH1003", 3.9);
-        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", "johsmith", "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true);
+        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", "johsmith", "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000);
 
 //// Student 3
 //        ArrayList<String> scheduleId3 = new ArrayList<>();

@@ -4,7 +4,6 @@
  */
 package Education.Courses;
 
-import Education.Professor.Professor;
 
 /**
  *

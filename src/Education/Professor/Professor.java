@@ -4,8 +4,6 @@
  */
 package Education.Professor;
 
-import Education.Courses.Course;
-import Education.Courses.CourseSchedule;
 import java.util.ArrayList;
 
 /**
