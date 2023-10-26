@@ -57,6 +57,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAmount">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

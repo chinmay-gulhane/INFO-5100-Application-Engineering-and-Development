@@ -15,28 +15,33 @@ import javax.swing.JPanel;
  * @author samik
  */
 public class BillingJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Education education;
     private Student student;
+
     /**
      * Creates new form BillingJPanel
      */
 
     BillingJPanel(JPanel userProcessContainer, Education education, Student student) {
-initComponents();
+        initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.education = education; 
+        this.education = education;
         this.student = student;
         showBilling();
     }
-    
-    private void showBilling()
-    {
-        for(CourseSchedule cs:education.getCourseScheduleDirectory().getCourseScheduleList()){
-            for(Course c:education.getCourseDirectory().getCourseList()){
-                
+
+    private void showBilling() {
+        int amountOwed = 0;
+        for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
+            for (Course c : education.getCourseDirectory().getCourseList()) {
+                if (cs.getCourseId().equals(c.getCourseId()) && student.getGrades().containsKey(cs.getScheduleId())) {
+                    amountOwed = amountOwed + c.getCredit() * 1000;
+                }
             }
         }
+        txtAmount.setText(amountOwed + " $");
     }
 
     /**
@@ -55,6 +60,8 @@ initComponents();
         jLabel1.setText("Amount Owed ");
 
         btnPayment.setText("Make a Payment");
+
+        txtAmount.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
