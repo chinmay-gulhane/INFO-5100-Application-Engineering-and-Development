@@ -47,6 +47,7 @@ public class StudentJPanel extends javax.swing.JPanel {
         btnViewGrades = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnGraduation = new javax.swing.JButton();
+        btnRateProf = new javax.swing.JButton();
 
         btnViewCourses.setText("View Courses");
         btnViewCourses.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +105,13 @@ public class StudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRateProf.setText("Rate Professor");
+        btnRateProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRateProfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,8 +126,9 @@ public class StudentJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBilling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTranscript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGraduation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(552, Short.MAX_VALUE))
+                    .addComponent(btnGraduation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRateProf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(540, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
@@ -144,8 +153,10 @@ public class StudentJPanel extends javax.swing.JPanel {
                     .addComponent(btnViewProfile)
                     .addComponent(btnGraduation))
                 .addGap(41, 41, 41)
-                .addComponent(btnViewGrades)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewGrades)
+                    .addComponent(btnRateProf))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(17, 17, 17))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,6 +231,14 @@ public class StudentJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);        
     }//GEN-LAST:event_btnTranscriptActionPerformed
 
+    private void btnRateProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRateProfActionPerformed
+        // TODO add your handling code here:
+        RateProfessorJPanel panel = new RateProfessorJPanel(userProcessContainer,education,student);
+        userProcessContainer.add("RateProfessorJPanel",panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer); 
+    }//GEN-LAST:event_btnRateProfActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -227,6 +246,7 @@ public class StudentJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnGraduation;
+    private javax.swing.JButton btnRateProf;
     private javax.swing.JButton btnTranscript;
     private javax.swing.JButton btnViewCourses;
     private javax.swing.JButton btnViewGrades;

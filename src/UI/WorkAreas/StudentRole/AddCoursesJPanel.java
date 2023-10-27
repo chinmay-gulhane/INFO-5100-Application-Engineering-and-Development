@@ -47,7 +47,8 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                         if (p.getProfessorId().equals(cs.getTeachingProfessorId())) {
                             if (cs.getCourseId().equals(c.getCourseId())) {
                                 Object[] row = new Object[8];
-                                row[0] = c;
+                                row[0] = cs;
+                                row[1] = c;
                                 row[1] = c.getTopic();
                                 row[2] = c.getName();
                                 row[3] = p.getName();
@@ -84,17 +85,17 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Professor Rating", "Region", "Language"
+                "Schedule Id", "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Professor Rating", "Region", "Language"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
