@@ -28,8 +28,9 @@
                   <Component id="btnBilling" max="32767" attributes="0"/>
                   <Component id="btnTranscript" max="32767" attributes="0"/>
                   <Component id="btnGraduation" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnRateProf" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="552" max="32767" attributes="0"/>
+              <EmptySpace pref="540" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -61,8 +62,11 @@
                   <Component id="btnGraduation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-              <Component id="btnViewGrades" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="210" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnViewGrades" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRateProf" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="214" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
@@ -139,6 +143,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGraduationActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRateProf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rate Professor"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRateProfActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

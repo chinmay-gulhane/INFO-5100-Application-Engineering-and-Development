@@ -11,6 +11,8 @@ import Education.Professor.Professor;
 import Education.Student.Student;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
@@ -149,7 +151,20 @@ public class TranscriptJPanel extends javax.swing.JPanel {
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path + "/certificate.pdf"));
             doc.open();
-
+            Paragraph title = new Paragraph("EDUVERSE TRANSCRIPT");
+            title.setSpacingBefore(20f);
+            title.setSpacingAfter(20f);
+            title.setAlignment(Element.ALIGN_CENTER);
+            doc.add(title);
+            Paragraph name = new Paragraph("Student Name: " + student.getName());
+            name.setSpacingBefore(5f);
+            name.setSpacingAfter(5f);
+            doc.add(name);
+            Paragraph nameId = new Paragraph("Student Id: " + student.getStudentId());
+            nameId.setSpacingBefore(20f);
+            nameId.setSpacingAfter(20f);
+            doc.add(nameId);
+            
             PdfPTable tblCertificate = new PdfPTable(4);
             tblCertificate.addCell("Course ID");
             tblCertificate.addCell("Course Topic");
@@ -168,6 +183,10 @@ public class TranscriptJPanel extends javax.swing.JPanel {
 
             }
             doc.add(tblCertificate);
+            
+            Paragraph electronicStatement = new Paragraph("This is an electronically generated document and doesn't require any signature or external verification.");
+            electronicStatement.setSpacingBefore(100f);
+            doc.add(electronicStatement);
             doc.close();
             JOptionPane.showMessageDialog(null, "Downloaded PDF File", "ALERT_MESSAGE", JOptionPane.WARNING_MESSAGE);
         } catch (FileNotFoundException ex) {
