@@ -197,6 +197,8 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
                 if(courseS.getCourseId().equals(course.getCourseId())){
                     education.getCourseDirectory().getCourseList().remove(courseS);
                     JOptionPane.showMessageDialog(this,"Course removed successfuly!");
+                    populateTable();
+                    return;
                 }
             }
         }   
