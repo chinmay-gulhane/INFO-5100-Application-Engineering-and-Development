@@ -6,6 +6,7 @@ package UI.WorkAreas.ProfessorRole;
 
 import Education.Courses.Course;
 import Education.Education;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -64,7 +65,7 @@ public class CreateCourseScheduleJPanel extends javax.swing.JPanel {
 
         lblRegion.setText("Region:");
 
-        optionsTerm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fall 23", "Spring 24", "Fall 24" }));
+        optionsTerm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fall 2023", "Spring 2024", "Fall 2024" }));
 
         optionsRegion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beijing", "Boston", "Istanbul", "London", "New York City", "Mumbai", "Paris", "Seoul", "Tokyo" }));
 
@@ -78,6 +79,11 @@ public class CreateCourseScheduleJPanel extends javax.swing.JPanel {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -169,7 +175,24 @@ public class CreateCourseScheduleJPanel extends javax.swing.JPanel {
         }
         
         education.getCourseScheduleDirectory().addCourseSchedule("", course.getCourseId(), startDate, endDate, term.split("\\s+")[0], Integer.valueOf(term.split("\\s+")[1]), course.getProfessorOwnerId(), language, region, 0);
+        JOptionPane.showMessageDialog(this,"Course schedule created successfuly!");
+        optionsTerm.setSelectedIndex(0);
+        txtStartDate.setText("");
+        txtEndDate.setText("");
+        optionsLanguage.setSelectedIndex(0);
+        optionsRegion.setSelectedIndex(0);
+        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

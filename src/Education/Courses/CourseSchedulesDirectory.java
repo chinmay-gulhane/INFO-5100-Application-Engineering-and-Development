@@ -29,8 +29,7 @@ public class CourseSchedulesDirectory {
     public CourseSchedule addCourseSchedule(String scheduleId, String courseId, String startDate, String endDate, String term, int year, String teachingProfessorId, String language, String region, double teachingProfessorRating){
        CourseSchedule cs = new CourseSchedule();
        cs.setEndDate(endDate);
-       cs.setScheduleId(scheduleId);
-       if(courseId.equals("")){
+       if(scheduleId.equals("")){
            cs.setScheduleId("SH" + shCount);
            shCount++;
        }else{

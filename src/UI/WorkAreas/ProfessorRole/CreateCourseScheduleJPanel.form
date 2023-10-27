@@ -137,9 +137,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Fall 23"/>
-            <StringItem index="1" value="Spring 24"/>
-            <StringItem index="2" value="Fall 24"/>
+            <StringItem index="0" value="Fall 2023"/>
+            <StringItem index="1" value="Spring 2024"/>
+            <StringItem index="2" value="Fall 2024"/>
           </StringArray>
         </Property>
       </Properties>
@@ -203,6 +203,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

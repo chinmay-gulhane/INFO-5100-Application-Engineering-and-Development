@@ -101,6 +101,9 @@ public class CourseSchedule {
         this.teachingProfessorId = teachingProfessor;
     }
 
-
+    @Override
+    public String toString(){
+        return this.getScheduleId();
+    }
     
 }
