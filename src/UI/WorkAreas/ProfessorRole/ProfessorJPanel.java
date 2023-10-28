@@ -160,6 +160,10 @@ public class ProfessorJPanel extends javax.swing.JPanel {
 
     private void btnViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProfileActionPerformed
         // TODO add your handling code here:
+        ViewProfileJPanel panel = new ViewProfileJPanel(userProcessContainer,education, professor);
+        userProcessContainer.add("ViewProfileJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewProfileActionPerformed
 
 
