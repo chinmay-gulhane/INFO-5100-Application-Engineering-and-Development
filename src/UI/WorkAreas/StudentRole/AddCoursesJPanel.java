@@ -80,8 +80,8 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,12 +120,17 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Find Course");
 
-        btnBack.setText("Back");
-
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -167,8 +172,8 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAdd)
+                    .addComponent(btnBack))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -196,6 +201,13 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void populateSearch(String search) {
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();

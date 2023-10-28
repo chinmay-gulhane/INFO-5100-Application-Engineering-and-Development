@@ -149,7 +149,7 @@ public class TranscriptJPanel extends javax.swing.JPanel {
         Document doc = new Document();
 
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path + "/certificate.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "/Transcript.pdf"));
             doc.open();
             Paragraph title = new Paragraph("EDUVERSE TRANSCRIPT");
             title.setSpacingBefore(20f);
