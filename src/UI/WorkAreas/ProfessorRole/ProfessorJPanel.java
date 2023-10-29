@@ -43,7 +43,7 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         btnViewCourse = new javax.swing.JButton();
         btnViewCourseSchedule = new javax.swing.JButton();
         btnViewProfile = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAddGrades = new javax.swing.JButton();
 
         lblHeader.setText("Hi Professor");
 
@@ -82,7 +82,12 @@ public class ProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Add Grades");
+        btnAddGrades.setText("Add Grades");
+        btnAddGrades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddGradesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,7 +103,7 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addComponent(btnAddGrades, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                             .addComponent(btnAddCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
@@ -121,7 +126,7 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(143, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -166,14 +171,22 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewProfileActionPerformed
 
+    private void btnAddGradesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGradesActionPerformed
+        // TODO add your handling code here:
+        AddGradesJPanel panel = new AddGradesJPanel(userProcessContainer,education, professor);
+        userProcessContainer.add("AddGradesJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddGradesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourse;
+    private javax.swing.JButton btnAddGrades;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewCourse;
     private javax.swing.JButton btnViewCourseSchedule;
     private javax.swing.JButton btnViewProfile;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblHeader;
     // End of variables declaration//GEN-END:variables
 }
