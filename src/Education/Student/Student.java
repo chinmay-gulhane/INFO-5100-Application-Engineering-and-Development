@@ -4,10 +4,12 @@
  */
 package Education.Student;
 
+import Education.Employer.JobPosting;
 import Utiltities.GraduationStatus;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap; 
+import java.util.List;
 /**
  *
  * @author samik
@@ -26,6 +28,8 @@ public class Student {
     private boolean isPartOfOrganization; 
     private double amountOwed;
     private GraduationStatus graduationStatus;
+    // Map to track applied jobs and their application status
+    private Map<JobPosting, String> appliedJobs;
 
     public GraduationStatus getGraduationStatus() {
         return graduationStatus;
@@ -135,6 +139,25 @@ public class Student {
     @Override
     public String toString(){
         return this.getStudentId();
+    }
+
+    public Student() {
+        this.appliedJobs = new HashMap<>();
+    }
+   
+     public Map<JobPosting, String> getAppliedJobs() {
+        return appliedJobs;
+    }
+
+    public void applyForJob(JobPosting jobPosting) {
+        this.appliedJobs.put(jobPosting, "Pending");
+        jobPosting.addApplicant(this);
+    }
+
+    public List<JobPosting> getUnappliedJobs(List<JobPosting> allJobs) {
+        List<JobPosting> unappliedJobs = new ArrayList<>(allJobs);
+        unappliedJobs.removeAll(this.appliedJobs.keySet());
+        return unappliedJobs;
     }
     
 }
