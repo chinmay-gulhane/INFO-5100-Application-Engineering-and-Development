@@ -180,6 +180,11 @@ public class ViewCourseScheduleJPanel extends javax.swing.JPanel {
         });
 
         btnViewStudents.setText("View Students Ranking");
+        btnViewStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewStudentsActionPerformed(evt);
+            }
+        });
 
         btnResetSearch.setText("Reset Search");
         btnResetSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -302,6 +307,21 @@ public class ViewCourseScheduleJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStudentsActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = tblSchedule.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row from table first to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            CourseSchedule courseSchedule = (CourseSchedule)tblSchedule.getValueAt(selectedRow, 0);
+            StudentRankingJPanel panel = new StudentRankingJPanel(userProcessContainer,education, courseSchedule);
+            userProcessContainer.add("StudentRankingJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_btnViewStudentsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
