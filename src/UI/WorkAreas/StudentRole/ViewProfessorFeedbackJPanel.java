@@ -8,9 +8,7 @@ import Education.Courses.Course;
 import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Professor.Professor;
-import Education.Student.Student;
 import java.awt.CardLayout;
-import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -58,7 +56,7 @@ public class ViewProfessorFeedbackJPanel extends javax.swing.JPanel {
                                         dtm.addRow(row);
                                     }
                                 } else {
-                                    Object[] row = new Object[8];
+                                    Object[] row = new Object[9];
                                     row[0] = c;
                                     row[1] = c.getTopic();
                                     row[2] = c.getName();
@@ -67,6 +65,7 @@ public class ViewProfessorFeedbackJPanel extends javax.swing.JPanel {
                                     row[5] = cs.getRegion();
                                     row[6] = cs.getLanguage();
                                     row[7] = "No feedback Provided";
+                                    row[8] = cs.getTerm()+cs.getYear();
                                     dtm.addRow(row);
                                 }
                             }
