@@ -290,6 +290,7 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
 //        lblApplicantFeedback.setVisible(false);
         txtStudentFeedback.setVisible(false);
         populateTable();
+        JOptionPane.showMessageDialog(this,"Status updated successfuly!");
     }//GEN-LAST:event_btnSaveStatusActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

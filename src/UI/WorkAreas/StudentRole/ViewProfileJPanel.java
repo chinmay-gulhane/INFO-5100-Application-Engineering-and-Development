@@ -6,6 +6,10 @@ package UI.WorkAreas.StudentRole;
 
 import Education.Education;
 import Education.Student.Student;
+import static Utiltities.Validations.validateEmail;
+import static Utiltities.Validations.validatePassword;
+import static Utiltities.Validations.validatePhone;
+import static Utiltities.Validations.validateUsername;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -82,6 +86,7 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         jLabel6.setText("Phone");
 
         txtStudentId.setEditable(false);
+        txtStudentId.setEnabled(false);
 
         txtUsername.setEditable(false);
 
@@ -211,7 +216,6 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 //        txtStudentId.setEditable(true);
         txtStudentName.setEditable(true);
-        txtUsername.setEditable(true);
         txtPassword.setEditable(true);
         txtEmail.setEditable(true);
         txtPhone.setEditable(true);
@@ -246,12 +250,32 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         // Validation if any field is left empty
         if(txtStudentName.getText().isEmpty() || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty() || txtEmail.getText().isEmpty()
            || txtPhone.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please enter all the fields");
+            JOptionPane.showMessageDialog(null, "Please fill all fields to procced futher!");
             return;
         }
+        
+        if(validateUsername(txtStudentName.getText())){
+            JOptionPane.showMessageDialog(this, "Name should be between 5 to 15 length and should not contain any special characters.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validatePhone(txtPhone.getText())){
+            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"+0000000000.\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validateEmail(txtEmail.getText())){
+            JOptionPane.showMessageDialog(this, "Please verify if email is in correct format \"youremail@xxx.xxx\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validatePassword(txtPassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
 
         student.setName(txtStudentName.getText());
-        student.setUsername(txtUsername.getText());
         student.setCurrentPassword(txtPassword.getText());
         student.setEmail(txtEmail.getText());
         student.setPhone(txtPhone.getText());

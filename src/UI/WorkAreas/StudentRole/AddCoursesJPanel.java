@@ -181,6 +181,10 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        if(txtSearch.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please fill search text field before processing.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         populateSearch(txtSearch.getText());
     }//GEN-LAST:event_btnSearchActionPerformed
 

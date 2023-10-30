@@ -9,8 +9,9 @@ import Education.Professor.Professor;
 import Education.Student.Student;
 import Utiltities.GraduationStatus;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import static Utiltities.Validations.*;
 
 
 /**
@@ -172,28 +173,64 @@ public class RegisterJPanel extends javax.swing.JPanel {
         String email = txtEmail.getText();
         String password = txtPassword.getText();
         
+        if(username.isEmpty() || name.isEmpty() || contactInfo.isEmpty() || email.isEmpty() || password.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please check if all fields are filled before processing", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validateUsername(name)){
+            JOptionPane.showMessageDialog(this, "Name should be between 5 to 15 length and should not contain any special characters.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validateUsername(username)){
+            JOptionPane.showMessageDialog(this, "Username should be between 5 to 15 length and should not contain any special characters.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validatePhone(contactInfo)){
+            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"+0000000000.\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validateEmail(email)){
+            JOptionPane.showMessageDialog(this, "Please verify if email is in correct format \"youremail@xxx.xxx\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validatePassword(password)){
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        for(Professor professor: education.getProfessorsDirectory().getProfessorList()){
+            if(professor.getUsername().equals(username)){
+                JOptionPane.showMessageDialog(this, "Username already exits. Please try with a new one.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        for(Student student: education.getStudentsDirectory().getStudentList()){
+            if(student.getUsername().equals(username)){
+                JOptionPane.showMessageDialog(this, "Username already exits. Please try with a new one.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
         if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
            education.getProfessorsDirectory().addProfessor("", username, name, password, email, contactInfo, "Register", false);
         }
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
            education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false, 0.0, GraduationStatus.NOTAPPLIED);
         }
-        
+        JOptionPane.showMessageDialog(this, "User registered successfuly!");
+
         txtUsername.setText("");
         txtName.setText("");
         txtContactInfo.setText("");
         txtEmail.setText("");
         txtPassword.setText("");
         
-        for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
-            System.out.println(professor.getProfessorId());
-            System.out.println(professor.getName());
-        }
-        
-        for(Student student : education.getStudentsDirectory().getStudentList()){
-            System.out.println(student.getStudentId());
-            System.out.println(student.getName());
-        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
