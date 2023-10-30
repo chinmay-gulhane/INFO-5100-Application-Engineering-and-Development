@@ -159,10 +159,12 @@ public class BillingJPanel extends javax.swing.JPanel {
             doc.add(tblCertificate);
             Paragraph concern = new Paragraph("If you have any questions or concerns, feel free to reach out to us.");
             concern.setSpacingBefore(100f);
-            concern.setSpacingAfter(20f);
             doc.add(concern);
+            Paragraph email = new Paragraph("Email: admin@eduverse.edu");
+            email.setSpacingAfter(20f);
+            doc.add(email);
             Paragraph electronicStatement = new Paragraph("This is an electronically generated document and doesn't require any signature or external verification.");
-            electronicStatement.setSpacingBefore(20f);
+            electronicStatement.setSpacingBefore(400f);
             doc.add(electronicStatement);
             doc.close();
             JOptionPane.showMessageDialog(null, "Downloaded PDF File", "ALERT_MESSAGE", JOptionPane.WARNING_MESSAGE);
