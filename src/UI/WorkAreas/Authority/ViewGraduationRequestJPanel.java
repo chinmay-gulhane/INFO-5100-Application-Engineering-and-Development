@@ -226,11 +226,8 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
                 lblStatus.setVisible(false);
                 optionsStatus.setVisible(false);
                 btnSaveStatus.setVisible(false);
-<<<<<<< HEAD
-=======
                 JOptionPane.showMessageDialog(this,"Status updated successfuly!");
                 return;
->>>>>>> main
             }
         }
         Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
