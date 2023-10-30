@@ -218,6 +218,7 @@ public class ViewStudentAdminJPanel extends javax.swing.JPanel {
                 optionsStatus.setVisible(false);
                 btnSaveStatus.setVisible(false);
                 populateTable();
+                JOptionPane.showMessageDialog(this,"Status updated successfuly!");
                 return;
             }
          }

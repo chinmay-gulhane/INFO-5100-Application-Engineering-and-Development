@@ -146,6 +146,12 @@ public class AddGradesJPanel extends javax.swing.JPanel {
 
         lblStudentName.setText("Grade for StudentFirstName StudentLastName:");
 
+        txtGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGradeActionPerformed(evt);
+            }
+        });
+
         btnSetGrade.setText("Set Grade");
         btnSetGrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +259,14 @@ public class AddGradesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblGrade.getSelectedRow();
         Student student = (Student)tblGrade.getValueAt(selectedRow, 0);
+        if(txtGrade.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please fill Grade for student to procced.", "Account Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (Double.valueOf(txtGrade.getText().trim()) <= 0 || Double.valueOf(txtGrade.getText().trim()) > 4){
+            JOptionPane.showMessageDialog(this, "Please make sure grade is between 0 and 4.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         String courseSchID = String.valueOf(optionsCourse.getSelectedItem()).trim().replaceAll(".*\\s+", "");
         student.getGrades().put(courseSchID,Double.valueOf(txtGrade.getText()));
         double sum = 0;
@@ -266,8 +280,12 @@ public class AddGradesJPanel extends javax.swing.JPanel {
                 populateTable(courseSch);
             }
         }
-
+        JOptionPane.showMessageDialog(this,"Grade updated successfuly!");
     }//GEN-LAST:event_btnSetGradeActionPerformed
+
+    private void txtGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGradeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGradeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

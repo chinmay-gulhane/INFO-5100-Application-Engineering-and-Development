@@ -224,6 +224,7 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
                 lblStatus.setVisible(false);
                 optionsStatus.setVisible(false);
                 btnSaveStatus.setVisible(false);
+                JOptionPane.showMessageDialog(this,"Status updated successfuly!");
                 return;
             }
         }

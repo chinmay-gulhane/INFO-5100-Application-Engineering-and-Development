@@ -5,6 +5,7 @@
 package UI.WorkAreas.EmployerRole;
 
 import Education.Education;
+import static Utiltities.Validations.validateUsername;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -150,15 +151,25 @@ public class AddJobJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please make sure all fields are filled in before proceeding.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+              
         boolean checkIfNumber;
         String yr = (txtJobId.getText());
         checkIfNumber = yr.matches("^[0-9]+$");
         if(!checkIfNumber) {
-            JOptionPane.showMessageDialog(null, "Job Id must have digits only");
+            JOptionPane.showMessageDialog(this, "Job Id must have digits only");
             return;
         } 
-
+        
+        if(validateUsername(jobTitle)){
+            JOptionPane.showMessageDialog(this, "Job Title should be between 5 to 15 length and should not contain any special characters.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(validateUsername(jobDescription)){
+            JOptionPane.showMessageDialog(this, "Job Description should be between 5 to 15 length and should not contain any special characters.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+       
         this.education.getEmployer().createJobPosting(jobId, jobTitle, jobDescription);
         JOptionPane.showMessageDialog(this,"Job added successfuly!");
         txtJobName.setText("");

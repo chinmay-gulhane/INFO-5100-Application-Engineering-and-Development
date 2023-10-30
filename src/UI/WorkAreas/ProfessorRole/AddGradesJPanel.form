@@ -165,6 +165,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtGrade">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGradeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSetGrade">
       <Properties>

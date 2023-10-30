@@ -204,9 +204,15 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        String usernameInput = txtUsername.getText();
-        String passwordInput = txtPassword.getText();
-
+        String usernameInput = txtUsername.getText().trim();
+        String passwordInput = txtPassword.getText().trim();
+        
+        if(usernameInput.isEmpty() || passwordInput.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please check if all fields are filled before processing", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
         if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
             for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
                 if((usernameInput.equals(professor.getUsername())) && (passwordInput.equals(professor.getCurrentPassword())))
