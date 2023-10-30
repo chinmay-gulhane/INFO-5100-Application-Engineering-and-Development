@@ -68,7 +68,7 @@ public class EducationConfigure {
         grades2.put("SH1002", 3.5);
         grades2.put("SH1003", 3.9);
         education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", "johsmith", "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000, GraduationStatus.NOTAPPLIED);
-
+        
 //// Student 3
 //        ArrayList<String> scheduleId3 = new ArrayList<>();
 //        scheduleId3.add("SH1004");
@@ -356,6 +356,13 @@ public class EducationConfigure {
 //        scheduleIdStudent50.add("SH1002");
 //        scheduleIdStudent50.add("SH1006");
 //        education.getStudentsDirectory().addStudent("S1049", "Elijah Clark", "elijclark", "elijclark", "elijah.clark@eduverse.edu", "(555) 555-5601", 8.5, scheduleIdStudent50, "Active", true);
+
+
+
+    // Jobs
+//        education.getEmployer().createJobPosting("1", "SDE 1", "Oracle");
+//        education.getEmployer().createJobPosting("2", "SDE 2", "Amazon");
+//        education.getEmployer().createJobPosting("3", "SDE 3", "Facebook");
 
         return education;
     }

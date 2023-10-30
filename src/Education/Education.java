@@ -11,6 +11,7 @@ import Education.Courses.CoursesDirectory;
 import Education.Professor.ProfessorsDirectory;
 import Education.Student.StudentsDirectory;
 import Education.Courses.CourseSchedulesDirectory;
+import Education.Employer.Employer;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Education {
     private String name;
     private Admin admin;
     private Authority authority;
+    private Employer employer;
     private ProfessorsDirectory professorsDirectory;
     private StudentsDirectory studentsDirectory;
     private CoursesDirectory courseDirectory;
@@ -35,6 +37,7 @@ public class Education {
         this.name = name;
         this.admin = new Admin("admin","admin",professorAwaitingRegistration,studentAwaitingRegistration);
         this.authority = new Authority("authority","authority");
+        this.employer = new Employer("employer", "employer");
         this.professorsDirectory = new ProfessorsDirectory();
         this.studentsDirectory = new StudentsDirectory();
         this.courseDirectory = new CoursesDirectory();
@@ -53,6 +56,10 @@ public class Education {
         return authority;
     }
 
+    public Employer getEmployer() {
+        return employer;
+    }
+    
     public ProfessorsDirectory getProfessorsDirectory() {
         return professorsDirectory;
     }

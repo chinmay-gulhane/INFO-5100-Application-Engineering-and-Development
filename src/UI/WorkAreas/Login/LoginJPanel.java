@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import UI.WorkAreas.Authority.AuthorityJPanel;
+import UI.WorkAreas.EmployerRole.EmployerJPanel;
 import UI.WorkAreas.Register.RegisterJPanel;
 import javax.swing.JOptionPane;
 
@@ -86,7 +87,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblRole.setText("Role:");
 
         optionsRole.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        optionsRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student", "Admin", "Authority" }));
+        optionsRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student", "Admin", "Authority", "Employer" }));
 
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
@@ -265,6 +266,16 @@ public class LoginJPanel extends javax.swing.JPanel {
                {
                     AuthorityJPanel panel = new AuthorityJPanel(userProcessContainer,education);
                     userProcessContainer.add("AuthorityJPanel", panel);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+                    return;
+               }
+        }
+        if("Employer".equals(String.valueOf(optionsRole.getSelectedItem()))){
+             if((usernameInput.equals(education.getEmployer().getUsername())) && (passwordInput.equals(education.getEmployer().getPassword())))
+               {
+                    EmployerJPanel panel = new EmployerJPanel(userProcessContainer,education);
+                    userProcessContainer.add("EmployerJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                     layout.next(userProcessContainer);
                     return;
