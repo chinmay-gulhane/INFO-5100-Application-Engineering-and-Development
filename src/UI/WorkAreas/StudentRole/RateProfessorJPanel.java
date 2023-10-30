@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -211,6 +212,8 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
                 }
             }
         }
+        txtCourse.setText("");
+        JOptionPane.showMessageDialog(null, "Course rating submitted. Thank you!");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnRateProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRateProfessorActionPerformed
@@ -228,9 +231,11 @@ for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseSchedul
             double profRating = cs.getTeachingProfessorRating() + Double.valueOf(txtProf.getText());
                     double avgProfRating = (double) profRating / 2;
                     cs.setTeachingProfessorRating(avgProfRating);
-                    txtCourse.setText(String.valueOf(avgProfRating));
+                    txtProf.setText(String.valueOf(avgProfRating));
         }
 }
+txtProf.setText("");
+JOptionPane.showMessageDialog(null, "Professor's rating submitted. Thank you!");
     }//GEN-LAST:event_btnSubmit1ActionPerformed
 
     private void optionsCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsCoursesActionPerformed

@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -159,7 +160,8 @@ initComponents();
                 }
             }
         }
-        
+        JOptionPane.showMessageDialog(null, "Feedback submitted. Thank you!");
+        feedbackText.setText("");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

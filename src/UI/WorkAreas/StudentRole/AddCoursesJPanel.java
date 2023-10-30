@@ -200,6 +200,7 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                 populateTable();
             }
         }
+        JOptionPane.showMessageDialog(null, "Added a new course to the schedule");
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

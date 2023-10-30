@@ -164,7 +164,7 @@ public class BillingJPanel extends javax.swing.JPanel {
             email.setSpacingAfter(20f);
             doc.add(email);
             Paragraph electronicStatement = new Paragraph("This is an electronically generated document and doesn't require any signature or external verification.");
-            electronicStatement.setSpacingBefore(400f);
+            electronicStatement.setSpacingBefore(50f);
             doc.add(electronicStatement);
             doc.close();
             JOptionPane.showMessageDialog(null, "Downloaded PDF File", "ALERT_MESSAGE", JOptionPane.WARNING_MESSAGE);
