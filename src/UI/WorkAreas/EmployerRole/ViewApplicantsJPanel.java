@@ -41,6 +41,8 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
         lblStatus.setVisible(false);
         optionsStatus.setVisible(false);
         btnSaveStatus.setVisible(false);
+//        lblApplicantFeedback.setVisible(false);
+        txtStudentFeedback.setVisible(false);
     }
     
     public void populateTable(){
@@ -88,6 +90,9 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtJobName = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtStudentFeedback = new javax.swing.JTextArea();
+        lblApplicantFeedback = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(900, 500));
@@ -169,6 +174,13 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
 
         txtJobName.setEditable(false);
 
+        txtStudentFeedback.setColumns(20);
+        txtStudentFeedback.setRows(5);
+        jScrollPane2.setViewportView(txtStudentFeedback);
+
+        lblApplicantFeedback.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblApplicantFeedback.setText("Applicant Feedback");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,7 +189,7 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +209,16 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
                         .addGap(30, 30, 30)
                         .addComponent(optionsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnUpdateStatus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(50, 50, 50))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblApplicantFeedback)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBack)
+                        .addGap(50, 50, 50))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,16 +238,21 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdateStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBack))
+                    .addComponent(lblApplicantFeedback, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(optionsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnSaveStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(optionsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSaveStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -242,6 +266,8 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
         lblStatus.setVisible(true);
         optionsStatus.setVisible(true);
         btnSaveStatus.setVisible(true);
+//        lblApplicantFeedback.setVisible(true);
+        txtStudentFeedback.setVisible(true);
     }//GEN-LAST:event_btnUpdateStatusActionPerformed
 
     private void optionsStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsStatusActionPerformed
@@ -257,9 +283,12 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
         } else {
             jobPosting.rejectStudent(studentU);
         }
+        studentU.addFeedback(jobPosting, txtStudentFeedback.getText());
         lblStatus.setVisible(false);
         optionsStatus.setVisible(false);
         btnSaveStatus.setVisible(false);
+//        lblApplicantFeedback.setVisible(false);
+        txtStudentFeedback.setVisible(false);
         populateTable();
     }//GEN-LAST:event_btnSaveStatusActionPerformed
 
@@ -279,10 +308,13 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblApplicantFeedback;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JComboBox<String> optionsStatus;
     private javax.swing.JTable tblApplicants;
     private javax.swing.JTextField txtJobId;
     private javax.swing.JTextField txtJobName;
+    private javax.swing.JTextArea txtStudentFeedback;
     // End of variables declaration//GEN-END:variables
 }

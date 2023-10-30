@@ -60,7 +60,7 @@ public class JobPosting {
             student.getAppliedJobs().put(this, "Accepted");
         }
     }
-
+    
     public void rejectStudent(Student student) {
         if (applicants.containsKey(student)) {
             applicants.put(student, "Rejected");

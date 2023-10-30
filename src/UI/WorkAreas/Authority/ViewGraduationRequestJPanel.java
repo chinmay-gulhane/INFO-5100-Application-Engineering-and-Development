@@ -63,7 +63,7 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
                 } else if(student.getGraduationStatus() == GraduationStatus.APPLIED){
                     row[4] = "Applied";
                 } else if(student.getGraduationStatus() == GraduationStatus.ACCEPTED){
-                    row[4] = "Geaduated"; 
+                    row[4] = "Graduated"; 
                 } else if(student.getGraduationStatus() == GraduationStatus.REJECTED){
                     row[4] = "Rejected";
                 }
