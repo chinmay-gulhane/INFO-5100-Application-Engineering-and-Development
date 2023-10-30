@@ -11,6 +11,7 @@ import Education.Professor.Professor;
 import Education.Student.Student;
 import Utiltities.GraduationStatus;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -207,6 +208,7 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
 
     private void btnSaveStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStatusActionPerformed
         // TODO add your handling code here:
+        System.out.println("Save button pushed");
         int selectedRow = tblGradRequests.getSelectedRow();
         Student studentU = (Student)tblGradRequests.getValueAt(selectedRow, 0);
        if(optionsStatus.getSelectedItem() == "Accept"){
@@ -224,9 +226,16 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
                 lblStatus.setVisible(false);
                 optionsStatus.setVisible(false);
                 btnSaveStatus.setVisible(false);
+<<<<<<< HEAD
+=======
                 JOptionPane.showMessageDialog(this,"Status updated successfuly!");
                 return;
+>>>>>>> main
             }
+        }
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
+        if(component instanceof AuthorityJPanel authorityJPanel) {
+            authorityJPanel.setUpAuthorityDashboard();
         }
     }//GEN-LAST:event_btnSaveStatusActionPerformed
 

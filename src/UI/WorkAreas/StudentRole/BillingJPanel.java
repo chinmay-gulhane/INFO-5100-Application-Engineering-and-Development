@@ -15,6 +15,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
@@ -177,6 +178,10 @@ public class BillingJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
+        if(component instanceof StudentJPanel studentJPanel) {
+            studentJPanel.setupStudentDashboard();
+        }
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
