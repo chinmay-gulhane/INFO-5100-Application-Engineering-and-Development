@@ -33,7 +33,7 @@ public class EducationConfigure {
         education.getCourseScheduleDirectory().addCourseSchedule("SH1000", "INFO 5001", "01/08/2022", "01/12/2022", "Fall", 2024, "P1000", "English", "Boston", 9.2);
         education.getCourseScheduleDirectory().addCourseSchedule("SH1001", "INFO 5001", "01/08/2023", "01/12/2023", "Fall", 2023, "P1000", "English", "Boston", 8.3);
         education.getCourseScheduleDirectory().addCourseSchedule("SH1002", "INFO 5101", "01/01/2022", "01/04/2022", "Spring", 2022, "P1001", "English", "Boston", 8.7);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1003", "INFO 5101", "01/08/2022", "01/12/2022", "Fall", 2022, "P1002", "English", "Boston", 9.1);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1003", "INFO 5101", "01/08/2022", "01/12/2022", "Fall", 2022, "P1002", "English", "Boston", 9.1);
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1004", "INFO 6150", "01/08/2021", "01/12/2021", "Fall", 2021, "P1003", "English", "Boston", 7.8);
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1005", "CSYE 6200", "01/08/2022", "01/12/2022", "Fall", 2022, "P1004", "English", "Boston",7.9);
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1006", "CSYE 6620", "01/01/2023", "01/04/2023", "Spring", 2023, "P1004", "English", "Boston", 8.4);
@@ -61,15 +61,15 @@ public class EducationConfigure {
         Map<String, Double> grades1 = new HashMap<>();
         grades1.put("SH1000", 3.8);
         grades1.put("SH1002", 4.0);
-        grades1.put("SH1003", 2.0);
-        grades1.put("SH1001", 3.0);
+  //      grades1.put("SH1003", 2.0);
+  //      grades1.put("SH1001", 3.0);
         education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", "sambar", "samiksha.baral@eduverse.edu", "(555) 555-5555", 3.2, grades1, "Active", true, 2000, GraduationStatus.NOTAPPLIED);
 
 // Student 2
         Map<String, Double> grades2 = new HashMap<>();
-        grades2.put("SH1002", 3.5);
+    //    grades2.put("SH1002", 3.5);
         grades2.put("SH1003", 3.9);
-        grades2.put("SH1000", 0.2);
+    //    grades2.put("SH1000", 0.2);
         grades2.put("SH1001", 3.2);
         education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", "johsmith", "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000, GraduationStatus.NOTAPPLIED);
         
