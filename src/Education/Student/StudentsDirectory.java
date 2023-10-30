@@ -30,7 +30,7 @@ public class StudentsDirectory {
         this.studentList = studentList;
     }
 
-    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, Map<String, Double> grades, String status, boolean isPartOfOrganization, double amountOwed, GraduationStatus graduationStatus) {
+    public Student addStudent(String studentId,String name,String username, String currentPassword, String email, String phone, double gpa, Map<String, Double> grades, String status, boolean isPartOfOrganization, double amountOwed, GraduationStatus graduationStatus, ArrayList<String> passwordHistory) {
         Student student = new Student();
         student.setGrades(grades);
         student.setCurrentPassword(currentPassword);
@@ -49,6 +49,7 @@ public class StudentsDirectory {
        }
         student.setUsername(username);
         student.setAmountOwed(amountOwed);
+        student.setPasswordHistory(passwordHistory);
         studentList.add(student);
         return student;
     }

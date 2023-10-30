@@ -13,6 +13,7 @@ import static Utiltities.Validations.validateUsername;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -187,7 +188,7 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         }
         
         if(validatePhone(contactInfo)){
-            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"+0000000000.\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"(000) 000-0000\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -201,7 +202,7 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(!password.equals(professor.getCurrentPassword())){
+        if(!BCrypt.checkpw(password,professor.getCurrentPassword())){
             for(String passwordOld : professor.getPasswordHistory()){
                 if(password.equals(passwordOld)){
                     JOptionPane.showMessageDialog(this, "Password already used. Please enter a new password.","Warning",JOptionPane.WARNING_MESSAGE);
@@ -209,14 +210,16 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
                 }
             }
         }
-        professor.getPasswordHistory().add(professor.getCurrentPassword());
+        professor.getPasswordHistory().add(password);
+        String salt = BCrypt.gensalt();
+        String Cpassword = BCrypt.hashpw(password, salt);
         for(Professor professorU : education.getProfessorsDirectory().getProfessorList()){
             if(professor.getProfessorId().equals(professorU.getProfessorId())){
                 professorU.setName(name);
                 professorU.setUsername(userName);
                 professorU.setPhone(contactInfo);
                 professorU.setEmail(email);
-                professorU.setCurrentPassword(password);
+                professorU.setCurrentPassword(Cpassword);
                 JOptionPane.showMessageDialog(this,"Professor details updated successfuly!");
                 return;
             }

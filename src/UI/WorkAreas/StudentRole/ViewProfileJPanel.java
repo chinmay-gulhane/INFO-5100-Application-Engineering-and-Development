@@ -13,6 +13,7 @@ import static Utiltities.Validations.validateUsername;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -260,7 +261,7 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         }
         
         if(validatePhone(txtPhone.getText())){
-            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"+0000000000.\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"(000) 000-0000\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -273,10 +274,20 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-
+        String password = txtPassword.getText();
+        if(!BCrypt.checkpw(password,student.getCurrentPassword())){
+            for(String passwordOld : student.getPasswordHistory()){
+                if(password.equals(passwordOld)){
+                    JOptionPane.showMessageDialog(this, "Password already used. Please enter a new password.","Warning",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+        }
+        student.getPasswordHistory().add(password);
+        String salt = BCrypt.gensalt();
+        String Cpassword = BCrypt.hashpw(password, salt);
         student.setName(txtStudentName.getText());
-        student.setCurrentPassword(txtPassword.getText());
+        student.setCurrentPassword(Cpassword);
         student.setEmail(txtEmail.getText());
         student.setPhone(txtPhone.getText());
         JOptionPane.showMessageDialog(this, "Profle Information Updated");
