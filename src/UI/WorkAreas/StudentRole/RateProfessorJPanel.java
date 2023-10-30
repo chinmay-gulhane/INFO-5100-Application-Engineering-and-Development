@@ -86,6 +86,8 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
         txtProf = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         btnSubmit1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +101,9 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
                 optionsCoursesActionPerformed(evt);
             }
         });
+
+        txtProfessor.setEditable(false);
+        txtProfessor.setEnabled(false);
 
         btnRateCourse.setText("Rate Course");
         btnRateCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -128,23 +133,14 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Select Course:");
+
+        jLabel2.setText("Professor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(optionsCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRateProfessor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtProf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(270, 270, 270)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,11 +158,32 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
                                 .addComponent(btnSubmit)))
                         .addGap(304, 304, 304)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRateProfessor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtProf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(270, 270, 270))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(optionsCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(txtProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(optionsCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,6 +219,10 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if(txtCourse.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please fill Course rating to procced.", "Account Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
             for (Course c : education.getCourseDirectory().getCourseList()) {
                 if (cs.getCourseId().equals(c.getCourseId())) {
@@ -225,6 +246,10 @@ public class RateProfessorJPanel extends javax.swing.JPanel {
 
     private void btnSubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit1ActionPerformed
         // TODO add your handling code here:
+        if(txtProf.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please fill Professor rating to procced.", "Account Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
  
         if(cs.getTeachingProfessorId().equals(selectedProfessorId) ){
@@ -256,6 +281,8 @@ JOptionPane.showMessageDialog(null, "Professor's rating submitted. Thank you!");
     private javax.swing.JButton btnRateProfessor;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnSubmit1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JComboBox<String> optionsCourses;
     private javax.swing.JTextField txtCourse;
     private javax.swing.JTextField txtProf;
