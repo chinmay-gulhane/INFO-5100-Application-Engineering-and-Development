@@ -4,6 +4,9 @@
  */
 package Education.Courses;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  *
@@ -20,6 +23,15 @@ public class CourseSchedule {
     private double teachingProfessorRating;
     private String language;
     private String region;
+    Map<String, String> professorFeedback = new HashMap<>();
+
+    public Map<String, String> getProfessorFeedback() {
+        return professorFeedback;
+    }
+
+    public void setProfessorFeedback(Map<String, String> professorFeedback) {
+        this.professorFeedback = professorFeedback;
+    }
 
     public double getTeachingProfessorRating() {
         return teachingProfessorRating;
