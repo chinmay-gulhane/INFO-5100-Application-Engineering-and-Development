@@ -360,10 +360,10 @@ public class EducationConfigure {
 
 
     // Jobs
-//        education.getEmployer().createJobPosting("1", "SDE 1", "Oracle");
-//        education.getEmployer().createJobPosting("2", "SDE 2", "Amazon");
-//        education.getEmployer().createJobPosting("3", "SDE 3", "Facebook");
-
+        education.getEmployer().createJobPosting("1", "SDE 1", "Oracle");
+        education.getEmployer().createJobPosting("2", "SDE 2", "Amazon");
+        education.getEmployer().createJobPosting("3", "SDE 3", "Facebook");
+        
         return education;
     }
 }

@@ -30,6 +30,8 @@ public class Student {
     private GraduationStatus graduationStatus;
     // Map to track applied jobs and their application status
     private Map<JobPosting, String> appliedJobs;
+    // Map to track feedbacks from employers     
+    private Map<JobPosting, String> feedbacks;
 
     public GraduationStatus getGraduationStatus() {
         return graduationStatus;
@@ -143,6 +145,7 @@ public class Student {
 
     public Student() {
         this.appliedJobs = new HashMap<>();
+        this.feedbacks = new HashMap<>();
     }
    
      public Map<JobPosting, String> getAppliedJobs() {
@@ -160,4 +163,11 @@ public class Student {
         return unappliedJobs;
     }
     
+     public void addFeedback(JobPosting jobPosting, String feedback) {
+        this.feedbacks.put(jobPosting, feedback);
+    }
+
+    public Map<JobPosting, String> getFeedbacks() {
+        return feedbacks;
+    }
 }
