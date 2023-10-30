@@ -16,6 +16,7 @@ import UI.WorkAreas.Authority.AuthorityJPanel;
 import UI.WorkAreas.EmployerRole.EmployerJPanel;
 import UI.WorkAreas.Register.RegisterJPanel;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -215,7 +216,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
             for(Professor professor : education.getProfessorsDirectory().getProfessorList()){
-                if((usernameInput.equals(professor.getUsername())) && (passwordInput.equals(professor.getCurrentPassword())))
+                if((usernameInput.equals(professor.getUsername())) && (BCrypt.checkpw(passwordInput,professor.getCurrentPassword())))
                 {
                     if(professor.getStatus().equals("Register")){
                         JOptionPane.showMessageDialog(this, "User account verification pending. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);
@@ -237,7 +238,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         }
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
             for(Student student : education.getStudentsDirectory().getStudentList()){
-                if((usernameInput.equals(student.getUsername())) && (passwordInput.equals(student.getCurrentPassword())))
+                if((usernameInput.equals(student.getUsername())) && (BCrypt.checkpw(passwordInput,student.getCurrentPassword())))
                 {
                     if(student.getStatus().equals("Register")){
                         JOptionPane.showMessageDialog(this, "User account verification pending. Please contact admin.", "Account Error", JOptionPane.ERROR_MESSAGE);

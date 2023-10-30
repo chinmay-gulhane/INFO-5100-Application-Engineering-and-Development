@@ -16,7 +16,7 @@ public class Validations {
   }
     
     public static boolean validateUsername(String username) {
-        return !username.matches("^[a-zA-Z0-9]{5,15}$");
+        return !username.matches("^[a-zA-Z0-9.\\s]{5,15}$");
     }
     
     public static boolean validateEmail(String email) {
@@ -24,7 +24,7 @@ public class Validations {
     }
             
     public static boolean validatePhone(String phone) {
-        return !phone.matches("^\\+\\d{10}$");
+        return !phone.matches("^\\(\\d{3}\\)\\s\\d{3}-\\d{4}$");
     }
     
     
