@@ -4,6 +4,7 @@ import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -234,6 +235,10 @@ public class ViewPendingRegistrationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
+        if(component instanceof AdminJPanel adminJPanel) {
+            adminJPanel.setupAdminDashboard();
+        }
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

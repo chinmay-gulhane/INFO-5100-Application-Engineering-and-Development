@@ -7,6 +7,7 @@ package UI.WorkAreas.StudentRole;
 import Education.Education;
 import Education.Student.Student;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -106,6 +107,10 @@ initComponents();
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
+        if(component instanceof StudentJPanel studentJPanel) {
+            studentJPanel.setupStudentDashboard();
+        }
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
