@@ -12,6 +12,8 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import static Utiltities.Validations.*;
+import java.util.ArrayList;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 /**
@@ -172,6 +174,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
         String contactInfo = txtContactInfo.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
+        String salt = BCrypt.gensalt();
+        String Cpassword = BCrypt.hashpw(password, salt);
         
         if(username.isEmpty() || name.isEmpty() || contactInfo.isEmpty() || email.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please check if all fields are filled before processing", "Validation Error", JOptionPane.ERROR_MESSAGE);
@@ -189,7 +193,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         }
         
         if(validatePhone(contactInfo)){
-            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"+0000000000.\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please verify if Phone number is in correct format \"(000) 000-0000\"", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -216,12 +220,13 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 return;
             }
         }
-        
-        if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){
-           education.getProfessorsDirectory().addProfessor("", username, name, password, email, contactInfo, "Register", false);
+        ArrayList<String> passHistory = new ArrayList<>();
+        passHistory.add(password);
+        if("Professor".equals(String.valueOf(optionsRole.getSelectedItem()))){           
+           education.getProfessorsDirectory().addProfessor("", username, name, Cpassword, email, contactInfo, "Register", false, passHistory);
         }
         if("Student".equals(String.valueOf(optionsRole.getSelectedItem()))){
-           education.getStudentsDirectory().addStudent("",name, username, password, email, contactInfo, 0, null, "Register", false, 0.0, GraduationStatus.NOTAPPLIED);
+           education.getStudentsDirectory().addStudent("",name, username, Cpassword, email, contactInfo, 0, null, "Register", false, 0.0, GraduationStatus.NOTAPPLIED, passHistory);
         }
         JOptionPane.showMessageDialog(this, "User registered successfuly!");
 

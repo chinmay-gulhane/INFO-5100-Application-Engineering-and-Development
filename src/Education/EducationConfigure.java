@@ -5,8 +5,10 @@
 package Education;
 
 import Utiltities.GraduationStatus;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -16,7 +18,7 @@ public class EducationConfigure {
 
     public static Education initialize() {
         Education education = new Education("Eduverse");
-
+        String salt = BCrypt.gensalt();
         education.getCourseDirectory().addCourse("Application Modeling and Design", "INFO 5001", "Information Systems Programs", "P1000", 4, 9.4);
         education.getCourseDirectory().addCourse("Application Engineering and Development", "INFO 5101", "Information Systems Programs", "P1000", 4, 7);
         education.getCourseDirectory().addCourse("Web Design and User Experience Engineering", "INFO 6150", "Information Systems Programs", "P1001", 4, 10);
@@ -42,9 +44,14 @@ public class EducationConfigure {
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1009", "ENCP 6101", "01/01/2020", "01/04/2020", "Spring", 2020, "P1007", "English", "Boston", 8.6);
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1010", "DASC 2000", "01/08/2020", "01/12/2020", "Fall", 2020, "P1008", "English", "Boston", 7.8);
 //        education.getCourseScheduleDirectory().addCourseSchedule("SH1011", "DASC 2010", "01/08/2023", "01/12/2023", "Fall", 2023, "P1009", "English", "Boston", 8.9);
-
-        education.getProfessorsDirectory().addProfessor("P1000", "SarMil", "Dr. Sarah Miller", "SarMil", "sarah.miller@eduverse.edu", "(555) 555-5555", "Active", true);
-        education.getProfessorsDirectory().addProfessor("P1001", "MicJoh", "Dr. Michael Johnson", "MicJoh", "michael.johnson@eduverse.edu", "(555) 555-5556", "Active", true);
+        ArrayList<String> passHistory = new ArrayList<>();
+        passHistory.add("SarMil");
+        String Cpassword = BCrypt.hashpw("SarMil", salt);
+        education.getProfessorsDirectory().addProfessor("P1000", "SarMil", "Dr. Sarah Miller", Cpassword, "sarah.miller@eduverse.edu", "(555) 555-5555", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("MicJoh");
+        Cpassword = BCrypt.hashpw("MicJoh", salt);
+        education.getProfessorsDirectory().addProfessor("P1001", "MicJoh", "Dr. Michael Johnson", Cpassword, "michael.johnson@eduverse.edu", "(555) 555-5556", "Active", true, passHistory);
 //        education.getProfessorsDirectory().addProfessor("P1002", "EmiSmi", "Prof. Emily Smith", "EmiSmi", "emily.smith@eduverse.edu", "(781) 555-5557", "Active", true);
 //        education.getProfessorsDirectory().addProfessor("P1003", "DavDav", "Dr. David Davis", "DavDav", "david.davis@eduverse.edu", "(721) 555-5558", "Active", true);
 //        education.getProfessorsDirectory().addProfessor("P1004", "JenWhi", "Dr. Jennifer White", "JenWhi", "jennifer.white@eduverse.edu", "(581) 555-5559", "Active", true);
@@ -63,7 +70,9 @@ public class EducationConfigure {
         grades1.put("SH1002", 4.0);
   //      grades1.put("SH1003", 2.0);
   //      grades1.put("SH1001", 3.0);
-        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", "sambar", "samiksha.baral@eduverse.edu", "(555) 555-5555", 3.2, grades1, "Active", true, 2000, GraduationStatus.NOTAPPLIED);
+        passHistory.add("sambar");
+        Cpassword = BCrypt.hashpw("sambar", salt);
+        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", Cpassword, "samiksha.baral@eduverse.edu", "(555) 555-5555", 3.2, grades1, "Active", true, 2000, GraduationStatus.NOTAPPLIED, passHistory);
 
 // Student 2
         Map<String, Double> grades2 = new HashMap<>();
@@ -71,7 +80,10 @@ public class EducationConfigure {
         grades2.put("SH1003", 3.9);
     //    grades2.put("SH1000", 0.2);
         grades2.put("SH1001", 3.2);
-        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", "johsmith", "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000, GraduationStatus.NOTAPPLIED);
+        passHistory.clear();
+        passHistory.add("johsmith");
+        Cpassword = BCrypt.hashpw("johsmith", salt);
+        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000, GraduationStatus.NOTAPPLIED, passHistory);
         
 //// Student 3
 //        ArrayList<String> scheduleId3 = new ArrayList<>();

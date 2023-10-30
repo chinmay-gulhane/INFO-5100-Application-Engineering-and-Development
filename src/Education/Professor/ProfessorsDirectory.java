@@ -29,7 +29,7 @@ public class ProfessorsDirectory {
         this.professorList = professorList;
     }
    
-    public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,String status,boolean isPartOfOrganization){
+    public Professor addProfessor(String professorId,String username,String name,String currentPassword,String email,String phone,String status,boolean isPartOfOrganization,ArrayList<String> passwordHistory){
        Professor prof = new Professor();
        prof.setUsername(username);
        if(professorId.equals("")){
@@ -44,6 +44,7 @@ public class ProfessorsDirectory {
        prof.setPhone(phone);
        prof.setStatus(status);
        prof.setIsPartOfOrganization(isPartOfOrganization);
+       prof.setPasswordHistory(passwordHistory);
        professorList.add(prof);
        return prof;
    } 
