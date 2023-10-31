@@ -224,10 +224,15 @@ public class ViewGraduationRequestJPanel extends javax.swing.JPanel {
 
     private void btnSaveStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStatusActionPerformed
         // TODO add your handling code here:
-        System.out.println("Save button pushed");
         int selectedRow = tblGradRequests.getSelectedRow();
         Student studentU = (Student)tblGradRequests.getValueAt(selectedRow, 0);
        if(optionsStatus.getSelectedItem() == "Accept"){
+        int courseCount = (Integer)tblGradRequests.getValueAt(selectedRow, 2);
+        System.out.println("courseCount" + courseCount);
+            if(courseCount < 8){
+               JOptionPane.showMessageDialog(this, "Student cannot graduate without taking 8 courses","Warning",JOptionPane.WARNING_MESSAGE);
+               return;
+            }
             tblGradRequests.setValueAt("Accepted", selectedRow, 4);
         } else {
             tblGradRequests.setValueAt("Rejected", selectedRow, 4);
