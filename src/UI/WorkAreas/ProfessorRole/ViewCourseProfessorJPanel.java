@@ -138,7 +138,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
 
         lblHeader.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeader.setText("View Course");
+        lblHeader.setText("View Courses");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

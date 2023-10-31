@@ -22,14 +22,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblCourseID" linkSize="1" max="32767" attributes="0"/>
                       <Component id="lblCourseName" linkSize="1" alignment="1" max="32767" attributes="0"/>
                       <Component id="lblCourseTopic" linkSize="1" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="lblCourseCredit" linkSize="1" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="lblCourseCredit" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -39,10 +39,7 @@
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="txtCourseCredit" min="-2" pref="252" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="txtCourseCredit" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Component id="txtCourseName" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtCourseID" alignment="0" max="32767" attributes="0"/>
@@ -68,20 +65,17 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblCourseID" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtCourseID" min="-2" pref="31" max="-2" attributes="0"/>
-                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="txtCourseID" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="optionsTopic" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="lblCourseTopic" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCourseCredit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="lblCourseCredit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="txtCourseCredit" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
