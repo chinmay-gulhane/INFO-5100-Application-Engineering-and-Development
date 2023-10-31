@@ -181,7 +181,7 @@
           <Font name="SansSerif" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="View Course"/>
+        <Property name="text" type="java.lang.String" value="View Courses"/>
       </Properties>
     </Component>
   </SubComponents>
