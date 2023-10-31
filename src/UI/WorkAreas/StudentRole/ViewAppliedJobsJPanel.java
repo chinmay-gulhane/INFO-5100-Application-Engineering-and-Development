@@ -61,7 +61,9 @@ public class ViewAppliedJobsJPanel extends javax.swing.JPanel {
         tblJobs = new javax.swing.JTable();
         btnBack1 = new javax.swing.JButton();
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("View Applied Jobs");
 
