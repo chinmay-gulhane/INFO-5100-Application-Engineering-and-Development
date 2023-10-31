@@ -65,6 +65,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         btnRemoveCourse = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnCreateSchedule = new javax.swing.JButton();
+        lblHeader = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         tblCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,6 +96,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             tblCourse.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnUpdateCourse.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdateCourse.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnUpdateCourse.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateCourse.setText("Update Course");
         btnUpdateCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +106,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRemoveCourse.setBackground(new java.awt.Color(0, 0, 0));
+        btnRemoveCourse.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnRemoveCourse.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoveCourse.setText("Remove Course");
         btnRemoveCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +116,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +126,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreateSchedule.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreateSchedule.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCreateSchedule.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateSchedule.setText("Create Course Schedule");
         btnCreateSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,25 +136,28 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblHeader.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeader.setText("View Course");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCreateSchedule)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnUpdateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnRemoveCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(btnCreateSchedule)
+                .addGap(41, 41, 41)
+                .addComponent(btnUpdateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(btnRemoveCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(50, 50, 50))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateSchedule, btnRemoveCourse, btnUpdateCourse});
@@ -147,16 +165,17 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(40, 40, 40)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemoveCourse)
-                    .addComponent(btnCreateSchedule))
-                .addGap(101, 101, 101)
-                .addComponent(btnBack)
-                .addGap(44, 44, 44))
+                    .addComponent(btnCreateSchedule)
+                    .addComponent(btnBack))
+                .addGap(90, 90, 90))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateSchedule, btnRemoveCourse, btnUpdateCourse});
@@ -226,6 +245,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRemoveCourse;
     private javax.swing.JButton btnUpdateCourse;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHeader;
     private javax.swing.JTable tblCourse;
     // End of variables declaration//GEN-END:variables
 }
