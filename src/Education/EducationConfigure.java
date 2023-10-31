@@ -32,37 +32,71 @@ public class EducationConfigure {
         education.getCourseDirectory().addCourse("Introduction to Data Mining/Machine Learning", "DANA 5030", "Data Analytics", "P1008", 2, 8.5);
         education.getCourseDirectory().addCourse("Systems Security", "CYSC 3740", "Cybersecurity", "P100", 2, 8.5);
 
-        education.getCourseScheduleDirectory().addCourseSchedule("SH1000", "INFO 5001", "01/08/2022", "01/12/2022", "Fall", 2024, "P1000", "English", "Boston", 9.2);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1000", "INFO 5001", "01/08/2024", "01/12/2024", "Fall", 2024, "P1000", "English", "Boston", 9.2);
         education.getCourseScheduleDirectory().addCourseSchedule("SH1001", "INFO 5001", "01/08/2023", "01/12/2023", "Fall", 2023, "P1000", "English", "Boston", 8.3);
         education.getCourseScheduleDirectory().addCourseSchedule("SH1002", "INFO 5101", "01/01/2022", "01/04/2022", "Spring", 2022, "P1001", "English", "Boston", 8.7);
         education.getCourseScheduleDirectory().addCourseSchedule("SH1003", "INFO 5101", "01/08/2022", "01/12/2022", "Fall", 2022, "P1002", "English", "Boston", 9.1);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1004", "INFO 6150", "01/08/2021", "01/12/2021", "Fall", 2021, "P1003", "English", "Boston", 7.8);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1005", "CSYE 6200", "01/08/2022", "01/12/2022", "Fall", 2022, "P1004", "English", "Boston",7.9);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1006", "CSYE 6620", "01/01/2023", "01/04/2023", "Spring", 2023, "P1004", "English", "Boston", 8.4);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1007", "CSYE 6620", "01/08/2021", "01/12/2021", "Fall", 2021, "P1005", "English", "Boston", 7.2);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1008", "ENCP 6100", "01/08/2023", "01/12/2023", "Fall", 2023, "P1006", "English", "Boston", 9.4);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1009", "ENCP 6101", "01/01/2020", "01/04/2020", "Spring", 2020, "P1007", "English", "Boston", 8.6);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1010", "DASC 2000", "01/08/2020", "01/12/2020", "Fall", 2020, "P1008", "English", "Boston", 7.8);
-//        education.getCourseScheduleDirectory().addCourseSchedule("SH1011", "DASC 2010", "01/08/2023", "01/12/2023", "Fall", 2023, "P1009", "English", "Boston", 8.9);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1004", "INFO 6150", "01/08/2021", "01/12/2021", "Fall", 2021, "P1003", "English", "Boston", 7.8);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1005", "CSYE 6200", "01/08/2022", "01/12/2022", "Fall", 2022, "P1004", "English", "Boston",7.9);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1006", "CSYE 6620", "01/01/2023", "01/04/2023", "Spring", 2023, "P1004", "English", "Boston", 8.4);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1007", "CSYE 6620", "01/08/2021", "01/12/2021", "Fall", 2021, "P1005", "English", "Boston", 7.2);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1008", "ENCP 6100", "01/08/2023", "01/12/2023", "Fall", 2023, "P1006", "English", "Boston", 9.4);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1009", "ENCP 6101", "01/01/2020", "01/04/2020", "Spring", 2020, "P1007", "English", "Boston", 8.6);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1010", "DASC 2000", "01/08/2020", "01/12/2020", "Fall", 2020, "P1008", "English", "Boston", 7.8);
+        education.getCourseScheduleDirectory().addCourseSchedule("SH1011", "DASC 2010", "01/08/2023", "01/12/2023", "Fall", 2023, "P1009", "English", "Boston", 8.9);
         ArrayList<String> passHistory = new ArrayList<>();
-        passHistory.add("SarMil");
-        String Cpassword = BCrypt.hashpw("SarMil", salt);
+        passHistory.add("SarMil123");
+        String Cpassword = BCrypt.hashpw("SarMil123", salt);
         education.getProfessorsDirectory().addProfessor("P1000", "SarMil", "Dr. Sarah Miller", Cpassword, "sarah.miller@eduverse.edu", "(555) 555-5555", "Active", true, passHistory);
         passHistory.clear();
-        passHistory.add("MicJoh");
-        Cpassword = BCrypt.hashpw("MicJoh", salt);
+        passHistory.add("MicJoh123");
+        Cpassword = BCrypt.hashpw("MicJoh123", salt);
         education.getProfessorsDirectory().addProfessor("P1001", "MicJoh", "Dr. Michael Johnson", Cpassword, "michael.johnson@eduverse.edu", "(555) 555-5556", "Active", true, passHistory);
-//        education.getProfessorsDirectory().addProfessor("P1002", "EmiSmi", "Prof. Emily Smith", "EmiSmi", "emily.smith@eduverse.edu", "(781) 555-5557", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1003", "DavDav", "Dr. David Davis", "DavDav", "david.davis@eduverse.edu", "(721) 555-5558", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1004", "JenWhi", "Dr. Jennifer White", "JenWhi", "jennifer.white@eduverse.edu", "(581) 555-5559", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1005", "RicBro", "Prof. Richard Brown", "RicBro", "richard.brown@eduverse.edu", "(555) 555-5225", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1006", "MarGon", "Dr. Maria Gonzalez", "MarGon", "sarah.miller@eduverse.edu", "(452) 555-2322", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1007", "BenWil", "Dr. Benjamin Wilson", "BenWil", "sarah.miller@eduverse.edu", "(555) 214-5555", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1008", "LauTay", "Prof. Laura Taylor", "LauTay", "sarah.miller@eduverse.edu", "(651) 555-3024", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1009", "MatCla", "Dr. Matthew Clark", "MatCla", "sarah.miller@eduverse.edu", "(872) 555-1045", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1010", "OliTur", "Dr. Olivia Turner", "OliTur", "olivia.turner@eduverse.edu", "(555) 781-5874", "Active", false);
-//        education.getProfessorsDirectory().addProfessor("P1011", "HenMit", "Prof. Henry Mitchell", "HenMit", "henry.mitchell@eduverse.edu", "(555) 234-5555", "Active", true);
-//        education.getProfessorsDirectory().addProfessor("P1012", "SopAnd", "Prof. Sophia Anderson", "SopAnd", "sophia.anderson@eduverse.edu", "(555) 124-2365", "Active", true);
+        passHistory.clear();
+        passHistory.add("EmiSmi123");
+        Cpassword = BCrypt.hashpw("EmiSmi123", salt);
+        education.getProfessorsDirectory().addProfessor("P1002", "EmiSmi", "Prof. Emily Smith", Cpassword, "emily.smith@eduverse.edu", "(781) 555-5557", "Active", true, passHistory);
+        
+        passHistory.clear();
+        passHistory.add("DavDav123");
+        Cpassword = BCrypt.hashpw("DavDav123", salt);
+        education.getProfessorsDirectory().addProfessor("P1003", "DavDav", "Dr. David Davis", Cpassword, "david.davis@eduverse.edu", "(721) 555-5558", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("JenWhi123");
+        Cpassword = BCrypt.hashpw("JenWhi123", salt);
+        education.getProfessorsDirectory().addProfessor("P1004", "JenWhi", "Dr. Jennifer White", Cpassword, "jennifer.white@eduverse.edu", "(581) 555-5559", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("RicBro123");
+        Cpassword = BCrypt.hashpw("RicBro123", salt);
+        education.getProfessorsDirectory().addProfessor("P1005", "RicBro", "Prof. Richard Brown", Cpassword, "richard.brown@eduverse.edu", "(555) 555-5225", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("MarGon123");
+        Cpassword = BCrypt.hashpw("MarGon123", salt);
+        education.getProfessorsDirectory().addProfessor("P1006", "MarGon", "Dr. Maria Gonzalez", Cpassword, "sarah.miller@eduverse.edu", "(452) 555-2322", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("BenWil123");
+        Cpassword = BCrypt.hashpw("BenWil123", salt);
+        education.getProfessorsDirectory().addProfessor("P1007", "BenWil", "Dr. Benjamin Wilson", Cpassword, "sarah.miller@eduverse.edu", "(555) 214-5555", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("LauTay123");
+        Cpassword = BCrypt.hashpw("LauTay123", salt);
+        education.getProfessorsDirectory().addProfessor("P1008", "LauTay", "Prof. Laura Taylor", Cpassword, "sarah.miller@eduverse.edu", "(651) 555-3024", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("MatCla123");
+        Cpassword = BCrypt.hashpw("MatCla123", salt);
+        education.getProfessorsDirectory().addProfessor("P1009", "MatCla", "Dr. Matthew Clark", Cpassword, "sarah.miller@eduverse.edu", "(872) 555-1045", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("OliTur123");
+        Cpassword = BCrypt.hashpw("OliTur123", salt);
+        education.getProfessorsDirectory().addProfessor("P1010", "OliTur", "Dr. Olivia Turner", Cpassword, "olivia.turner@eduverse.edu", "(555) 781-5874", "Active", false, passHistory);
+        passHistory.clear();
+        passHistory.add("HenMit123");
+        Cpassword = BCrypt.hashpw("HenMit123", salt);
+        education.getProfessorsDirectory().addProfessor("P1011", "HenMit", "Prof. Henry Mitchell", Cpassword, "henry.mitchell@eduverse.edu", "(555) 234-5555", "Active", true, passHistory);
+        passHistory.clear();
+        passHistory.add("SopAnd123");
+        Cpassword = BCrypt.hashpw("SopAnd123", salt);
+        education.getProfessorsDirectory().addProfessor("P1012", "SopAnd", "Prof. Sophia Anderson", Cpassword, "sophia.anderson@eduverse.edu", "(555) 124-2365", "Active", true, passHistory);
 
 // Student 1
         Map<String, Double> grades1 = new HashMap<>();
@@ -83,295 +117,296 @@ public class EducationConfigure {
         passHistory.clear();
         passHistory.add("johsmith");
         Cpassword = BCrypt.hashpw("johsmith", salt);
-        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 3.5, grades2, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
         
 //// Student 3
-//        ArrayList<String> scheduleId3 = new ArrayList<>();
-//        scheduleId3.add("SH1004");
-//        scheduleId3.add("SH1005");
-//        education.getStudentsDirectory().addStudent("S1002", "Emily Johnson", "emijohn", "emijohn", "emily.johnson@eduverse.edu", "(555) 555-5557", 8.9, scheduleId3, "Active", true);
-//
+        Map<String, Double> grades3 = new HashMap<>();
+        grades3.put("SH1004",4.0);
+        grades3.put("SH1005",3.2);
+        education.getStudentsDirectory().addStudent("S1002", "Emily Johnson", "emijohn", "emijohn", "emily.johnson@eduverse.edu", "(555) 555-5557", 3.6, grades3, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
 //// Student 4
-//        ArrayList<String> scheduleIdStudent4 = new ArrayList<>();
-//        scheduleIdStudent4.add("SH1001");
-//        scheduleIdStudent4.add("SH1002");
-//        education.getStudentsDirectory().addStudent("S1003", "Henry Mitchell", "henmit", "henmit", "henry.mitchell@eduverse.edu", "(555) 555-5553", 9.8, scheduleIdStudent4, "Active", true);
+        Map<String, Double> grades4 = new HashMap<>();
+        grades4.put("SH1001",3.1);
+        grades4.put("SH1002",3.5);
+        education.getStudentsDirectory().addStudent("S1003", "Henry Mitchell", "henmit", "henmit", "henry.mitchell@eduverse.edu", "(555) 555-5553", 3.3, grades4, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 5
-//        ArrayList<String> scheduleIdStudent5 = new ArrayList<>();
-//        scheduleIdStudent5.add("SH1003");
-//        scheduleIdStudent5.add("SH1001");
-//        education.getStudentsDirectory().addStudent("S1004", "Maria Gonzalez", "margon", "margon", "maria.gonzalez@eduverse.edu", "(555) 555-5552", 9.6, scheduleIdStudent5, "Active", true);
+        Map<String, Double> grades5 = new HashMap<>();
+        grades5.put("SH1003",3.5);
+        grades5.put("SH1001",3.9);
+        education.getStudentsDirectory().addStudent("S1004", "Maria Gonzalez", "margon", "margon", "maria.gonzalez@eduverse.edu", "(555) 555-5552", 9.6, grades5, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 6
-//        ArrayList<String> scheduleIdStudent6 = new ArrayList<>();
-//        scheduleIdStudent6.add("SH1003");
-//        scheduleIdStudent6.add("SH1001");
-//        education.getStudentsDirectory().addStudent("S1004", "Maria Gonzalez", "margon", "margon", "maria.gonzalez@eduverse.edu", "(555) 555-5552", 9.6, scheduleIdStudent6, "Active", true);
+        Map<String, Double> grades6 = new HashMap<>();
+        grades6.put("SH1003",4.0);
+        grades6.put("SH1001",4.0);
+        education.getStudentsDirectory().addStudent("S1004", "Maria Gonzalez", "margon", "margon", "maria.gonzalez@eduverse.edu", "(555) 555-5552", 4.0, grades6, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //        // Student 7
-//        ArrayList<String> scheduleIdStudent7 = new ArrayList<>();
-//        scheduleIdStudent7.add("SH1006");
-//        scheduleIdStudent7.add("SH1007");
-//        education.getStudentsDirectory().addStudent("S1006", "Olivia Martinez", "olimart", "olimart", "olivia.martinez@eduverse.edu", "(555) 555-5558", 8.5, scheduleIdStudent7, "Active", true);
+        Map<String, Double> grades7 = new HashMap<>();
+        grades7.put("SH1006",3.8);
+        grades7.put("SH1007",4.0);
+        education.getStudentsDirectory().addStudent("S1006", "Olivia Martinez", "olimart", "olimart", "olivia.martinez@eduverse.edu", "(555) 555-5558", 3.9, grades7, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 8
-//        ArrayList<String> scheduleIdStudent8 = new ArrayList<>();
-//        scheduleIdStudent8.add("SH1007");
-//        scheduleIdStudent8.add("SH1008");
-//        education.getStudentsDirectory().addStudent("S1007", "Lucas Brown", "lucbrown", "lucbrown", "lucas.brown@eduverse.edu", "(555) 555-5559", 9.1, scheduleIdStudent8, "Active", true);
+        Map<String, Double> grades8 = new HashMap<>();
+        grades8.put("SH1007",2.0);
+        grades8.put("SH1008",4.0);
+        education.getStudentsDirectory().addStudent("S1007", "Lucas Brown", "lucbrown", "lucbrown", "lucas.brown@eduverse.edu", "(555) 555-5559", 3.0, grades8, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 9
-//        ArrayList<String> scheduleIdStudent9 = new ArrayList<>();
-//        scheduleIdStudent9.add("SH1008");
-//        scheduleIdStudent9.add("SH1009");
-//        education.getStudentsDirectory().addStudent("S1008", "Ava Davis", "avadav", "avadav", "ava.davis@eduverse.edu", "(555) 555-5560", 7.8, scheduleIdStudent9, "Active", true);
+        Map<String, Double> grades9 = new HashMap<>();
+        grades9.put("SH1008",3.0);
+        grades9.put("SH1009",3.2);
+        education.getStudentsDirectory().addStudent("S1008", "Ava Davis", "avadav", "avadav", "ava.davis@eduverse.edu", "(555) 555-5560", 3.1, grades9, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 10
-//        ArrayList<String> scheduleIdStudent10 = new ArrayList<>();
-//        scheduleIdStudent10.add("SH1009");
-//        scheduleIdStudent10.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1009", "Mason Garcia", "masgar", "masgar", "mason.garcia@eduverse.edu", "(555) 555-5561", 9.0, scheduleIdStudent10, "Active", true);
+        Map<String, Double> grades10 = new HashMap<>();
+        grades10.put("SH1009",2.4);
+        grades10.put("SH1010",2.6);
+        education.getStudentsDirectory().addStudent("S1009", "Mason Garcia", "masgar", "masgar", "mason.garcia@eduverse.edu", "(555) 555-5561", 2.5, grades10, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 11
-//        ArrayList<String> scheduleIdStudent11 = new ArrayList<>();
-//        scheduleIdStudent11.add("SH1010");
-//        scheduleIdStudent11.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1010", "Sophia Hernandez", "sophern", "sophern", "sophia.hernandez@eduverse.edu", "(555) 555-5562", 8.3, scheduleIdStudent11, "Active", true);
+        Map<String, Double> grades11 = new HashMap<>();
+        grades11.put("SH1010",3.7);
+        grades11.put("SH1011",3.9);
+        education.getStudentsDirectory().addStudent("S1010", "Sophia Hernandez", "sophern", "sophern", "sophia.hernandez@eduverse.edu", "(555) 555-5562", 3.8, grades11, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 12
-//        ArrayList<String> scheduleIdStudent12 = new ArrayList<>();
-//        scheduleIdStudent12.add("SH1009");
-//        scheduleIdStudent12.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1011", "Sophie Miller", "sophiemil", "sophiemil", "sophie.miller@eduverse.edu", "(555) 555-5563", 8.4, scheduleIdStudent12, "Active", true);
+        Map<String, Double> grades12 = new HashMap<>();
+        grades12.put("SH1009",3.4);
+        grades12.put("SH1010",3.8);
+        education.getStudentsDirectory().addStudent("S1011", "Sophie Miller", "sophiemil", "sophiemil", "sophie.miller@eduverse.edu", "(555) 555-5563", 3.6, grades12, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 13
-//        ArrayList<String> scheduleIdStudent13 = new ArrayList<>();
-//        scheduleIdStudent13.add("SH1010");
-//        scheduleIdStudent13.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1012", "Elijah Brown", "elijahbro", "elijahbro", "elijah.brown@eduverse.edu", "(555) 555-5564", 9.2, scheduleIdStudent13, "Active", true);
+        Map<String, Double> grades13 = new HashMap<>();
+        grades13.put("SH1010",3.0);
+        grades13.put("SH1011",3.4);
+        education.getStudentsDirectory().addStudent("S1012", "Elijah Brown", "elijahbro", "elijahbro", "elijah.brown@eduverse.edu", "(555) 555-5564", 3.2, grades13, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 14
-//        ArrayList<String> scheduleIdStudent14 = new ArrayList<>();
-//        scheduleIdStudent14.add("SH1000");
-//        scheduleIdStudent14.add("SH1003");
-//        education.getStudentsDirectory().addStudent("S1013", "Zoe Robinson", "zoerob", "zoerob", "zoe.robinson@eduverse.edu", "(555) 555-5565", 8.7, scheduleIdStudent14, "Active", true);
+        Map<String, Double> grades14 = new HashMap<>();
+        grades14.put("SH1000",3.7);
+        grades14.put("SH1003",3.9);
+        education.getStudentsDirectory().addStudent("S1013", "Zoe Robinson", "zoerob", "zoerob", "zoe.robinson@eduverse.edu", "(555) 555-5565", 3.8, grades14, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 15
-//        ArrayList<String> scheduleIdStudent15 = new ArrayList<>();
-//        scheduleIdStudent15.add("SH1005");
-//        scheduleIdStudent15.add("SH1008");
-//        education.getStudentsDirectory().addStudent("S1014", "Aiden Clark", "aidencla", "aidencla", "aiden.clark@eduverse.edu", "(555) 555-5566", 9.0, scheduleIdStudent15, "Active", true);
+        Map<String, Double> grades15 = new HashMap<>();
+        grades15.put("SH1005",3.4);
+        grades15.put("SH1008",3.6);
+        education.getStudentsDirectory().addStudent("S1014", "Aiden Clark", "aidencla", "aidencla", "aiden.clark@eduverse.edu", "(555) 555-5566", 3.5, grades15, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 16
-//        ArrayList<String> scheduleIdStudent16 = new ArrayList<>();
-//        scheduleIdStudent16.add("SH1007");
-//        scheduleIdStudent16.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1015", "Sophia Hill", "sophiahil", "sophiahil", "sophia.hill@eduverse.edu", "(555) 555-5567", 9.8, scheduleIdStudent16, "Active", true);
-//
+        Map<String, Double> grades16 = new HashMap<>();
+        grades16.put("SH1007",3.9);
+        grades16.put("SH1011",3.9);
+        education.getStudentsDirectory().addStudent("S1015", "Sophia Hill", "sophiahil", "sophiahil", "sophia.hill@eduverse.edu", "(555) 555-5567", 3.9, grades16, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
 //// Student 17
-//        ArrayList<String> scheduleIdStudent17 = new ArrayList<>();
-//        scheduleIdStudent17.add("SH1006");
-//        scheduleIdStudent17.add("SH1009");
-//        education.getStudentsDirectory().addStudent("S1016", "William Turner", "willturn", "willturn", "william.turner@eduverse.edu", "(555) 555-5568", 8.2, scheduleIdStudent17, "Active", true);
+        Map<String, Double> grades17 = new HashMap<>();
+        grades17.put("SH1006",3.4);
+        grades17.put("SH1009",3.6);
+        education.getStudentsDirectory().addStudent("S1016", "William Turner", "willturn", "willturn", "william.turner@eduverse.edu", "(555) 555-5568", 3.5, grades17, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 18
-//        ArrayList<String> scheduleIdStudent18 = new ArrayList<>();
-//        scheduleIdStudent18.add("SH1001");
-//        scheduleIdStudent18.add("SH1004");
-//        education.getStudentsDirectory().addStudent("S1017", "Grace White", "gracewhi", "gracewhi", "grace.white@eduverse.edu", "(555) 555-5569", 9.4, scheduleIdStudent18, "Active", true);
+        Map<String, Double> grades18 = new HashMap<>();
+        grades18.put("SH1001",4.0);
+        grades18.put("SH1004",3.6);
+        education.getStudentsDirectory().addStudent("S1017", "Grace White", "gracewhi", "gracewhi", "grace.white@eduverse.edu", "(555) 555-5569", 3.8, grades18, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 19
-//        ArrayList<String> scheduleIdStudent19 = new ArrayList<>();
-//        scheduleIdStudent19.add("SH1002");
-//        scheduleIdStudent19.add("SH1005");
-//        education.getStudentsDirectory().addStudent("S1018", "Logan Adams", "loganada", "loganada", "logan.adams@eduverse.edu", "(555) 555-5570", 8.6, scheduleIdStudent19, "Active", true);
+        Map<String, Double> grades19 = new HashMap<>();
+        grades19.put("SH1002",1.0);
+        grades19.put("SH1005",3.0);
+        education.getStudentsDirectory().addStudent("S1018", "Logan Adams", "loganada", "loganada", "logan.adams@eduverse.edu", "(555) 555-5570", 2.0, grades19, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 20
-//        ArrayList<String> scheduleIdStudent20 = new ArrayList<>();
-//        scheduleIdStudent20.add("SH1007");
-//        scheduleIdStudent20.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1019", "Ava Stewart", "avastew", "avastew", "ava.stewart@eduverse.edu", "(555) 555-5571", 9.1, scheduleIdStudent20, "Active", true);
+        Map<String, Double> grades20 = new HashMap<>();
+        grades20.put("SH1007",4.0);
+        grades20.put("SH1010",3.5);
+        education.getStudentsDirectory().addStudent("S1019", "Ava Stewart", "avastew", "avastew", "ava.stewart@eduverse.edu", "(555) 555-5571", 3.75, grades20, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 21
-//        ArrayList<String> scheduleIdStudent21 = new ArrayList<>();
-//        scheduleIdStudent21.add("SH1003");
-//        scheduleIdStudent21.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1020", "Daniel Parker", "danipar", "danipar", "daniel.parker@eduverse.edu", "(555) 555-5572", 8.9, scheduleIdStudent21, "Active", true);
+        Map<String, Double> grades21 = new HashMap<>();
+        grades21.put("SH1003",3.0);
+        grades21.put("SH1006",3.2);
+        education.getStudentsDirectory().addStudent("S1020", "Daniel Parker", "danipar", "danipar", "daniel.parker@eduverse.edu", "(555) 555-5572", 3.1, grades21, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 22
-//        ArrayList<String> scheduleIdStudent22 = new ArrayList<>();
-//        scheduleIdStudent22.add("SH1008");
-//        scheduleIdStudent22.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1021", "Emma Collins", "emmacol", "emmacol", "emma.collins@eduverse.edu", "(555) 555-5573", 9.7, scheduleIdStudent22, "Active", true);
-//
-//// Student 23
-//        ArrayList<String> scheduleIdStudent23 = new ArrayList<>();
-//        scheduleIdStudent23.add("SH1004");
-//        scheduleIdStudent23.add("SH1007");
-//        education.getStudentsDirectory().addStudent("S1022", "Michael Price", "michapri", "michapri", "michael.price@eduverse.edu", "(555) 555-5574", 8.5, scheduleIdStudent23, "Active", true);
-//
-//// Student 24
-//        ArrayList<String> scheduleIdStudent24 = new ArrayList<>();
-//        scheduleIdStudent24.add("SH1006");
-//        scheduleIdStudent24.add("SH1009");
-//        education.getStudentsDirectory().addStudent("S1023", "Sophia Young", "sophiyou", "sophiyou", "sophia.young@eduverse.edu", "(555) 555-5575", 9.3, scheduleIdStudent24, "Active", true);
-//
+        Map<String, Double> grades22 = new HashMap<>();
+        grades22.put("SH1008",3.4);
+        grades22.put("SH1011",2.6);
+        education.getStudentsDirectory().addStudent("S1021", "Emma Collins", "emmacol", "emmacol", "emma.collins@eduverse.edu", "(555) 555-5573", 3.0, grades22, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
+// Student 23
+        Map<String, Double> grades23 = new HashMap<>();
+        grades23.put("SH1004",3.2);
+        grades23.put("SH1007",4.0);
+        education.getStudentsDirectory().addStudent("S1022", "Michael Price", "michapri", "michapri", "michael.price@eduverse.edu", "(555) 555-5574", 3.6, grades23, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
+// Student 24
+        Map<String, Double> grades24 = new HashMap<>();
+        grades24.put("SH1006",3.3);
+        grades24.put("SH1009",3.7);
+        education.getStudentsDirectory().addStudent("S1023", "Sophia Young", "sophiyou", "sophiyou", "sophia.young@eduverse.edu", "(555) 555-5575", 3.5, grades24, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
 //// Student 25
-//        ArrayList<String> scheduleIdStudent25 = new ArrayList<>();
-//        scheduleIdStudent25.add("SH1002");
-//        scheduleIdStudent25.add("SH1005");
-//        education.getStudentsDirectory().addStudent("S1024", "Matthew King", "mattking", "mattking", "matthew.king@eduverse.edu", "(555) 555-5576", 8.4, scheduleIdStudent25, "Active", true);
+//        Map<String, Double> grades25 = new HashMap<>();
+//        grades25.put("SH1002");
+//        grades25.put("SH1005");
+//        education.getStudentsDirectory().addStudent("S1024", "Matthew King", "mattking", "mattking", "matthew.king@eduverse.edu", "(555) 555-5576", 8.4, grades25, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 26
-//        ArrayList<String> scheduleIdStudent26 = new ArrayList<>();
-//        scheduleIdStudent26.add("SH1003");
-//        scheduleIdStudent26.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1025", "Olivia Murphy", "olivmur", "olivmur", "olivia.murphy@eduverse.edu", "(555) 555-5577", 9.5, scheduleIdStudent26, "Active", true);
+//        Map<String, Double> grades26 = new HashMap<>();
+//        grades26.put("SH1003");
+//        grades26.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1025", "Olivia Murphy", "olivmur", "olivmur", "olivia.murphy@eduverse.edu", "(555) 555-5577", 9.5, grades26, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 27
-//        ArrayList<String> scheduleIdStudent27 = new ArrayList<>();
-//        scheduleIdStudent27.add("SH1001");
-//        scheduleIdStudent27.add("SH1004");
-//        education.getStudentsDirectory().addStudent("S1026", "James Scott", "jamscott", "jamscott", "james.scott@eduverse.edu", "(555) 555-5578", 9.0, scheduleIdStudent27, "Active", true);
+//        Map<String, Double> grades27 = new HashMap<>();
+//        grades27.put("SH1001");
+//        grades27.put("SH1004");
+//        education.getStudentsDirectory().addStudent("S1026", "James Scott", "jamscott", "jamscott", "james.scott@eduverse.edu", "(555) 555-5578", 9.0, grades27, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 28
-//        ArrayList<String> scheduleIdStudent28 = new ArrayList<>();
-//        scheduleIdStudent28.add("SH1005");
-//        scheduleIdStudent28.add("SH1008");
-//        education.getStudentsDirectory().addStudent("S1027", "Sophia Green", "sophigre", "sophigre", "sophia.green@eduverse.edu", "(555) 555-5579", 8.2, scheduleIdStudent28, "Active", true);
+//        Map<String, Double> grades28 = new HashMap<>();
+//        grades28.put("SH1005");
+//        grades28.put("SH1008");
+//        education.getStudentsDirectory().addStudent("S1027", "Sophia Green", "sophigre", "sophigre", "sophia.green@eduverse.edu", "(555) 555-5579", 8.2, grades28, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 29
-//        ArrayList<String> scheduleIdStudent29 = new ArrayList<>();
-//        scheduleIdStudent29.add("SH1002");
-//        scheduleIdStudent29.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1028", "Liam Carter", "liamcar", "liamcar", "liam.carter@eduverse.edu", "(555) 555-5580", 8.7, scheduleIdStudent29, "Active", true);
+//        Map<String, Double> grades29 = new HashMap<>();
+//        grades29.put("SH1002");
+//        grades29.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1028", "Liam Carter", "liamcar", "liamcar", "liam.carter@eduverse.edu", "(555) 555-5580", 8.7, grades29, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 30
-//        ArrayList<String> scheduleIdStudent30 = new ArrayList<>();
-//        scheduleIdStudent30.add("SH1007");
-//        scheduleIdStudent30.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1029", "Olivia Ross", "olivross", "olivross", "olivia.ross@eduverse.edu", "(555) 555-5581", 8.9, scheduleIdStudent30, "Active", true);
+//        Map<String, Double> grades30 = new HashMap<>();
+//        grades30.put("SH1007");
+//        grades30.put("SH1010");
+//        education.getStudentsDirectory().addStudent("S1029", "Olivia Ross", "olivross", "olivross", "olivia.ross@eduverse.edu", "(555) 555-5581", 8.9, grades30, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 31
-//        ArrayList<String> scheduleIdStudent31 = new ArrayList<>();
-//        scheduleIdStudent31.add("SH1003");
-//        scheduleIdStudent31.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1030", "William Wright", "willwrigh", "willwrigh", "william.wright@eduverse.edu", "(555) 555-5582", 9.3, scheduleIdStudent31, "Active", true);
+//        Map<String, Double> grades31 = new HashMap<>();
+//        grades31.put("SH1003");
+//        grades31.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1030", "William Wright", "willwrigh", "willwrigh", "william.wright@eduverse.edu", "(555) 555-5582", 9.3, grades31, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 32
-//        ArrayList<String> scheduleIdStudent32 = new ArrayList<>();
-//        scheduleIdStudent32.add("SH1008");
-//        scheduleIdStudent32.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1031", "Ava Reed", "avareed", "avareed", "ava.reed@eduverse.edu", "(555) 555-5583", 9.4, scheduleIdStudent32, "Active", true);
+//        Map<String, Double> grades32 = new HashMap<>();
+//        grades32.put("SH1008");
+//        grades32.put("SH1011");
+//        education.getStudentsDirectory().addStudent("S1031", "Ava Reed", "avareed", "avareed", "ava.reed@eduverse.edu", "(555) 555-5583", 9.4, grades32, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 33
-//        ArrayList<String> scheduleIdStudent33 = new ArrayList<>();
-//        scheduleIdStudent33.add("SH1004");
-//        scheduleIdStudent33.add("SH1007");
-//        education.getStudentsDirectory().addStudent("S1032", "Ethan Hall", "ethanhal", "ethanhal", "ethan.hall@eduverse.edu", "(555) 555-5584", 8.6, scheduleIdStudent33, "Active", true);
+//        Map<String, Double> grades33 = new HashMap<>();
+//        grades33.put("SH1004");
+//        grades33.put("SH1007");
+//        education.getStudentsDirectory().addStudent("S1032", "Ethan Hall", "ethanhal", "ethanhal", "ethan.hall@eduverse.edu", "(555) 555-5584", 8.6, grades33, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 34
-//        ArrayList<String> scheduleIdStudent34 = new ArrayList<>();
-//        scheduleIdStudent34.add("SH1006");
-//        scheduleIdStudent34.add("SH1009");
-//        education.getStudentsDirectory().addStudent("S1033", "Zoe Turner", "zoeturn", "zoeturn", "zoe.turner@eduverse.edu", "(555) 555-5585", 9.1, scheduleIdStudent34, "Active", true);
+//        Map<String, Double> grades34 = new HashMap<>();
+//        grades34.put("SH1006");
+//        grades34.put("SH1009");
+//        education.getStudentsDirectory().addStudent("S1033", "Zoe Turner", "zoeturn", "zoeturn", "zoe.turner@eduverse.edu", "(555) 555-5585", 9.1, grades34, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 35
-//        ArrayList<String> scheduleIdStudent35 = new ArrayList<>();
-//        scheduleIdStudent35.add("SH1002");
-//        scheduleIdStudent35.add("SH1005");
-//        education.getStudentsDirectory().addStudent("S1034", "Noah Lewis", "noahlewi", "noahlewi", "noah.lewis@eduverse.edu", "(555) 555-5586", 9.5, scheduleIdStudent35, "Active", true);
+//        Map<String, Double> grades35 = new HashMap<>();
+//        grades35.put("SH1002");
+//        grades35.put("SH1005");
+//        education.getStudentsDirectory().addStudent("S1034", "Noah Lewis", "noahlewi", "noahlewi", "noah.lewis@eduverse.edu", "(555) 555-5586", 9.5, grades35, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 36
-//        ArrayList<String> scheduleIdStudent36 = new ArrayList<>();
-//        scheduleIdStudent36.add("SH1003");
-//        scheduleIdStudent36.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1035", "Sophia Perez", "sophiper", "sophiper", "sophia.perez@eduverse.edu", "(555) 555-5587", 8.3, scheduleIdStudent36, "Active", true);
+//        Map<String, Double> grades36 = new HashMap<>();
+//        grades36.put("SH1003");
+//        grades36.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1035", "Sophia Perez", "sophiper", "sophiper", "sophia.perez@eduverse.edu", "(555) 555-5587", 8.3, grades36, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 37
-//        ArrayList<String> scheduleIdStudent37 = new ArrayList<>();
-//        scheduleIdStudent37.add("SH1007");
-//        scheduleIdStudent37.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1036", "Elijah Wood", "elijwood", "elijwood", "elijah.wood@eduverse.edu", "(555) 555-5588", 9.2, scheduleIdStudent37, "Active", true);
+//        Map<String, Double> grades37 = new HashMap<>();
+//        grades37.put("SH1007");
+//        grades37.put("SH1010");
+//        education.getStudentsDirectory().addStudent("S1036", "Elijah Wood", "elijwood", "elijwood", "elijah.wood@eduverse.edu", "(555) 555-5588", 9.2, grades37, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 38
-//        ArrayList<String> scheduleIdStudent38 = new ArrayList<>();
-//        scheduleIdStudent38.add("SH1001");
-//        scheduleIdStudent38.add("SH1004");
-//        education.getStudentsDirectory().addStudent("S1037", "Aiden Baker", "aidenbak", "aidenbak", "aiden.baker@eduverse.edu", "(555) 555-5589", 8.8, scheduleIdStudent38, "Active", true);
+//        Map<String, Double> grades38 = new HashMap<>();
+//        grades38.put("SH1001");
+//        grades38.put("SH1004");
+//        education.getStudentsDirectory().addStudent("S1037", "Aiden Baker", "aidenbak", "aidenbak", "aiden.baker@eduverse.edu", "(555) 555-5589", 8.8, grades38, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 39
-//        ArrayList<String> scheduleIdStudent39 = new ArrayList<>();
-//        scheduleIdStudent39.add("SH1005");
-//        scheduleIdStudent39.add("SH1008");
-//        education.getStudentsDirectory().addStudent("S1038", "Emma Wright", "emmawrig", "emmawrig", "emma.wright@eduverse.edu", "(555) 555-5590", 9.0, scheduleIdStudent39, "Active", true);
+//       Map<String, Double> grades39 = new HashMap<>();
+//        grades39.put("SH1005");
+//        grades39.put("SH1008");
+//        education.getStudentsDirectory().addStudent("S1038", "Emma Wright", "emmawrig", "emmawrig", "emma.wright@eduverse.edu", "(555) 555-5590", 9.0, grades39, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 40
-//        ArrayList<String> scheduleIdStudent40 = new ArrayList<>();
-//        scheduleIdStudent40.add("SH1002");
-//        scheduleIdStudent40.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1039", "Mason Foster", "masonfos", "masonfos", "mason.foster@eduverse.edu", "(555) 555-5591", 8.4, scheduleIdStudent40, "Active", true);
+//        Map<String, Double> grades40 = new HashMap<>();
+//        grades40.put("SH1002");
+//        grades40.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1039", "Mason Foster", "masonfos", "masonfos", "mason.foster@eduverse.edu", "(555) 555-5591", 8.4, grades40, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 41
-//        ArrayList<String> scheduleIdStudent41 = new ArrayList<>();
-//        scheduleIdStudent41.add("SH1003");
-//        scheduleIdStudent41.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1040", "Oliver Nelson", "olivnels", "olivnels", "oliver.nelson@eduverse.edu", "(555) 555-5592", 9.1, scheduleIdStudent41, "Active", true);
+//        Map<String, Double> grades41 = new HashMap<>();
+//        grades41.put("SH1003");
+//        grades41.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1040", "Oliver Nelson", "olivnels", "olivnels", "oliver.nelson@eduverse.edu", "(555) 555-5592", 9.1, grades41, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 42
-//        ArrayList<String> scheduleIdStudent42 = new ArrayList<>();
-//        scheduleIdStudent42.add("SH1008");
-//        scheduleIdStudent42.add("SH1011");
-//        education.getStudentsDirectory().addStudent("S1041", "Ava Turner", "avaturn", "avaturn", "ava.turner@eduverse.edu", "(555) 555-5593", 8.9, scheduleIdStudent42, "Active", true);
+//        Map<String, Double> grades42 = new HashMap<>();
+//        grades42.put("SH1008");
+//        grades42.put("SH1011");
+//        education.getStudentsDirectory().addStudent("S1041", "Ava Turner", "avaturn", "avaturn", "ava.turner@eduverse.edu", "(555) 555-5593", 8.9, grades42, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 43
-//        ArrayList<String> scheduleIdStudent43 = new ArrayList<>();
-//        scheduleIdStudent43.add("SH1004");
-//        scheduleIdStudent43.add("SH1007");
-//        education.getStudentsDirectory().addStudent("S1042", "Liam Hernandez", "liamhern", "liamhern", "liam.hernandez@eduverse.edu", "(555) 555-5594", 9.2, scheduleIdStudent43, "Active", true);
+//        Map<String, Double> grades43 = new HashMap<>();
+//        grades43.put("SH1004");
+//        grades43.put("SH1007");
+//        education.getStudentsDirectory().addStudent("S1042", "Liam Hernandez", "liamhern", "liamhern", "liam.hernandez@eduverse.edu", "(555) 555-5594", 9.2, grades43, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 44
-//        ArrayList<String> scheduleIdStudent44 = new ArrayList<>();
-//        scheduleIdStudent44.add("SH1006");
-//        scheduleIdStudent44.add("SH1009");
-//        education.getStudentsDirectory().addStudent("S1043", "Charlotte White", "charwhit", "charwhit", "charlotte.white@eduverse.edu", "(555) 555-5595", 8.7, scheduleIdStudent44, "Active", true);
+//        Map<String, Double> grades44 = new HashMap<>();
+//        grades44.put("SH1006");
+//        grades44.put("SH1009");
+//        education.getStudentsDirectory().addStudent("S1043", "Charlotte White", "charwhit", "charwhit", "charlotte.white@eduverse.edu", "(555) 555-5595", 8.7, grades44, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 45
-//        ArrayList<String> scheduleIdStudent45 = new ArrayList<>();
-//        scheduleIdStudent45.add("SH1002");
-//        scheduleIdStudent45.add("SH1005");
-//        education.getStudentsDirectory().addStudent("S1044", "Benjamin Anderson", "benjandi", "benjandi", "benjamin.anderson@eduverse.edu", "(555) 555-5596", 9.5, scheduleIdStudent45, "Active", true);
+//        Map<String, Double> grades45 = new HashMap<>();
+//        grades45.put("SH1002");
+//        grades45.put("SH1005");
+//        education.getStudentsDirectory().addStudent("S1044", "Benjamin Anderson", "benjandi", "benjandi", "benjamin.anderson@eduverse.edu", "(555) 555-5596", 9.5, grades45, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 46
-//        ArrayList<String> scheduleIdStudent46 = new ArrayList<>();
-//        scheduleIdStudent46.add("SH1003");
-//        scheduleIdStudent46.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1045", "Liam Rodriguez", "liamrodr", "liamrodr", "liam.rodriguez@eduverse.edu", "(555) 555-5597", 9.0, scheduleIdStudent46, "Active", true);
+//        Map<String, Double> grades46 = new HashMap<>();
+//        grades46.put("SH1003");
+//        grades46.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1045", "Liam Rodriguez", "liamrodr", "liamrodr", "liam.rodriguez@eduverse.edu", "(555) 555-5597", 9.0, grades46, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 47
-//        ArrayList<String> scheduleIdStudent47 = new ArrayList<>();
-//        scheduleIdStudent47.add("SH1007");
-//        scheduleIdStudent47.add("SH1010");
-//        education.getStudentsDirectory().addStudent("S1046", "Olivia Adams", "oliviaada", "oliviaada", "olivia.adams@eduverse.edu", "(555) 555-5598", 8.8, scheduleIdStudent47, "Active", true);
+//        Map<String, Double> grades47 = new HashMap<>();
+//        grades47.put("SH1007");
+//        grades47.put("SH1010");
+//        education.getStudentsDirectory().addStudent("S1046", "Olivia Adams", "oliviaada", "oliviaada", "olivia.adams@eduverse.edu", "(555) 555-5598", 8.8, grades47, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 48
-//        ArrayList<String> scheduleIdStudent48 = new ArrayList<>();
-//        scheduleIdStudent48.add("SH1001");
-//        scheduleIdStudent48.add("SH1004");
-//        education.getStudentsDirectory().addStudent("S1047", "William Miller", "willmill", "willmill", "william.miller@eduverse.edu", "(555) 555-5599", 9.4, scheduleIdStudent48, "Active", true);
+//        Map<String, Double> grades48 = new HashMap<>();
+//        grades48.put("SH1001");
+//        grades48.put("SH1004");
+//        education.getStudentsDirectory().addStudent("S1047", "William Miller", "willmill", "willmill", "william.miller@eduverse.edu", "(555) 555-5599", 9.4, grades48, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 49
-//        ArrayList<String> scheduleIdStudent49 = new ArrayList<>();
-//        scheduleIdStudent49.add("SH1005");
-//        scheduleIdStudent49.add("SH1008");
-//        education.getStudentsDirectory().addStudent("S1048", "Sophia Perez", "sophiper", "sophiper", "sophia.perez@eduverse.edu", "(555) 555-5600", 8.6, scheduleIdStudent49, "Active", true);
+//        Map<String, Double> grades49 = new HashMap<>();
+//        grades49.put("SH1005");
+//        grades49.put("SH1008");
+//        education.getStudentsDirectory().addStudent("S1048", "Sophia Perez", "sophiper", "sophiper", "sophia.perez@eduverse.edu", "(555) 555-5600", 8.6, grades49, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 //
 //// Student 50
-//        ArrayList<String> scheduleIdStudent50 = new ArrayList<>();
-//        scheduleIdStudent50.add("SH1002");
-//        scheduleIdStudent50.add("SH1006");
-//        education.getStudentsDirectory().addStudent("S1049", "Elijah Clark", "elijclark", "elijclark", "elijah.clark@eduverse.edu", "(555) 555-5601", 8.5, scheduleIdStudent50, "Active", true);
+//        Map<String, Double> grades50 = new HashMap<>();
+//        grades50.put("SH1002");
+//        grades50.put("SH1006");
+//        education.getStudentsDirectory().addStudent("S1049", "Elijah Clark", "elijclark", "elijclark", "elijah.clark@eduverse.edu", "(555) 555-5601", 8.5, grades50, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 
 
 
