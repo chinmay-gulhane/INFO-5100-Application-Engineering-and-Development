@@ -4,10 +4,15 @@
  */
 package UI.WorkAreas.ProfessorRole;
 
+import Education.Courses.Course;
+import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Professor.Professor;
+import Education.Student.Student;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +23,7 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Education education;
     private Professor professor;
+    DefaultTableModel dtm;
     
     /**
      * Creates new form ViewStudentsJPanel
@@ -27,8 +33,34 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.education = education;
         this.professor = professor;
+        dtm = (DefaultTableModel) tblStudents.getModel();
+        populateTable();
     }
-
+    
+    public void populateTable(){
+        dtm.setRowCount(0);
+        for(CourseSchedule cs: education.getCourseScheduleDirectory().getCourseScheduleList()){
+            if(cs.getTeachingProfessorId().equals(professor.getProfessorId())){
+                for(Student s: education.getStudentsDirectory().getStudentList()){
+                    if(s.getGrades().containsKey(cs.getScheduleId())){
+                        Object[] row = new Object[5];
+                        row[0] = s;
+                        row[1] = s.getName();
+                        for(Course c: education.getCourseDirectory().getCourseList()){
+                            if(c.getCourseId().equals(cs.getCourseId())){
+                                row[2] = c.getName();
+                                break;
+                            }
+                        }
+                        
+                        row[3] = cs.getScheduleId();
+                        row[4] = s.getGpa();
+                        dtm.addRow(row);
+                    }
+                }
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,10 +70,11 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-
-        jLabel1.setText("VIew Students");
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblStudents = new javax.swing.JTable();
+        btnViewFeedback = new javax.swing.JButton();
+        lblHeader = new javax.swing.JLabel();
 
         btnBack.setBackground(new java.awt.Color(0, 0, 0));
         btnBack.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -53,25 +86,79 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
             }
         });
 
+        tblStudents.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Student ID", "Student Name", "Enrolled Course", "Enrolled Schedule ID", "GPA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblStudents);
+        if (tblStudents.getColumnModel().getColumnCount() > 0) {
+            tblStudents.getColumnModel().getColumn(0).setResizable(false);
+            tblStudents.getColumnModel().getColumn(1).setResizable(false);
+            tblStudents.getColumnModel().getColumn(2).setResizable(false);
+            tblStudents.getColumnModel().getColumn(3).setResizable(false);
+            tblStudents.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        btnViewFeedback.setBackground(new java.awt.Color(0, 0, 0));
+        btnViewFeedback.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewFeedback.setText("View Feedback");
+        btnViewFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewFeedbackActionPerformed(evt);
+            }
+        });
+
+        lblHeader.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeader.setText("View Students");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBack)
+                        .addGap(19, 19, 19))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnViewFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnViewFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(btnBack)
                 .addGap(24, 24, 24))
         );
@@ -84,9 +171,28 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnViewFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFeedbackActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRow = tblStudents.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row from table first to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Student student = (Student)tblStudents.getValueAt(selectedRow, 0);
+            ViewFeedBackJPanel panel = new ViewFeedBackJPanel(userProcessContainer,education, student);
+            userProcessContainer.add("ViewFeedBackJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }  
+    }//GEN-LAST:event_btnViewFeedbackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnViewFeedback;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JTable tblStudents;
     // End of variables declaration//GEN-END:variables
 }
