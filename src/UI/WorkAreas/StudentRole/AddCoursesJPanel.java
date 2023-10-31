@@ -42,21 +42,24 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblViewCourse.getModel();
         dtm.setRowCount(0);
         for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
+            if(student.getGrades().containsKey(cs.getScheduleId())){
+                continue;
+            }
             if ((cs.getTerm() + " " + cs.getYear()).equals(selectedTerm)) {
                 for (Course c : education.getCourseDirectory().getCourseList()) {
                     for (Professor p : education.getProfessorsDirectory().getProfessorList()) {
                         if (p.getProfessorId().equals(cs.getTeachingProfessorId())) {
                             if (cs.getCourseId().equals(c.getCourseId())) {
-                                Object[] row = new Object[8];
+                                Object[] row = new Object[9];
                                 row[0] = cs;
                                 row[1] = c;
-                                row[1] = c.getTopic();
-                                row[2] = c.getName();
-                                row[3] = p.getName();
-                                row[4] = cs.getStartDate();
-                                row[5] = cs.getTeachingProfessorRating();
-                                row[6] = cs.getRegion();
-                                row[7] = cs.getLanguage();
+                                row[2] = c.getTopic();
+                                row[3] = c.getName();
+                                row[4] = p.getName();
+                                row[5] = cs.getStartDate();
+                                row[6] = cs.getTeachingProfessorRating();
+                                row[7] = cs.getRegion();
+                                row[8] = cs.getLanguage();
                                 dtm.addRow(row);
                             }
                         }
@@ -219,15 +222,19 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblViewCourse.getSelectedRow();
         if (selectedRow >= 0) {
+            CourseSchedule sc = (CourseSchedule) tblViewCourse.getValueAt(selectedRow, 0);
+            if(student.getGrades().containsKey(sc.getCourseId())){
+                JOptionPane.showMessageDialog(this, "You have already undertook this course.!");
+                return;
+            }
             int dialogButton = JOptionPane.YES_NO_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to add the course", "Warning", dialogButton);
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to add the course", "Warning", dialogButton);
             if (dialogResult == JOptionPane.YES_OPTION) {
-                CourseSchedule sc = (CourseSchedule) tblViewCourse.getValueAt(selectedRow, 0);
-
+                student.getGrades().put(sc.getScheduleId(), 0.0);
                 populateTable();
             }
         }
-        JOptionPane.showMessageDialog(null, "Added a new course to the schedule");
+        JOptionPane.showMessageDialog(this, "Added a new course to the schedule");
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

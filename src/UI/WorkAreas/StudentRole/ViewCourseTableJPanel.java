@@ -9,7 +9,9 @@ import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Professor.Professor;
 import Education.Student.Student;
+import UI.WorkAreas.ProfessorRole.ViewCourseProfessorJPanel;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -52,15 +54,16 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                         if(p.getProfessorId().equals(cs.getTeachingProfessorId()))
                         {
                             if(cs.getCourseId().equals(c.getCourseId())){
-                            Object[] row = new Object[8];
-                            row[0] = c;
-                            row[1] = c.getTopic();
-                            row[2] = c.getName();
-                            row[3] = p.getName();
-                            row[4] = cs.getStartDate();
-                            row[5] = c.getReputationIndex();
-                            row[6] = cs.getRegion();
-                            row[7] = cs.getLanguage();
+                            Object[] row = new Object[9];
+                            row[0] = cs;
+                            row[1] = c;
+                            row[2] = c.getTopic();
+                            row[3] = c.getName();
+                            row[4] = p.getName();
+                            row[5] = cs.getStartDate();
+                            row[6] = c.getReputationIndex();
+                            row[7] = cs.getRegion();
+                            row[8] = cs.getLanguage();
                             dtm.addRow(row);
                             grades.put(cs.getScheduleId(), 0.0);
                             }
@@ -68,10 +71,6 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
                     }
 	        }
             } 
-            else
-            {
-                System.out.println(":(");
-            }
         }
     }
 
@@ -95,17 +94,17 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
 
         tblViewCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Course Reputation Index", "Region", "Language"
+                "Schedule Id", "Course Id", "Course Topic", "Course Name", "Professor Name", "Schedule", "Course Reputation Index", "Region", "Language"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -122,6 +121,7 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
             tblViewCourse.getColumnModel().getColumn(5).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(6).setResizable(false);
             tblViewCourse.getColumnModel().getColumn(7).setResizable(false);
+            tblViewCourse.getColumnModel().getColumn(8).setResizable(false);
         }
 
         btnBack.setBackground(new java.awt.Color(0, 0, 0));
@@ -189,6 +189,10 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 1);
+        if(component instanceof StudentJPanel studentJPanel) {
+            studentJPanel.setupStudentDashboard();
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
