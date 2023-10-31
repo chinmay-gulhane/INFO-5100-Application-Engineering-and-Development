@@ -27,9 +27,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnViewGrades" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAddCourses" linkSize="1" max="32767" attributes="0"/>
-                  <Component id="btnViewProfile" linkSize="1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                   <Component id="btnJobPortal" linkSize="1" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                   <Component id="btnViewCourses" linkSize="1" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="btnViewProfFeedback" linkSize="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -39,11 +39,7 @@
                       <Component id="btnRateProf" linkSize="1" max="32767" attributes="0"/>
                       <Component id="btnAddProfFeedback" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="btnBilling" linkSize="1" min="-2" pref="152" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btnViewProfFeedback" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnBilling" linkSize="1" min="-2" pref="152" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -75,6 +71,8 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnViewProfile" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="btnLogout" min="-2" pref="85" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
@@ -83,11 +81,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="btnLogout" min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnLogout" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btnViewProfile" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblStudentName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -97,18 +98,17 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblStudentId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" linkSize="4" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel3" linkSize="4" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel4" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" linkSize="4" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnBilling" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnViewCourses" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="btnViewProfFeedback" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -118,7 +118,7 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGraduation" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnViewProfile" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnViewProfFeedback" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
