@@ -267,7 +267,7 @@ public class ViewProfileJPanel extends javax.swing.JPanel {
         // Validation if any field is left empty
         if(txtStudentName.getText().isEmpty() || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty() || txtEmail.getText().isEmpty()
            || txtPhone.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please fill all fields to procced futher!");
+            JOptionPane.showMessageDialog(this, "Please fill all fields to procced futher!");
             return;
         }
         
