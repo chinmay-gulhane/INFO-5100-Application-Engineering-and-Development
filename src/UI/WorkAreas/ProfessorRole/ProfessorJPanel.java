@@ -4,8 +4,11 @@
  */
 package UI.WorkAreas.ProfessorRole;
 
+import Education.Courses.Course;
+import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Professor.Professor;
+import Education.Student.Student;
 import UI.WorkAreas.AdminRole.ViewStudentAdminJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -34,7 +37,21 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         int courseCount = 0;
         int courseScheduleCount = 0;
         int studentCount = 0;
-                
+        for(Course c: education.getCourseDirectory().getCourseList()){
+            if(c.getProfessorOwnerId().equals(professor.getProfessorId())){
+                ++courseCount;
+            }
+        }
+        for(CourseSchedule sc: education.getCourseScheduleDirectory().getCourseScheduleList()){
+            if(sc.getTeachingProfessorId().equals(professor.getProfessorId())){
+                ++courseScheduleCount;
+                for(Student s : education.getStudentsDirectory().getStudentList()){
+                    if(s.getGrades().containsKey(sc.getScheduleId())){
+                        ++studentCount;
+                    }
+                }
+            }
+        }
         lblCourseCount.setText(Integer.toString(courseCount));
         lblCourseScheduleCount.setText(Integer.toString(courseScheduleCount));
         lblStudentCount.setText(Integer.toString(studentCount));
