@@ -9,6 +9,7 @@ import Education.Courses.CourseSchedule;
 import Education.Education;
 import Education.Professor.Professor;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -328,6 +329,10 @@ public class ViewCourseScheduleJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 2);
+        if(component instanceof ProfessorJPanel professorJPanel) {
+            professorJPanel.setUpDasboardData();
+        }
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

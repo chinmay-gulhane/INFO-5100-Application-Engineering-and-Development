@@ -49,7 +49,7 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
         Map<Student, String> appliedJobs = jobPosting.getApplicants();
         for (Map.Entry<Student, String> entry : appliedJobs.entrySet()) {
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
             row[0] = entry.getKey();
             row[1] = entry.getKey().getName();
             int totalCredit = 0;
@@ -64,7 +64,8 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
              }
             row[2] = totalCourses;
             row[3] = totalCredit;
-            row[4] = entry.getValue();
+            row[4] = entry.getKey().getGpa();
+            row[5] = entry.getValue();
             dtm.addRow(row);
         }
     }
@@ -99,17 +100,17 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
 
         tblApplicants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "EduVerse ID", "Name", "Total Courses", "Total Credits", "Application Status"
+                "EduVerse ID", "Name", "Total Courses", "Total Credits", "CGPA", "Application Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -252,7 +253,7 @@ public class ViewApplicantsJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnSaveStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
