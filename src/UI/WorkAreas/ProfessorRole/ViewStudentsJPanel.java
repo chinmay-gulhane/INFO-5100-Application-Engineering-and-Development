@@ -6,6 +6,7 @@ package UI.WorkAreas.ProfessorRole;
 
 import Education.Education;
 import Education.Professor.Professor;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -14,11 +15,18 @@ import javax.swing.JPanel;
  */
 public class ViewStudentsJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Education education;
+    private Professor professor;
+    
     /**
      * Creates new form ViewStudentsJPanel
      */
     ViewStudentsJPanel(JPanel userProcessContainer, Education education, Professor professor) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.education = education;
+        this.professor = professor;
     }
 
     /**
@@ -31,8 +39,19 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         jLabel1.setText("VIew Students");
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -42,18 +61,32 @@ public class ViewStudentsJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
