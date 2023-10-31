@@ -456,9 +456,12 @@ public class EducationConfigure {
 
 
     // Jobs
-        education.getEmployer().createJobPosting("1", "SDE 1", "Oracle");
-        education.getEmployer().createJobPosting("2", "SDE 2", "Amazon");
-        education.getEmployer().createJobPosting("3", "SDE 3", "Facebook");
+        education.getEmployer().createJobPosting("1231231", "Software Engineer", "Company - Oracle");
+        education.getEmployer().createJobPosting("2321234", "Dev Ops Engineer", "Company - Amazon");
+        education.getEmployer().createJobPosting("3334322", "Front End Developer", "Company - Facebook");
+        education.getEmployer().createJobPosting("9890932", "Back End Developer", "Company - Meta");
+        education.getEmployer().createJobPosting("0986890", "Full Stack Developer", "Company - Tik Tok");
+        education.getEmployer().createJobPosting("0987789", "Cloud Engineer", "Company - Northen Trust");
         
         return education;
     }
