@@ -44,6 +44,7 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         btnViewCourseSchedule = new javax.swing.JButton();
         btnViewProfile = new javax.swing.JButton();
         btnAddGrades = new javax.swing.JButton();
+        btnAddGrades1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,6 +112,16 @@ public class ProfessorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddGrades1.setBackground(new java.awt.Color(0, 0, 0));
+        btnAddGrades1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnAddGrades1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddGrades1.setText("View Students");
+        btnAddGrades1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddGrades1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,11 +137,12 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                     .addComponent(btnAddCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewCourseSchedule))
+                    .addComponent(btnViewCourseSchedule)
+                    .addComponent(btnAddGrades1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +161,9 @@ public class ProfessorJPanel extends javax.swing.JPanel {
                 .addComponent(btnViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(18, 18, 18)
+                .addComponent(btnAddGrades1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -201,10 +215,19 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddGradesActionPerformed
 
+    private void btnAddGrades1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGrades1ActionPerformed
+        // TODO add your handling code here:
+        ViewStudentsJPanel panel = new ViewStudentsJPanel(userProcessContainer,education, professor);
+        userProcessContainer.add("ViewStudentsJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddGrades1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourse;
     private javax.swing.JButton btnAddGrades;
+    private javax.swing.JButton btnAddGrades1;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewCourse;
     private javax.swing.JButton btnViewCourseSchedule;
