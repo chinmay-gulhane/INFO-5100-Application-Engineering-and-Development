@@ -72,7 +72,7 @@ public class EducationConfigure {
   //      grades1.put("SH1001", 3.0);
         passHistory.add("sambar");
         Cpassword = BCrypt.hashpw("sambar", salt);
-        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", Cpassword, "samiksha.baral@eduverse.edu", "(555) 555-5555", 3.2, grades1, "Active", true, 2000, GraduationStatus.NOTAPPLIED, passHistory);
+        education.getStudentsDirectory().addStudent("S1000", "Samiksha Baral", "sambar", Cpassword, "samiksha.baral@eduverse.edu", "(555) 555-5555", 3.2, grades1, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
 
 // Student 2
         Map<String, Double> grades2 = new HashMap<>();
@@ -83,7 +83,7 @@ public class EducationConfigure {
         passHistory.clear();
         passHistory.add("johsmith");
         Cpassword = BCrypt.hashpw("johsmith", salt);
-        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 2000, GraduationStatus.NOTAPPLIED, passHistory);
+        education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 8.7, grades2, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
         
 //// Student 3
 //        ArrayList<String> scheduleId3 = new ArrayList<>();

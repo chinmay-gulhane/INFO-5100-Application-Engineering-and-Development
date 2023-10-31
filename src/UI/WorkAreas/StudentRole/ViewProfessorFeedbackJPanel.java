@@ -52,7 +52,7 @@ public class ViewProfessorFeedbackJPanel extends javax.swing.JPanel {
                                         row[5] = cs.getRegion();
                                         row[6] = cs.getLanguage();
                                         row[7] = entry.getValue();
-                                        row[8] = cs.getTerm()+cs.getYear();
+                                        row[8] = cs.getTerm()+" "+cs.getYear();
                                         dtm.addRow(row);
                                     }
                                 } else {

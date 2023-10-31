@@ -33,7 +33,6 @@ public class BillingJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Education education;
     private Student student;
-    int amountOwed = 0;
 
     /**
      * Creates new form BillingJPanel
@@ -47,13 +46,7 @@ public class BillingJPanel extends javax.swing.JPanel {
     }
 
     private void showBilling() {
-        for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
-            for (Course c : education.getCourseDirectory().getCourseList()) {
-                if (cs.getCourseId().equals(c.getCourseId()) && student.getGrades().containsKey(cs.getScheduleId())) {
-                    amountOwed = amountOwed + c.getCredit() * 1000;
-                }
-            }
-        }
+        double amountOwed = student.getAmountOwed();
         txtAmount.setText(amountOwed + " $");
     }
 
@@ -143,7 +136,12 @@ public class BillingJPanel extends javax.swing.JPanel {
 
     private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
         // TODO add your handling code here:
+        if(student.getAmountOwed()<=0){
+            JOptionPane.showMessageDialog(null, "To proceed with the payment amount should be a postive number!", "ALERT_MESSAGE", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         JOptionPane.showMessageDialog(null, "Are you certain you wish to proceed with the payment?", "ALERT_MESSAGE", JOptionPane.WARNING_MESSAGE);
+        double amountOwed = student.getAmountOwed();
         String path = "";
         JFileChooser jFile = new JFileChooser();
         jFile.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -191,6 +189,7 @@ public class BillingJPanel extends javax.swing.JPanel {
         } catch (DocumentException ex) {
             Logger.getLogger(TranscriptJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        student.setAmountOwed(0.0);
     }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

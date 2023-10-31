@@ -233,7 +233,16 @@ public class AddCoursesJPanel extends javax.swing.JPanel {
                 student.getGrades().put(sc.getScheduleId(), 0.0);
                 populateTable();
             }
+            int credit= 0;
+            for(Course course: education.getCourseDirectory().getCourseList()){
+                if(course.getCourseId().equals(sc.getCourseId())){
+                    credit = course.getCredit();
+                    break;
+                }
+            }
+            student.setAmountOwed(student.getAmountOwed() + (credit*1000));
         }
+        
         JOptionPane.showMessageDialog(this, "Added a new course to the schedule");
     }//GEN-LAST:event_btnAddActionPerformed
 
