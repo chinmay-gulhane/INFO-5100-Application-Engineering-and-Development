@@ -118,6 +118,7 @@ public class EducationConfigure {
         passHistory.add("johsmith");
         Cpassword = BCrypt.hashpw("johsmith", salt);
         education.getStudentsDirectory().addStudent("S1001", "John Smith", "johsmith", Cpassword, "john.smith@eduverse.edu", "(555) 555-5556", 3.5, grades2, "Active", true, 8000, GraduationStatus.NOTAPPLIED, passHistory);
+
         
 //// Student 3
         Map<String, Double> grades3 = new HashMap<>();
