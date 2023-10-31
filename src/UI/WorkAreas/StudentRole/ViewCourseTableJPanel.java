@@ -203,8 +203,16 @@ public class ViewCourseTableJPanel extends javax.swing.JPanel {
             int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to delete the person details", "Warning", dialogButton);
             if(dialogResult == JOptionPane.YES_OPTION){
                 CourseSchedule csh = (CourseSchedule) tblViewCourse.getValueAt(selectedRow, 0);
-                education.getCourseScheduleDirectory().deleteCourseSchedule(csh);
+                student.getGrades().remove(csh.getScheduleId());
                 populateTable();
+                int credit= 0;
+                for(Course course: education.getCourseDirectory().getCourseList()){
+                    if(course.getCourseId().equals(csh.getCourseId())){
+                        credit = course.getCredit();
+                        break;
+                    }
+                }
+                student.setAmountOwed(student.getAmountOwed() - (credit*1000));
             }
         }
         else{

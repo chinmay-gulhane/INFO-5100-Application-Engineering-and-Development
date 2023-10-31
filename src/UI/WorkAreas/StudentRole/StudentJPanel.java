@@ -38,18 +38,7 @@ public class StudentJPanel extends javax.swing.JPanel {
          lblStudentName.setText(student.getName());
         lblStudentId.setText(student.getStudentId());
         
-        int amountOwed = 0;
-        
-        
-        for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
-            for (Course c : education.getCourseDirectory().getCourseList()) {
-                if (cs.getCourseId().equals(c.getCourseId()) && student.getGrades().containsKey(cs.getScheduleId())) {
-                    amountOwed = amountOwed + c.getCredit() * 1000;
-                }
-            }
-        }
-        
-        
+        double amountOwed = student.getAmountOwed(); 
         int totalCredit = 0;
         int totalCourses = 0;
         for (CourseSchedule cs : education.getCourseScheduleDirectory().getCourseScheduleList()) {
