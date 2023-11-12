@@ -23,10 +23,12 @@ import model.OrderItem;
  * @author chinmaygulhane
  */
 public class BrowseProductsJPanel extends javax.swing.JPanel {
+    
     JPanel userProcessContainer;
     SupplierDirectory supplierDirectory;
     MasterOrderList masterOrderList;
     Order currentOrder;
+    
     /** Creates new form BrowseProducts */
     public BrowseProductsJPanel(JPanel userProcessContainer, SupplierDirectory supplierDirectory, MasterOrderList masterOrderList) {
         initComponents();
@@ -34,6 +36,7 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         this.supplierDirectory = supplierDirectory;
         this.userProcessContainer = userProcessContainer;
         this.currentOrder = new Order();
+        
         populateCombo();
         populateProductTable();
         populateCartTable();
@@ -315,11 +318,13 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
 
     private void btnProductDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductDetailsActionPerformed
         // TODO add your handling code here:
+        
         int selectedRow = tblProductCatalog.getSelectedRow();
         if(selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select the Product first.");
             return;
         }
+        
         Product product = (Product) tblProductCatalog.getValueAt(selectedRow, 0);
         ViewProductDetailJPanel vpdp = new ViewProductDetailJPanel(userProcessContainer, product);
         userProcessContainer.add("BrowseProductsJPanel", vpdp);
@@ -331,13 +336,16 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         masterOrderList.addNewOrder(currentOrder);
         currentOrder = new Order();
+        
         populateCombo();
         populateProductTable();
         populateCartTable();
+        
         txtNewQuantity.setText("");
         txtSalesPrice.setText("");
         txtSearch.setText("");
         spnQuantity.setValue(0);
+        
         JOptionPane.showMessageDialog(this, "Thank you for your purchase. Looking forward to see you again!");
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
@@ -348,21 +356,25 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select the item first.");
             return;
         } 
+        
         OrderItem item = (OrderItem) tblCart.getValueAt(selectedRow, 0);
         int quant = 0;
-        try{
+        try {
             quant = Integer.parseInt(txtNewQuantity.getText());
-        }catch(Exception e){
+        } catch(Exception e){
              JOptionPane.showMessageDialog(this, "Please check the modified quantity field.");
             return;
         }
+        
         int oldQaunt = item.getQuantity();
             if(item.getProduct().getAvail() + oldQaunt < quant){
                 JOptionPane.showMessageDialog(this, "Please check product availability.");
                 return;
             }
+            
             item.getProduct().setAvail(item.getProduct().getAvail()+oldQaunt-quant);
             item.setQuantity(quant);
+            
             populateCartTable();
             populateProductTable();
     }//GEN-LAST:event_btnModifyQuantityActionPerformed
@@ -380,8 +392,10 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         } 
         OrderItem item = (OrderItem) tblCart.getValueAt(selectedRow, 0);
         int quant = 0;
+        
         item.getProduct().setAvail(item.getProduct().getAvail()+item.getQuantity()-quant);
         currentOrder.deleteItem(item);
+        
         populateCartTable();
         populateProductTable();
     }//GEN-LAST:event_btnRemoveOrderItemActionPerformed
@@ -394,6 +408,7 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         }
         OrderItem item = (OrderItem) tblCart.getValueAt(selectedRow, 0);
         ViewOrderItemDetailJPanel voidp = new ViewOrderItemDetailJPanel(userProcessContainer, item);
+        
         userProcessContainer.add("ViewOrderItemDetailJPanel", voidp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -410,10 +425,10 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         double salesPrice = 0;
         int quant = 0;
         
-        try{
+        try {
             salesPrice = Double.parseDouble(txtSalesPrice.getText());
             quant = (Integer) spnQuantity.getValue();
-        }catch(Exception e){
+        } catch(Exception e){
              JOptionPane.showMessageDialog(this, "Please check the price and quantity fields.");
             return;
         }
@@ -433,15 +448,17 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Please check product availability.");
                 return;
             }
-        }else {
+        } else {
             int oldQaunt = item.getQuantity();
             if(item.getProduct().getAvail() + oldQaunt < quant){
                 JOptionPane.showMessageDialog(this, "Please check product availability.");
                 return;
             }
+            
             item.getProduct().setAvail(item.getProduct().getAvail()+oldQaunt-quant);
             item.setQuantity(quant);
         }
+        
         populateProductTable();
         populateCartTable();
     }//GEN-LAST:event_btnAddToCartActionPerformed
