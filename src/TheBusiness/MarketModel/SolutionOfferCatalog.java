@@ -18,10 +18,13 @@ public class SolutionOfferCatalog {
     public SolutionOfferCatalog() {
         solutionoffers = new ArrayList();
     }
+
+    public ArrayList<SolutionOffer> getSolutionoffers() {
+        return solutionoffers;
+    }
     
-    public SolutionOffer newSolutionOffer(MarketChannelAssignment mca){
+    public SolutionOffer newSolutionOffer(SolutionOffer so){
         
-        SolutionOffer so = new SolutionOffer(mca);
         solutionoffers.add(so);
         
         return so;

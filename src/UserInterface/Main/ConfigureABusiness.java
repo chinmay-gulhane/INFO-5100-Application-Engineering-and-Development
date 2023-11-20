@@ -148,7 +148,10 @@ class ConfigureABusiness {
         SolutionOffer sof1 = new SolutionOffer(productcatalog0, 225000, 330500, 329500, "Offer1", tvchannelteenmarket);
         SolutionOffer sof2 = new SolutionOffer(productcatalog1, 2341200, 3296100, 4720102, "Offer2", webchannelteenmarket);
 
- 
+        SolutionOfferCatalog soc =  business.getSolutionOfferCatalog();
+        soc.newSolutionOffer(sof1);
+        soc.newSolutionOffer(sof2);
+        
         SolutionOrder so1 = new SolutionOrder("Scanner 13  1", "Teenagers", "tv", "Dell", "Xerox sales1", 18500, 15000, 26000, 12000, 3, "Submitted"); //tp,sp,cp,fp
         SolutionOrder so2 = new SolutionOrder("Scanner 4", "Teenagers", "tv", "Dell", "Xerox sales1", 16500, 20000, 25000, 16500, 2, "Submitted");
         SolutionOrder so3 = new SolutionOrder("Printer 2", "Teenagers", "tv", "Microsoft", "Xerox sales2", 36500, 15000, 40000, 36500, 3, "Submitted");
@@ -169,19 +172,19 @@ class ConfigureABusiness {
         mastersolutionorderlist.newSolutionOrder(so7);
         mastersolutionorderlist.newSolutionOrder(so8);
         mastersolutionorderlist.newSolutionOrder(so9);
-        
+
 // Solution 1: Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment           
-       System.out.println("Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment");
-System.out.println("");
-Map<String, Map<String, Integer>> marketProfitMap = new HashMap<>();
-for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
-            int profit = (order.getSellingPrice()-order.getTargetPrice())*(order.getQuantity());
+        System.out.println("Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment");
+        System.out.println("");
+        Map<String, Map<String, Integer>> marketProfitMap = new HashMap<>();
+        for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
+            int profit = (order.getSellingPrice() - order.getTargetPrice()) * (order.getQuantity());
             String marketName = order.getMarketName();
             String solutionOfferName = order.getSolutionOfferName();
             marketProfitMap
                     .computeIfAbsent(marketName, k -> new HashMap<>())
                     .merge(solutionOfferName, profit, Integer::sum);
-}
+        }
 // Find the top 3 solutionOfferNames with the highest accumulated profit for each market
         for (Map.Entry<String, Map<String, Integer>> entry : marketProfitMap.entrySet()) {
             String marketName = entry.getKey();
@@ -201,69 +204,73 @@ for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
         }
 
 // Solution 2: Our 3 best customers (customers who buy about target price)  
-       System.out.println("___________________________________________________________________________________________________________________________________");
+        System.out.println("___________________________________________________________________________________________________________________________________");
         System.out.println("Our 3 best customers (customers who buy about target price)");
         System.out.println("");
         List<String> top3customerNames = null;
         Map<String, Integer> customerProfits = new HashMap<>();
-         for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
-            int profit = (order.getSellingPrice()-order.getTargetPrice())*(order.getQuantity());
-            String customerName =  order.getCustomerName();
+        for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
+            int profit = (order.getSellingPrice() - order.getTargetPrice()) * (order.getQuantity());
+            String customerName = order.getCustomerName();
             customerProfits.put(customerName, customerProfits.getOrDefault(customerName, 0) + profit);
-            
+
             List<String> customerNames = new ArrayList<>(customerProfits.keySet());
-            
+
             Collections.sort(customerNames, (a, b) -> Integer.compare(customerProfits.get(b), customerProfits.get(a)));
-            top3customerNames= customerNames.subList(0, Math.min(3, customerNames.size()));   
+            top3customerNames = customerNames.subList(0, Math.min(3, customerNames.size()));
         }
-        for(int i=0;i<top3customerNames.size();i++){
-                System.out.println(top3customerNames.get(i) + " Total Profits " +
-                customerProfits.get(top3customerNames.get(i)));
-            }
-        
+        for (int i = 0; i < top3customerNames.size(); i++) {
+            System.out.println(top3customerNames.get(i) + " Total Profits "
+                    + customerProfits.get(top3customerNames.get(i)));
+        }
+
 // Solution 3: Our top 3 best sales people (sell higher that target)   
-       System.out.println("___________________________________________________________________________________________________________________________________");
+        System.out.println("___________________________________________________________________________________________________________________________________");
         System.out.println("Our top 3 best sales people (sell higher that target)");
         System.out.println("");
         List<String> top3salesPerson = null;
         Map<String, Integer> salesPersonProfits = new HashMap<>();
-         for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
-            int profit = (order.getSellingPrice()-order.getTargetPrice())*(order.getQuantity());
-            String salesPersonName =  order.getSalesPerson();
+        for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
+            int profit = (order.getSellingPrice() - order.getTargetPrice()) * (order.getQuantity());
+            String salesPersonName = order.getSalesPerson();
             salesPersonProfits.put(salesPersonName, salesPersonProfits.getOrDefault(salesPersonName, 0) + profit);
-            
-            List<String> salesPersonNames = new ArrayList<>(salesPersonProfits.keySet());
-            
-            Collections.sort(salesPersonNames, (a, b) -> Integer.compare(salesPersonProfits.get(b), salesPersonProfits.get(a)));
-            top3salesPerson= salesPersonNames.subList(0, Math.min(3, salesPersonNames.size()));   
-        }
-        for(int i=0;i<top3salesPerson.size();i++){
-               System.out.println(top3salesPerson.get(i) + " Total Profits " +
-                salesPersonProfits.get(top3salesPerson.get(i)));
-            }
-        
-// Solution 4: Our top 3 best sales people (sell higher that target)
-       System.out.println("___________________________________________________________________________________________________________________________________");
-        System.out.println("Our total marginal revenue broken down by market that is above or below expected target (actual minus target)");
-       System.out.println("");
-        Map<String, Integer> marketProfits = new HashMap<>();
-        List<String> marketNames=null;
-         for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
-            int profit = (order.getSellingPrice()-order.getTargetPrice())*(order.getQuantity());
-            String marketName =  order.getMarketName();
-            marketProfits.put(marketName, marketProfits.getOrDefault(marketName, 0) + profit);
-            
-            marketNames = new ArrayList<>(marketProfits.keySet());
-            
-            Collections.sort(marketNames, (a, b) -> Integer.compare(marketProfits.get(b), marketProfits.get(a)));   
-        }
-        for(int i=0;i<marketNames.size();i++){
-               System.out.println(marketNames.get(i) + " Total Revenue " +
-                marketProfits.get(marketNames.get(i)));
-            }        
-          
 
-        return business; 
+            List<String> salesPersonNames = new ArrayList<>(salesPersonProfits.keySet());
+
+            Collections.sort(salesPersonNames, (a, b) -> Integer.compare(salesPersonProfits.get(b), salesPersonProfits.get(a)));
+            top3salesPerson = salesPersonNames.subList(0, Math.min(3, salesPersonNames.size()));
+        }
+        for (int i = 0; i < top3salesPerson.size(); i++) {
+            System.out.println(top3salesPerson.get(i) + " Total Profits "
+                    + salesPersonProfits.get(top3salesPerson.get(i)));
+        }
+
+// Solution 4: Our top 3 best sales people (sell higher that target)
+        System.out.println("___________________________________________________________________________________________________________________________________");
+        System.out.println("Our total marginal revenue broken down by market that is above or below expected target (actual minus target)");
+        System.out.println("");
+        Map<String, Integer> marketProfits = new HashMap<>();
+        List<String> marketNames = null;
+        for (SolutionOrder order : mastersolutionorderlist.getSolutionorderlist()) {
+            int profit = (order.getSellingPrice() - order.getTargetPrice()) * (order.getQuantity());
+            String marketName = order.getMarketName();
+            marketProfits.put(marketName, marketProfits.getOrDefault(marketName, 0) + profit);
+
+            marketNames = new ArrayList<>(marketProfits.keySet());
+
+            Collections.sort(marketNames, (a, b) -> Integer.compare(marketProfits.get(b), marketProfits.get(a)));
+        }
+        for (int i = 0; i < marketNames.size(); i++) {
+            System.out.println(marketNames.get(i) + " Total Revenue "
+                    + marketProfits.get(marketNames.get(i)));
+        }
+
+// Determine if the company is pricing its solutions correctly. Show how to update price ranges so prices perform at optimum levels (higher and lower targets).
+        System.out.println("___________________________________________________________________________________________________________________________________");
+        System.out.println("Determine if the company is pricing its solutions correctly. Show how to update price ranges so prices perform at optimum levels (higher and lower targets).");
+        System.out.println("");
+        
+        
+        return business;
     }
 }
- 

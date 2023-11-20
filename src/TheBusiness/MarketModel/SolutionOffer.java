@@ -114,7 +114,10 @@ public class SolutionOffer {
         if (marketchannelcomb==mca) return true;
         else return false;
     }
-
+@Override
+    public String toString(){
+        return name;
+    }
 
     
 }
