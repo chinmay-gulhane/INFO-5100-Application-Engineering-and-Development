@@ -15,6 +15,7 @@ import TheBusiness.UserAccountManagement.UserAccountDirectory;
 import UserInterface.Main.WorkSpaceProfiles.BusinessManagerWorkAreaJPanel;
 import UserInterface.Main.WorkSpaceProfiles.MarketingManagerWorkAreaJPanel1;
 import UserInterface.Main.WorkSpaceProfiles.SalesPersonWorkAreaJPanel;
+import DataImport.DataImportFile;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +25,7 @@ import javax.swing.JPanel;
 public class PricingMainFrame extends javax.swing.JFrame {
 
     Business business;
+    DataImportFile dataFile;
 
     /**
      * Creates new form PricingMainFrame
@@ -32,6 +34,7 @@ public class PricingMainFrame extends javax.swing.JFrame {
     public PricingMainFrame() {
         initComponents();
         business = ConfigureABusiness.initialize();
+        dataFile.read(business);
 
     }
 
