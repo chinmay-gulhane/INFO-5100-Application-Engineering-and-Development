@@ -270,7 +270,7 @@ class ConfigureABusiness {
         System.out.println("Determine if the company is pricing its solutions correctly. Show how to update price ranges so prices perform at optimum levels (higher and lower targets).");
         System.out.println("");
         
-
+        business.setMastersolutionorderlist(mastersolutionorderlist);
         business.setBusiness(business);        
         return business;
     }

@@ -5,6 +5,7 @@
  */
 package UserInterface.Main;
 
+import Analytics.AnalysisHelper;
 import MarketingManagement.MarketingPersonProfile;
 import TheBusiness.Business.Business;
 import TheBusiness.Personnel.EmployeeProfile;
@@ -26,15 +27,18 @@ public class PricingMainFrame extends javax.swing.JFrame {
 
     Business business;
     DataImportFile dataFile;
+    AnalysisHelper helper;
 
     /**
      * Creates new form PricingMainFrame
      */
 
     public PricingMainFrame() {
+        helper = new AnalysisHelper();
         initComponents();
         business = ConfigureABusiness.initialize();
         dataFile.read(business);
+//        runAnalysis();
 
     }
 
@@ -42,6 +46,11 @@ public class PricingMainFrame extends javax.swing.JFrame {
 
     }
 
+    private void runAnalysis(){
+        // TODO
+        helper.test();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
