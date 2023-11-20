@@ -4,6 +4,7 @@
 // */
 //package Analytics;
 //
+//import TheBusiness.Business.Business;
 //import TheBusiness.SolutionOrders.SolutionOrder;
 //import java.util.ArrayList;
 //import java.util.Collections;
@@ -17,6 +18,8 @@
 // */
 //public class AnalysisHelper {
 //    public static void test(){
+//        
+//        Business business = Business.getBusiness();
 //        // Solution 1: Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment           
 //        System.out.println("Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment");
 //        System.out.println("");
