@@ -17,6 +17,9 @@ import TheBusiness.Personnel.Profile;
 public class SalesPersonProfile extends Profile {
     ArrayList<Order> salesorders;
 
+    public ArrayList<Order> getSalesorders() {
+        return salesorders;
+    }
 
     public SalesPersonProfile(Person p) {
 

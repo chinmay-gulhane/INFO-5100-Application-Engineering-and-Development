@@ -23,6 +23,10 @@ public class Order {
     MarketChannelAssignment mca;
     String status;
 
+    public ArrayList<OrderItem> getOrderitems() {
+        return orderitems;
+    }
+    
     public Order(){}
     
     public Order(CustomerProfile cp) {

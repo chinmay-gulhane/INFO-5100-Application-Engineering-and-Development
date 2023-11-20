@@ -23,8 +23,8 @@ public abstract class Profile {
     }
      
 
-    public boolean isMatch(String id) {
-        if (person.getPersonId().equals(id)) {
+    public boolean isMatch(String name) {
+        if (person.getPersonName().equals(name)) {
             return true;
         }
         return false;

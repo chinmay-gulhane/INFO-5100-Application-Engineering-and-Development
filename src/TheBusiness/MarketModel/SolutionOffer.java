@@ -7,6 +7,7 @@ package TheBusiness.MarketModel;
 
 import java.util.ArrayList;
 import TheBusiness.ProductManagement.Product;
+import TheBusiness.ProductManagement.ProductCatalog;
 import TheBusiness.SolutionOrders.SolutionOrder;
 
 /**
@@ -14,56 +15,67 @@ import TheBusiness.SolutionOrders.SolutionOrder;
  * @author kal bugrara
  */
 public class SolutionOffer {
-    ArrayList<Product> products;
-    int target;//floor, ceiling, and target ideas
-    int floor;
-    int ceiling;
-    String ad;
+    ProductCatalog productCatalog;
+    int targetPrice;//floor, ceiling, and target ideas
+    int floorPrice;
+    int ceilingPrice;
+    String name;
     MarketChannelAssignment marketchannelcomb;
-    ArrayList<SolutionOrder> solutionorders;
+    ArrayList<SolutionOrder> solutionorder;
     
     public SolutionOffer(MarketChannelAssignment m){
         marketchannelcomb = m;
-        products = new ArrayList();
-        solutionorders = new ArrayList();
-        m.addSolutionOffer(this); 
-       
+        solutionorder = new ArrayList();
+        m.addSolutionOffer(this);   
     } 
-    
-    public void addProduct(Product p){
-        products.add(p);
+     public SolutionOffer(ProductCatalog productCatalog, int targetPrice, int floorPrice, int ceilingPrice, String name, MarketChannelAssignment marketchannelcomb){
+        this.productCatalog = productCatalog;
+        this.targetPrice = targetPrice;
+        this.ceilingPrice = ceilingPrice;
+        this.floorPrice = floorPrice;
+        this.name = name;
+        this.marketchannelcomb = marketchannelcomb;
+    } 
+
+    public ProductCatalog getProductCatalog() {
+        return productCatalog;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public void setProductCatalog(ProductCatalog productCatalog) {
+        this.productCatalog = productCatalog;
     }
 
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+
+    public int getTargetPrice() {
+        return targetPrice;
     }
 
-    public int getTarget() {
-        return target;
+    public void setTargetPrice(int targetPrice) {
+        this.targetPrice = targetPrice;
     }
 
-    public void setTarget(int target) {
-        this.target = target;
+    public int getFloorPrice() {
+        return floorPrice;
     }
 
-    public int getFloor() {
-        return floor;
+    public void setFloorPrice(int floorPrice) {
+        this.floorPrice = floorPrice;
     }
 
-    public void setFloor(int floor) {
-        this.floor = floor;
+    public int getCeilingPrice() {
+        return ceilingPrice;
     }
 
-    public int getCeiling() {
-        return ceiling;
+    public void setCeilingPrice(int ceilingPrice) {
+        this.ceilingPrice = ceilingPrice;
     }
 
-    public void setCeiling(int ceiling) {
-        this.ceiling = ceiling;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MarketChannelAssignment getMarketchannelcomb() {
@@ -74,25 +86,27 @@ public class SolutionOffer {
         this.marketchannelcomb = marketchannelcomb;
     }
 
-    public ArrayList<SolutionOrder> getSolutionorders() {
-        return solutionorders;
+    public ArrayList<SolutionOrder> getSolutionorder() {
+        return solutionorder;
     }
 
-    public void setSolutionorders(ArrayList<SolutionOrder> solutionorders) {
-        this.solutionorders = solutionorders;
+    public void setSolutionorder(ArrayList<SolutionOrder> solutionorder) {
+        this.solutionorder = solutionorder;
     }
+     
+
    
-    public int getRevenues(){
-        int sum = 0;
-        for(SolutionOrder so: solutionorders){
-            sum = sum + so.getSolutionPrice();
-            
-        }
-        return sum;
-    }
+//    public int getRevenues(){
+//        int sum = 0;
+//        for(SolutionOrder so: solutionorder){
+//            sum = sum + so.getSolutionPrice();
+//            
+//        }
+//        return sum;
+//    }
     
     public void addSolutionOrder(SolutionOrder so){
-        solutionorders.add(so);
+        solutionorder.add(so);
     }
     // this will allow one to retrieve all offers meant for this market/channel combo
     public boolean isSolutionOfferMatchMarketChannel(MarketChannelAssignment mca){
@@ -100,12 +114,7 @@ public class SolutionOffer {
         if (marketchannelcomb==mca) return true;
         else return false;
     }
-    public String getAd(){
-        return ad;
-    }
-    public void setAd(String a){ //this an amazing solution for people like
-        ad = a;
-    }
+
 
     
 }

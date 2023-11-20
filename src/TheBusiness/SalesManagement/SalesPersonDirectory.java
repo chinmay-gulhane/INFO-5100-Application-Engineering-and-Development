@@ -18,6 +18,10 @@ public class SalesPersonDirectory {
     Business business;
     ArrayList<SalesPersonProfile> salespersonlist;
 
+    public ArrayList<SalesPersonProfile> getSalespersonlist() {
+        return salespersonlist;
+    }
+
     public SalesPersonDirectory(Business d) {
 
         business = d;
@@ -40,7 +44,7 @@ public class SalesPersonDirectory {
                 return sp;
             }
         }
-            return null; //not found after going through the whole list
-         }
+        return null; //not found after going through the whole list
+    }
 
 }

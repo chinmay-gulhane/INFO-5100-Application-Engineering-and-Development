@@ -24,47 +24,58 @@ public class MasterSolutionOrderList {
         solutionorderlist = new ArrayList();
     }
 
-    public SolutionOrder newSolutionOrder(SolutionOffer soloffer,  MarketChannelAssignment mca, CustomerProfile customerprofile, SalesPersonProfile salesProfile,int sp, int q) {
-        SolutionOrder so = new SolutionOrder(soloffer, mca, customerprofile, salesProfile, sp, q);
+    public ArrayList<SolutionOrder> getSolutionorderlist() {
+        return solutionorderlist;
+    }
+    
+    public SolutionOrder newSolutionOrder(String solutionOfferName, String marketName, String channeName,String customerName, String salesPerson,int targetPrice, int sellingPrice,int ceilingPrice,int floorPrice, int quantity, String status) {
+        SolutionOrder so = new SolutionOrder(solutionOfferName,marketName,channeName,customerName,salesPerson,targetPrice,sellingPrice,ceilingPrice,floorPrice,quantity,status);
         solutionorderlist.add(so);
-        soloffer.addSolutionOrder(so);
+   //     soloffer.addSolutionOrder(so);
         return so;
     }
-
-    public int getRevenueByMarket(Market m) {
-        int sum = 0;
-        for(SolutionOrder so: solutionorderlist){
-         
-         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
-         if(mcc.getMarket()==m) sum = sum +so.getSolutionPrice();
-           
-        }
-
-        return sum;
-
+    
+    public SolutionOrder newSolutionOrder(SolutionOrder so1) {
+        solutionorderlist.add(so1);
+   //     soloffer.addSolutionOrder(so);
+        return so1;
     }
-    public int getRevenueByChannel(Channel c) {
-        int sum = 0;
-        for(SolutionOrder so: solutionorderlist){
-         
-         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
-         if(mcc.getChannel()==c) sum = sum +so.getSolutionPrice();
-           
-        }
+     
 
-        return sum;
-
-    }
-    public int getRevenueByMarketChannelCombo(MarketChannelAssignment mca) {
-        int sum = 0;
-        for(SolutionOrder so: solutionorderlist){
-         
-         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
-         if(mcc==mca) sum = sum +so.getSolutionPrice(); 
-           
-        }
-        return sum;
-
-    }
+//    public int getRevenueByMarket(Market m) {
+//        int sum = 0;
+//        for(SolutionOrder so: solutionorderlist){
+//         
+//         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
+//         if(mcc.getMarket()==m) sum = sum +so.getSolutionPrice();
+//           
+//        }
+//
+//        return sum;
+//
+//    }
+//    public int getRevenueByChannel(Channel c) {
+//        int sum = 0;
+//        for(SolutionOrder so: solutionorderlist){
+//         
+//         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
+//         if(mcc.getChannel()==c) sum = sum +so.getSolutionPrice();
+//           
+//        }
+//
+//        return sum;
+//
+//    }
+//    public int getRevenueByMarketChannelCombo(MarketChannelAssignment mca) {
+//        int sum = 0;
+//        for(SolutionOrder so: solutionorderlist){
+//         
+//         MarketChannelAssignment mcc =   so.getMarketChannelCombo();
+//         if(mcc==mca) sum = sum +so.getSolutionPrice(); 
+//           
+//        }
+//        return sum;
+//
+//    }
 
 }

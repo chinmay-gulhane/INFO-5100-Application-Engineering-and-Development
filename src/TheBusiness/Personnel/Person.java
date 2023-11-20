@@ -11,19 +11,19 @@ package TheBusiness.Personnel;
  */
 public class Person {
 
-    String id;
+    String name;
 
-    public Person(String id) {
+    public Person(String name) {
 
-        this.id = id;
+        this.name = name;
     }
 
-    public String getPersonId() {
-        return id;
+    public String getPersonName() {
+        return name;
     }
 
-    public boolean isMatch(String id) {
-        if (getPersonId().equals(id)) {
+    public boolean isMatch(String name) {
+        if (getPersonName().equals(name)) {
             return true;
         }
         return false;
@@ -31,6 +31,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return getPersonId();
+        return getPersonName();
     }
 }

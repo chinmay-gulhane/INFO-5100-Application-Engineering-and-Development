@@ -21,12 +21,11 @@ public class MarketChannelAssignment {
     ArrayList<SolutionOffer> solutionofferlist;
     ArrayList<SolutionOrder> solutionorderlist;
 
+
     public MarketChannelAssignment(Market m, Channel c) {
 
         market = m;
         channel = c;
-        solutionofferlist = new ArrayList();
-        solutionorderlist = new ArrayList();
 
     }
     public void addSolutionOffer(SolutionOffer soffer){
@@ -40,14 +39,14 @@ public class MarketChannelAssignment {
         
     }
     
-    public int getRevenues(){
-        int sum = 0;
-        for(SolutionOrder so: solutionorderlist){
-            sum = sum + so.getSolutionPrice();
-            
-        }
-        return sum;
-    }
+//    public int getRevenues(){
+//        int sum = 0;
+//        for(SolutionOrder so: solutionorderlist){
+//            sum = sum + so.getSolutionPrice();
+//            
+//        }
+//        return sum;
+//    }
     
     public boolean matches(Market m, Channel c) {
 

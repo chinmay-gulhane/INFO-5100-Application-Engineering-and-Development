@@ -45,7 +45,7 @@ public class ProcessOrder extends javax.swing.JPanel {
         customer = cp;
         salesperson = spp;
         salesPersonTextField.setText(salesperson.getPerson().toString());
-        customerTextField.setText(customer.getCustomerId());
+        customerTextField.setText(customer.getCustomerName());
         MasterOrderList mol = business.getMasterOrderList();
         currentOrder =  mol.newOrder(customer, salesperson, customer.getMca()); //no order was made yet
         initializeTable();

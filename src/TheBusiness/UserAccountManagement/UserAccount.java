@@ -25,7 +25,7 @@ public class UserAccount {
     }
 
     public String getPersonId(){
-        return profile.getPerson().getPersonId();
+        return profile.getPerson().getPersonName();
     }
 
         public boolean isMatch(String id){

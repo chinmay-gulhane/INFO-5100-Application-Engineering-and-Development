@@ -19,6 +19,10 @@ public class CustomerDirectory {
     Business business;
     ArrayList<CustomerProfile> customerlist;
     MarketChannelAssignment mca;
+
+    public ArrayList<CustomerProfile> getCustomerlist() {
+        return customerlist;
+    }
     
     public CustomerDirectory(Business d) {
         business = d;

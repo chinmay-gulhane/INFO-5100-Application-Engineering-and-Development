@@ -90,7 +90,7 @@ public class CustomerProfile extends Profile {
     //if yes then add 1 to total 
 
     public boolean isMatch(String id) {
-        if (person.getPersonId().equals(id)) {
+        if (person.getPersonName().equals(id)) {
             return true;
         }
         return false;
@@ -102,11 +102,11 @@ public class CustomerProfile extends Profile {
 
     @Override
     public String toString() {
-        return person.getPersonId();
+        return person.getPersonName();
     }
 
-    public String getCustomerId() {
-        return person.getPersonId();
+    public String getCustomerName() {
+        return person.getPersonName();
     }
 
     public Person getPerson() {
