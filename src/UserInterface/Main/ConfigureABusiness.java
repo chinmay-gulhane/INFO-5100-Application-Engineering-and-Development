@@ -172,7 +172,7 @@ class ConfigureABusiness {
         mastersolutionorderlist.newSolutionOrder(so7);
         mastersolutionorderlist.newSolutionOrder(so8);
         mastersolutionorderlist.newSolutionOrder(so9);
-
+        
 // Solution 1: Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment           
         System.out.println("Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment");
         System.out.println("");
@@ -270,7 +270,8 @@ class ConfigureABusiness {
         System.out.println("Determine if the company is pricing its solutions correctly. Show how to update price ranges so prices perform at optimum levels (higher and lower targets).");
         System.out.println("");
         
-        
+
+        business.setBusiness(business);        
         return business;
     }
 }

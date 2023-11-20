@@ -29,6 +29,7 @@ import TheBusiness.UserAccountManagement.UserAccountDirectory;
  */
 public class Business {
 
+    private static Business business;
     String name;
     PersonDirectory persondirectory; //all people profiles regardless of the role
     MasterOrderList masterorderlist;
@@ -45,7 +46,14 @@ public class Business {
     MarketingPersonDirectory marketingpersondirectory;
     MasterSolutionOrderList mastersolutionorderlist;
 
+    public static Business getBusiness() {
+        return business;
+    }
 
+    public static void setBusiness(Business business) {
+        Business.business = business;
+    }
+    
     public Business(String n) {
         name = n;
         masterorderlist = new MasterOrderList();
@@ -72,6 +80,119 @@ public class Business {
         solutionoffercatalog = new SolutionOfferCatalog();
         mastersolutionorderlist  = new MasterSolutionOrderList();
 
+    }
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PersonDirectory getPersondirectory() {
+        return persondirectory;
+    }
+
+    public void setPersondirectory(PersonDirectory persondirectory) {
+        this.persondirectory = persondirectory;
+    }
+
+    public MasterOrderList getMasterorderlist() {
+        return masterorderlist;
+    }
+
+    public void setMasterorderlist(MasterOrderList masterorderlist) {
+        this.masterorderlist = masterorderlist;
+    }
+
+    public CustomerDirectory getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(CustomerDirectory customers) {
+        this.customers = customers;
+    }
+
+    public SupplierDirectory getSuppliers() {
+        return suppliers;
+    }
+
+    public void setSuppliers(SupplierDirectory suppliers) {
+        this.suppliers = suppliers;
+    }
+
+    public MarketCatalog getMarketcatalog() {
+        return marketcatalog;
+    }
+
+    public void setMarketcatalog(MarketCatalog marketcatalog) {
+        this.marketcatalog = marketcatalog;
+    }
+
+    public ChannelCatalog getChannelcatalog() {
+        return channelcatalog;
+    }
+
+    public void setChannelcatalog(ChannelCatalog channelcatalog) {
+        this.channelcatalog = channelcatalog;
+    }
+
+    public SolutionOfferCatalog getSolutionoffercatalog() {
+        return solutionoffercatalog;
+    }
+
+    public void setSolutionoffercatalog(SolutionOfferCatalog solutionoffercatalog) {
+        this.solutionoffercatalog = solutionoffercatalog;
+    }
+
+    public CustomerDirectory getCustomerdirectory() {
+        return customerdirectory;
+    }
+
+    public void setCustomerdirectory(CustomerDirectory customerdirectory) {
+        this.customerdirectory = customerdirectory;
+    }
+
+    public EmployeeDirectory getEmployeedirectory() {
+        return employeedirectory;
+    }
+
+    public void setEmployeedirectory(EmployeeDirectory employeedirectory) {
+        this.employeedirectory = employeedirectory;
+    }
+
+    public SalesPersonDirectory getSalespersondirectory() {
+        return salespersondirectory;
+    }
+
+    public void setSalespersondirectory(SalesPersonDirectory salespersondirectory) {
+        this.salespersondirectory = salespersondirectory;
+    }
+
+    public UserAccountDirectory getUseraccountdirectory() {
+        return useraccountdirectory;
+    }
+
+    public void setUseraccountdirectory(UserAccountDirectory useraccountdirectory) {
+        this.useraccountdirectory = useraccountdirectory;
+    }
+
+    public MarketingPersonDirectory getMarketingpersondirectory() {
+        return marketingpersondirectory;
+    }
+
+    public void setMarketingpersondirectory(MarketingPersonDirectory marketingpersondirectory) {
+        this.marketingpersondirectory = marketingpersondirectory;
+    }
+
+    public MasterSolutionOrderList getMastersolutionorderlist() {
+        return mastersolutionorderlist;
+    }
+
+    public void setMastersolutionorderlist(MasterSolutionOrderList mastersolutionorderlist) {
+        this.mastersolutionorderlist = mastersolutionorderlist;
     }
   
     public int getSalesVolume() {
