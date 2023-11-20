@@ -48,7 +48,7 @@ public class AnalysisHelper {
             }
         int postId = commentWithMaxLikes.getPostId();
         System.out.println("\nQ2 - post with most likes per comment " + data.getPosts().get(postId).getPostId());
-        }
+    }
     
     public void getPostWithMostComments() {
         DataStore data = DataStore.getInstance();
@@ -64,7 +64,7 @@ public class AnalysisHelper {
             }
         }
         System.out.println("\nQ3 - post with most comments " + postWithMostComments.getPostId());     
-        } 
+    } 
             
     public void getPassiveUsers() {
         DataStore data = DataStore.getInstance();
