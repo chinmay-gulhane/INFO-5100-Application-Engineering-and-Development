@@ -48,6 +48,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -82,7 +83,6 @@ class ConfigureABusiness {
             System.out.println("Markets : " + marketName);
             String characteristics = row.getCell(1).getStringCellValue();
 
-            
             System.out.println("Characteristics : " + characteristics);
             business.getMarketCatalog().newMarket(marketName, characteristics);
         }
@@ -240,46 +240,45 @@ class ConfigureABusiness {
 
             System.out.println("Supplier : " + sName);
             Supplier supplier1 = suplierdirectory.newSupplier(sName);
-            
+
         }
-        
+
         Supplier supplier1 = suplierdirectory.findSupplier("Lenovo");
         ProductCatalog productcatalog0 = supplier1.getProductCatalog();
-            Sheet product1 = workbook.getSheetAt(6);
-            Iterator<Row> product1Sheet = product1.iterator();
-            while (product1Sheet.hasNext()) {
+        Sheet product1 = workbook.getSheetAt(6);
+        Iterator<Row> product1Sheet = product1.iterator();
+        while (product1Sheet.hasNext()) {
 
-                Row row1 = product1Sheet.next();
-                if (row1.getRowNum() == 0) {
-                    continue;
-                }
-
-                String pName = row1.getCell(0).getStringCellValue();
-                int fp = (int) row1.getCell(1).getNumericCellValue();
-                int tp = (int) row1.getCell(1).getNumericCellValue();
-                int cp = (int) row1.getCell(1).getNumericCellValue();
-                productcatalog0.newProduct(pName, fp, cp, tp);
+            Row row1 = product1Sheet.next();
+            if (row1.getRowNum() == 0) {
+                continue;
             }
-            
-            Supplier supplier2 = suplierdirectory.findSupplier("Epson");
-            ProductCatalog productcatalog1 = supplier2.getProductCatalog();
-            Sheet product2 = workbook.getSheetAt(7);
-            Iterator<Row> product2Sheet = product2.iterator();
-            while (product2Sheet.hasNext()) {
 
-                Row row1 = product2Sheet.next();
-                if (row1.getRowNum() == 0) {
-                    continue;
-                }
+            String pName = row1.getCell(0).getStringCellValue();
+            int fp = (int) row1.getCell(1).getNumericCellValue();
+            int tp = (int) row1.getCell(2).getNumericCellValue();
+            int cp = (int) row1.getCell(3).getNumericCellValue();
+            productcatalog0.newProduct(pName, fp, cp, tp);
+        }
 
-                String pName = row1.getCell(0).getStringCellValue();
-                int fp = (int) row1.getCell(1).getNumericCellValue();
-                int tp = (int) row1.getCell(1).getNumericCellValue();
-                int cp = (int) row1.getCell(1).getNumericCellValue();
-                productcatalog1.newProduct(pName, fp, cp, tp);
+        Supplier supplier2 = suplierdirectory.findSupplier("Epson");
+        ProductCatalog productcatalog1 = supplier2.getProductCatalog();
+        Sheet product2 = workbook.getSheetAt(7);
+        Iterator<Row> product2Sheet = product2.iterator();
+        while (product2Sheet.hasNext()) {
+
+            Row row1 = product2Sheet.next();
+            if (row1.getRowNum() == 0) {
+                continue;
             }
-            
-            
+
+            String pName = row1.getCell(0).getStringCellValue();
+            int fp = (int) row1.getCell(1).getNumericCellValue();
+            int tp = (int) row1.getCell(2).getNumericCellValue();
+            int cp = (int) row1.getCell(3).getNumericCellValue();
+            productcatalog1.newProduct(pName, fp, cp, tp);
+        }
+
 //        Supplier supplier1 = suplierdirectory.newSupplier("Lenovo");
 //        
 //        Product products1p1 = productcatalog0.newProduct("Scanner 3  1", 2000, 16500, 10000);
@@ -291,7 +290,7 @@ class ConfigureABusiness {
 //        Product products1p7 = productcatalog0.newProduct("Printer 3", 22000, 60000, 36500);
 //        Product products1p8 = productcatalog0.newProduct("Photocopier 3", 30000, 70000, 50000);
         //       SupplierDirectory suplierdirectory = business.getSupplierDirectory();
-    //        Supplier supplier2 = suplierdirectory.newSupplier("Epson");
+        //        Supplier supplier2 = suplierdirectory.newSupplier("Epson");
 //        ProductCatalog productcatalog1 = supplier2.getProductCatalog();
 //        Product products2p1 = productcatalog1.newProduct("Scanner 13  1", 12000, 26000, 18500); // fp,cp,tp
 //        Product products2p2 = productcatalog1.newProduct("Scanner 14", 90000, 165000, 125000);
@@ -301,35 +300,78 @@ class ConfigureABusiness {
 //        Product products2p6 = productcatalog1.newProduct("Speedy color Scanner 611", 900000, 125000, 1650000);
 //        Product products2p7 = productcatalog1.newProduct("Premier Printer 300", 322000, 470000, 736500);
 //        Product products2p8 = productcatalog1.newProduct("Color Photocopier 500", 350000, 580000, 780000);
-
-//        SolutionOffer sof1 = new SolutionOffer(productcatalog0, 225000, 330500, 329500, "Offer1", tvchannelteenmarket);
+//        SolutionOffer sof1 = new SolutionOffer(productcatalog0, 225000, 330500, 329500, "Offer1", tvchannelteenmarket); // tp,fp,cp
 //        SolutionOffer sof2 = new SolutionOffer(productcatalog1, 2341200, 3296100, 4720102, "Offer2", webchannelteenmarket);
-//
-//        SolutionOfferCatalog soc = business.getSolutionOfferCatalog();
-//        soc.newSolutionOffer(sof1);
-//        soc.newSolutionOffer(sof2);
+        Random random = new Random();
+        ProductCatalog[] pc = new ProductCatalog[2];
+        pc[0] = productcatalog0;
+        pc[1] = productcatalog1;
+        SolutionOfferCatalog soc = business.getSolutionOfferCatalog();
+        Sheet so = workbook.getSheetAt(8);
+        Iterator<Row> soSheet = so.iterator();
+        while (soSheet.hasNext()) {
 
-        SolutionOrder so1 = new SolutionOrder("Scanner 13  1", "Teenagers", "tv", "Dell", "Xerox sales1", 18500, 15000, 26000, 12000, 3, "Submitted"); //tp,sp,cp,fp
-        SolutionOrder so2 = new SolutionOrder("Scanner 4", "Teenagers", "tv", "Dell", "Xerox sales1", 16500, 20000, 25000, 16500, 2, "Submitted");
-        SolutionOrder so3 = new SolutionOrder("Printer 2", "Teenagers", "tv", "Microsoft", "Xerox sales2", 36500, 15000, 40000, 36500, 3, "Submitted");
-        SolutionOrder so4 = new SolutionOrder("Photocopier 2", "College Grads", "web", "Microsoft", "Xerox sales2", 50000, 15000, 70000, 50000, 3, "Submitted");
-        SolutionOrder so5 = new SolutionOrder("Printer 3", "College Grads", "web", "Google", "Xerox sales3", 36500, 150000, 60000, 36500, 3, "Submitted");
-        SolutionOrder so6 = new SolutionOrder("Offer1", "Teenagers", "tv", "Google", "Xerox sales3", 18500, 15000, 26000, 12000, 3, "Submitted");
-        SolutionOrder so7 = new SolutionOrder("Offer2", "College Grads", "web", "State street", "Xerox sales3", 18500, 15000, 26000, 12000, 3, "Submitted");
-        SolutionOrder so8 = new SolutionOrder("Offer3", "College Grads", "web", "Samiksha", "Xerox sales3", 10, 10000, 26000, 12000, 200, "Submitted");
-        SolutionOrder so9 = new SolutionOrder("Offer4", "College Grads", "web", "Adwait", "Xerox sales4", 100, 10000, 26000, 12000, 200, "Submitted");
+            Row row = soSheet.next();
+            if (row.getRowNum() == 0) {
+                continue;
+            }
+
+            int tp = (int) row.getCell(0).getNumericCellValue();
+            int cp = (int) row.getCell(1).getNumericCellValue();
+            int fp = (int) row.getCell(2).getNumericCellValue();
+            String market = row.getCell(3).getStringCellValue();
+            String channel = row.getCell(4).getStringCellValue();
+
+            Market m = business.getMarketcatalog().findMarket(market);
+            Channel c = business.getChannelCatalog().findChannel(channel);
+            MarketChannelAssignment mca = business.getMarketChannelComboCatalog().finMarketChannelCombo(m, c);
+            SolutionOffer sof1 = new SolutionOffer(pc[random.nextInt(2)], 225000, 330500, 329500, "Offer1", mca);
+            soc.newSolutionOffer(sof1);
+        }
 
         MasterSolutionOrderList mastersolutionorderlist = new MasterSolutionOrderList();
-        mastersolutionorderlist.newSolutionOrder(so1);
-        mastersolutionorderlist.newSolutionOrder(so2);
-        mastersolutionorderlist.newSolutionOrder(so3);
-        mastersolutionorderlist.newSolutionOrder(so4);
-        mastersolutionorderlist.newSolutionOrder(so5);
-        mastersolutionorderlist.newSolutionOrder(so6);
-        mastersolutionorderlist.newSolutionOrder(so7);
-        mastersolutionorderlist.newSolutionOrder(so8);
-        mastersolutionorderlist.newSolutionOrder(so9);
+        Sheet sor = workbook.getSheetAt(9);
+        Iterator<Row> sorSheet = sor.iterator();
+        while (sorSheet.hasNext()) {
 
+            Row row = sorSheet.next();
+            if (row.getRowNum() == 0) {
+                continue;
+            }
+
+            String pName = row.getCell(0).getStringCellValue();
+            String market = row.getCell(1).getStringCellValue();
+            String channel = row.getCell(2).getStringCellValue();
+            String customerN = row.getCell(3).getStringCellValue();
+            String spName = row.getCell(4).getStringCellValue();
+            int tp = (int) row.getCell(5).getNumericCellValue();
+            int sp = (int) row.getCell(6).getNumericCellValue();
+            int cp = (int) row.getCell(7).getNumericCellValue();
+            int fp = (int) row.getCell(8).getNumericCellValue();
+            int quantity = (int) row.getCell(9).getNumericCellValue();
+            String status = row.getCell(10).getStringCellValue();
+            SolutionOrder so1 = new SolutionOrder(pName, market, channel, customerN, spName, tp, sp, cp, fp, quantity, status);
+            mastersolutionorderlist.newSolutionOrder(so1);
+        }
+
+//        SolutionOrder so1 = new SolutionOrder("Scanner 13  1", "Teenagers", "tv", "Dell", "Xerox sales1", 18500, 15000, 26000, 12000, 3, "Submitted"); //tp,sp,cp,fp
+//        SolutionOrder so2 = new SolutionOrder("Scanner 4", "Teenagers", "tv", "Dell", "Xerox sales1", 16500, 20000, 25000, 16500, 2, "Submitted");
+//        SolutionOrder so3 = new SolutionOrder("Printer 2", "Teenagers", "tv", "Microsoft", "Xerox sales2", 36500, 15000, 40000, 36500, 3, "Submitted");
+//        SolutionOrder so4 = new SolutionOrder("Photocopier 2", "College Grads", "web", "Microsoft", "Xerox sales2", 50000, 15000, 70000, 50000, 3, "Submitted");
+//        SolutionOrder so5 = new SolutionOrder("Printer 3", "College Grads", "web", "Google", "Xerox sales3", 36500, 150000, 60000, 36500, 3, "Submitted");
+//        SolutionOrder so6 = new SolutionOrder("Offer1", "Teenagers", "tv", "Google", "Xerox sales3", 18500, 15000, 26000, 12000, 3, "Submitted");
+//        SolutionOrder so7 = new SolutionOrder("Offer2", "College Grads", "web", "State street", "Xerox sales3", 18500, 15000, 26000, 12000, 3, "Submitted");
+//        SolutionOrder so8 = new SolutionOrder("Offer3", "College Grads", "web", "Samiksha", "Xerox sales3", 10, 10000, 26000, 12000, 200, "Submitted");
+//        SolutionOrder so9 = new SolutionOrder("Offer4", "College Grads", "web", "Adwait", "Xerox sales4", 100, 10000, 26000, 12000, 200, "Submitted");
+//        mastersolutionorderlist.newSolutionOrder(so1);
+//        mastersolutionorderlist.newSolutionOrder(so2);
+//        mastersolutionorderlist.newSolutionOrder(so3);
+//        mastersolutionorderlist.newSolutionOrder(so4);
+//        mastersolutionorderlist.newSolutionOrder(so5);
+//        mastersolutionorderlist.newSolutionOrder(so6);
+//        mastersolutionorderlist.newSolutionOrder(so7);
+//        mastersolutionorderlist.newSolutionOrder(so8);
+//        mastersolutionorderlist.newSolutionOrder(so9);
 // Solution 1: Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment           
         System.out.println("Our top 3 best negotiated solutions (meaning solutions that sell above target) broken down by market segment");
         System.out.println("");
