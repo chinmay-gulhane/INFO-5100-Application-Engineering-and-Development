@@ -468,7 +468,31 @@ class ConfigureABusiness {
         System.out.println("___________________________________________________________________________________________________________________________________");
         System.out.println("Determine if the company is pricing its solutions correctly. Show how to update price ranges so prices perform at optimum levels (higher and lower targets).");
         System.out.println("");
+        Map<String, Integer> gainMap = new HashMap<>();
 
+        // Iterate over the solution orders and accumulate gain for each unique solution order name
+        for (SolutionOrder solutionOrder : mastersolutionorderlist.getSolutionorderlist()) {
+            String solutionOrderName = solutionOrder.getSolutionOfferName();
+            int gain = (solutionOrder.getSellingPrice() - solutionOrder.getTargetPrice()) * solutionOrder.getQuantity();
+            gainMap.merge(solutionOrderName, gain, Integer::sum);
+        }
+
+        // Print the results
+        for (Map.Entry<String, Integer> entry : gainMap.entrySet()) {
+            String solutionOrderName = entry.getKey();
+            int gain = entry.getValue();
+
+            System.out.println("Solution Offer: " + solutionOrderName + ", Gain: " + gain);
+
+            // Check if the gain is positive or negative
+            if (gain > 0) {
+                System.out.println("Solution Offer is working great in Market and its target price can be increased");
+            } else if (gain < 0) {
+                System.out.println("Solution Offer is not working great in Market and its target price can be decreased");
+            } else {
+                System.out.println("Solution Offer is working as expected in Market and its target price can be kept as it is.");
+            }
+        }
         business.setMastersolutionorderlist(mastersolutionorderlist);
         business.setBusiness(business);
         return business;
