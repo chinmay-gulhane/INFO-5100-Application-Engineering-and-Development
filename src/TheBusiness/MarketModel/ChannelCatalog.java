@@ -24,15 +24,16 @@ public class ChannelCatalog {
         return c;
     }
     
-//    public Channel findChannel(String type){
-//        
-//        for( Channel c: channellist ){
-//            
-//            if (c.getChannelType().equalsIgnoreCase(type)) return c;
-//            
-//        }
-//        return null; //not found
-//    }
+    public Channel findChannel(String type){
+        
+        for( Channel c: channellist ){
+            
+            if (c.getChannelName().equalsIgnoreCase(type)) 
+                return c;
+            
+        }
+        return null; //not found
+    }
 
     public ArrayList<Channel> getChannellist() {
         return channellist;

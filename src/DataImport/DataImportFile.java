@@ -41,7 +41,8 @@ public class DataImportFile {
         // Use a relative path from the project root
         String filePath = "src/data/Business.xlsx";
         System.out.println("\n\n Reading from file \n");
-            try ( FileInputStream fileInputStream = new FileInputStream(new File(filePath));  Workbook workbook = new XSSFWorkbook(fileInputStream)) {
+            try ( FileInputStream fileInputStream = new FileInputStream(new File(filePath));  
+                    Workbook workbook = new XSSFWorkbook(fileInputStream)) {
             readMarketingSheet(business, workbook);
             readChannelsSheet(business, workbook);
             readMarketChannelAssgnShhet(business, workbook);
@@ -63,7 +64,7 @@ public class DataImportFile {
             String name = row.getCell(0).getStringCellValue();
 
             System.out.println("Markets : " + name);
-            business.getMarketCatalog().newMarket(name);
+          //  business.getMarketCatalog().newMarket(name);
         }
         System.out.println("\nMarket file end \n");
     }

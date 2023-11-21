@@ -82,4 +82,9 @@ public class MarketChannelAssignment {
         }
         return false;
     }
+    
+    @Override
+    public String toString(){
+        return this.market + " " + this.channel;
+    }
 }

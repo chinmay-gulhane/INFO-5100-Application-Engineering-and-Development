@@ -40,15 +40,14 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
     public void populateTable(){
         dtm.setRowCount(0);
         for(Market market: business.getMarketCatalog().getMarkets()){
-            Object[] row = new Object[3];
+            Object[] row = new Object[2];
             row[0] = market;
             String ch = "";
             String charac = "";
             for(Channel channel: market.getValidchannels()){
                 ch += channel + ", ";
             }
-            row[1] = ch;
-            row[2] = market.getCharacteristics();            
+            row[1] = market.getCharacteristics();            
             dtm.addRow(row);
         }
     }
@@ -63,14 +62,9 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         Back = new javax.swing.JButton();
-        Next = new javax.swing.JButton();
-        lblMarkets = new javax.swing.JLabel();
         lblHeader = new javax.swing.JLabel();
         ScrollPane = new javax.swing.JScrollPane();
         tblMarkets = new javax.swing.JTable();
-        btnAddMarket = new javax.swing.JButton();
-        btnDeleteMarket = new javax.swing.JButton();
-        btnUpdateMarket = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,35 +77,23 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
-        Next.setText("Next >>");
-        Next.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextActionPerformed(evt);
-            }
-        });
-        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 80, -1));
-
-        lblMarkets.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblMarkets.setText("Markets");
-        add(lblMarkets, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, -1));
-
         lblHeader.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        lblHeader.setText("Manage The Business");
+        lblHeader.setText("Present Markets");
         add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
 
         tblMarkets.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Names", "Channels", "Characteristics"
+                "Names", "Characteristics"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -122,24 +104,9 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         if (tblMarkets.getColumnModel().getColumnCount() > 0) {
             tblMarkets.getColumnModel().getColumn(0).setResizable(false);
             tblMarkets.getColumnModel().getColumn(1).setResizable(false);
-            tblMarkets.getColumnModel().getColumn(2).setResizable(false);
         }
 
         add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 600, 180));
-
-        btnAddMarket.setText("Add Market");
-        btnAddMarket.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddMarketActionPerformed(evt);
-            }
-        });
-        add(btnAddMarket, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
-
-        btnDeleteMarket.setText("Delete Market");
-        add(btnDeleteMarket, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
-
-        btnUpdateMarket.setText("Update Market");
-        add(btnUpdateMarket, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -149,32 +116,11 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_BackActionPerformed
 
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        // TODO add your handling code here:
-        
-        ManageBusinessDetail1 mppd = new ManageBusinessDetail1(business, CardSequencePanel);
-        CardSequencePanel.add(mppd);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
-    }//GEN-LAST:event_NextActionPerformed
-
-    private void btnAddMarketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMarketActionPerformed
-        // TODO add your handling code here:
-        AddMarketJPanel amjp = new AddMarketJPanel(business, CardSequencePanel);
-        CardSequencePanel.add(amjp);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_btnAddMarketActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private javax.swing.JButton Next;
     private javax.swing.JScrollPane ScrollPane;
-    private javax.swing.JButton btnAddMarket;
-    private javax.swing.JButton btnDeleteMarket;
-    private javax.swing.JButton btnUpdateMarket;
     private javax.swing.JLabel lblHeader;
-    private javax.swing.JLabel lblMarkets;
     private javax.swing.JTable tblMarkets;
     // End of variables declaration//GEN-END:variables
 

@@ -35,6 +35,11 @@ public class ProductCatalog {
         products.add(p);
         return p;
     }
+    
+    public Product newProduct(Product p) {
+        products.add(p);
+        return p;
+    }
 
     public ProductsReport generatProductPerformanceReport() {
         ProductsReport productsreport = new ProductsReport();
