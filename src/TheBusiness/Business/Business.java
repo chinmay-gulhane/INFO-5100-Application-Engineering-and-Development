@@ -9,6 +9,7 @@ import MarketingManagement.MarketingPersonDirectory;
 import TheBusiness.MarketModel.ChannelCatalog;
 import java.util.ArrayList;
 import TheBusiness.CustomerManagement.CustomerDirectory;
+import TheBusiness.CustomerManagement.CustomerProfile;
 import TheBusiness.MarketModel.MarketCatalog;
 import TheBusiness.MarketModel.MarketChannelComboCatalog;
 import TheBusiness.OrderManagement.MasterOrderList;
@@ -19,6 +20,7 @@ import TheBusiness.MarketModel.SolutionOfferCatalog;
 import TheBusiness.Personnel.EmployeeDirectory;
 import TheBusiness.SolutionOrders.MasterSolutionOrderList;
 import TheBusiness.SalesManagement.SalesPersonDirectory;
+import TheBusiness.SolutionOrders.SolutionOrder;
 import TheBusiness.Supplier.Supplier;
 import TheBusiness.Supplier.SupplierDirectory;
 import TheBusiness.UserAccountManagement.UserAccountDirectory;
@@ -270,5 +272,20 @@ public class Business {
            public EmployeeDirectory getEmployeeDirectory() {
           return employeedirectory;
       }
+           
+    // Add this method to fetch solution orders for a specific customer
+    public ArrayList<SolutionOrder> getSolutionOrdersForCustomer(CustomerProfile customer) {
+        ArrayList<SolutionOrder> customerSolutionOrders = new ArrayList<>();
+
+        // Iterate through the master solution order list
+        for (SolutionOrder solutionOrder : mastersolutionorderlist.getSolutionorderlist()) {
+            // Check if the solution order belongs to the specified customer
+            if (solutionOrder.getCustomerName().equals(customer.getCustomerName())) {
+                customerSolutionOrders.add(solutionOrder);
+            }
+        }
+
+        return customerSolutionOrders;
+    }
 
 }

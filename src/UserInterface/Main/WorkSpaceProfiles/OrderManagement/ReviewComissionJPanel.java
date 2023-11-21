@@ -5,7 +5,11 @@
 package UserInterface.Main.WorkSpaceProfiles.OrderManagement;
 
 import TheBusiness.Business.Business;
+import TheBusiness.CustomerManagement.CustomerProfile;
+import TheBusiness.SolutionOrders.SolutionOrder;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +19,8 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
 
     JPanel CardSequencePanel;
     Business business;
+    DefaultTableModel dtm;
+    
     /**
      * Creates new form ReviewComissionJPanel
      */
@@ -22,6 +28,23 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
+        dtm = (DefaultTableModel) SupplierCatalogTable.getModel();        
+        populateTable();
+        
+    }
+    
+    public void populateTable(){
+        dtm.setRowCount(0);
+        ArrayList<SolutionOrder> allSolutionOrders = business.getMastersolutionorderlist().getSolutionorderlist();
+        for (SolutionOrder solutionOrder : allSolutionOrders) {
+            Object[] row = new Object[5];
+            row[0] = solutionOrder.getCustomerName();
+            row[1] = solutionOrder.getMarketName();
+            row[2] = solutionOrder.getChannelName();
+//            row[3] = solutionOrder.getSupplier();
+            row[4] = (solutionOrder.getSellingPrice() - solutionOrder.getTargetPrice()) * (solutionOrder.getQuantity());
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -36,6 +59,7 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         SupplierCatalogTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        Back = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setForeground(new java.awt.Color(0, 153, 153));
@@ -65,17 +89,26 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Review Commision");
 
+        Back.setText("<< Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Back)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,12 +117,21 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(Back)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_BackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
     private javax.swing.JTable SupplierCatalogTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

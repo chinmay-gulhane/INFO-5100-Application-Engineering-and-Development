@@ -7,9 +7,11 @@ package UserInterface.Main.WorkSpaceProfiles.OrderManagement;
 
 import UserInterface.ProductManagement.*;
 import TheBusiness.Business.Business;
+import TheBusiness.CustomerManagement.CustomerProfile;
 import TheBusiness.ProductManagement.Product;
 import TheBusiness.ProductManagement.ProductCatalog;
 import TheBusiness.ProductManagement.ProductSummary;
+import TheBusiness.SolutionOrders.SolutionOrder;
 import TheBusiness.Supplier.Supplier;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -28,15 +30,29 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
     Business business;
     Supplier selectedsupplier;
     Product selectedproduct;
+    CustomerProfile customer;
+    DefaultTableModel dtm;
 
-    public ManageSalesPersonOrders(Business bz, JPanel jp) {
+    public ManageSalesPersonOrders(Business bz, JPanel jp, CustomerProfile cp) {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
- 
-
+        customer = cp;
+        dtm = (DefaultTableModel) SupplierCatalogTable.getModel();        
+        populateTable();
     }
 
+        public void populateTable(){
+        dtm.setRowCount(0);
+        ArrayList<SolutionOrder> allSolutionOrders = business.getMastersolutionorderlist().getSolutionorderlist();
+        for (SolutionOrder solutionOrder : allSolutionOrders) {
+            Object[] row = new Object[3];
+            row[0] = solutionOrder.getSolutionOfferName();
+            row[1] = solutionOrder.getStatus();
+            row[2] = solutionOrder.getCustomerName();
+            dtm.addRow(row);
+        }
+    }
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +64,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
     private void initComponents() {
 
         Back = new javax.swing.JButton();
-        Next = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         SupplierCatalogTable = new javax.swing.JTable();
@@ -64,26 +79,18 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
                 BackActionPerformed(evt);
             }
         });
-        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
-
-        Next.setText("Next >>");
-        Next.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextActionPerformed(evt);
-            }
-        });
-        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 80, -1));
+        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Order id", "Status", "Sales Volume", "Customer"
+                "Name", "Status", "Customer"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -102,14 +109,14 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(jScrollPane1);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 580, 100));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 580, 140));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("Browse Orders");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 550, -1));
 
         jLabel8.setText("Orders");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -118,12 +125,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
     }//GEN-LAST:event_BackActionPerformed
-
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        // TODO add your handling code here:
-        
- 
-    }//GEN-LAST:event_NextActionPerformed
 
     private void SupplierCatalogTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMousePressed
         // TODO add your handling code 
@@ -136,7 +137,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private javax.swing.JButton Next;
     private javax.swing.JTable SupplierCatalogTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
