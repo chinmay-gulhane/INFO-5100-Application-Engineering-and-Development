@@ -66,20 +66,24 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         ScrollPane = new javax.swing.JScrollPane();
         tblMarkets = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Back.setText("<< Back");
+        Back.setBackground(new java.awt.Color(0, 0, 0));
+        Back.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
-        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
-        lblHeader.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeader.setText("Present Markets");
-        add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
+        add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 20, 630, -1));
 
         tblMarkets.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

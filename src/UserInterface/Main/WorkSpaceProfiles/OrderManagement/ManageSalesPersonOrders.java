@@ -70,10 +70,13 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Back.setText("<< Back");
+        Back.setBackground(new java.awt.Color(0, 0, 0));
+        Back.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setText(" Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
@@ -111,10 +114,12 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 580, 140));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Browse Orders");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 550, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 630, -1));
 
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel8.setText("Orders");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, 30));
     }// </editor-fold>//GEN-END:initComponents

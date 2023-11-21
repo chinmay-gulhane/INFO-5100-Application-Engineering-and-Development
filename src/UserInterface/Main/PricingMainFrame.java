@@ -78,7 +78,7 @@ public class PricingMainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        actionsidejpanel.setBackground(new java.awt.Color(0, 153, 153));
+        actionsidejpanel.setBackground(new java.awt.Color(0, 0, 0));
         actionsidejpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Login");
@@ -89,6 +89,8 @@ public class PricingMainFrame extends javax.swing.JFrame {
         });
         actionsidejpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 70, 30));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
         actionsidejpanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
@@ -98,11 +100,14 @@ public class PricingMainFrame extends javax.swing.JFrame {
         PasswordTextField.setText("XXXX");
         actionsidejpanel.add(PasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 130, -1));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
         actionsidejpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 20));
 
         SplitHomeArea.setLeftComponent(actionsidejpanel);
 
+        CardSequencePanel.setBackground(new java.awt.Color(255, 255, 255));
         CardSequencePanel.setLayout(new java.awt.CardLayout());
         SplitHomeArea.setRightComponent(CardSequencePanel);
 
