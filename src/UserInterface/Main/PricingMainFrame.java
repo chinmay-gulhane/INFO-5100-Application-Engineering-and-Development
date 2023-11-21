@@ -51,7 +51,11 @@ public class PricingMainFrame extends javax.swing.JFrame {
 
     private void runAnalysis(){
         // TODO
-//        helper.test();
+        helper.BestThreeNegotiatedSolutions();
+        helper.BestThreeCustomers();
+        helper.BestThreeSalesPeople();
+        helper.TotalMarginalRevenueByMarket();
+        helper.analytics();
     }
     
     /**
