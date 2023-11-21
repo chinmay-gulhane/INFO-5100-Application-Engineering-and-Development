@@ -35,4 +35,10 @@ public class MarketChannelComboCatalog {
        return null;
        
    }
+
+    public ArrayList<MarketChannelAssignment> getMcalist() {
+        return mcalist;
+    }
+   
+   
 }
