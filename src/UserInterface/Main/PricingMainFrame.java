@@ -16,7 +16,6 @@ import TheBusiness.UserAccountManagement.UserAccountDirectory;
 import UserInterface.Main.WorkSpaceProfiles.BusinessManagerWorkAreaJPanel;
 import UserInterface.Main.WorkSpaceProfiles.MarketingManagerWorkAreaJPanel1;
 import UserInterface.Main.WorkSpaceProfiles.SalesPersonWorkAreaJPanel;
-import DataImport.DataImportFile;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +28,6 @@ import javax.swing.JPanel;
 public class PricingMainFrame extends javax.swing.JFrame {
 
     Business business;
-    DataImportFile dataFile;
     AnalysisHelper helper;
 
     /**
@@ -40,7 +38,6 @@ public class PricingMainFrame extends javax.swing.JFrame {
         helper = new AnalysisHelper();
         initComponents();
         business = ConfigureABusiness.initialize();
-        dataFile.read(business);
 //        runAnalysis();
 
     }
