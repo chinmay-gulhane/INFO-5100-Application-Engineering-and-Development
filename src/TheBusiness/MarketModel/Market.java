@@ -19,9 +19,9 @@ public class Market {
   //  ArrayList<Market> submarkets;
     int size;
 
-    public Market(String m) {
+    public Market(String m, String cha) {
         name = m;
-        characteristics = "";
+        characteristics = cha;
         //submarkets = new ArrayList();
         validchannels = new ArrayList();
     }

@@ -40,6 +40,14 @@ public class Supplier {
     public String getName(){
         return name;
     }
+    
+    public boolean isMatch(String name) {
+        if (getName().equals(name)) {
+            return true;
+        }
+        return false;
+    }
+    
         public ProductCatalog getProductCatalog(){
         return productcatalog;
     }

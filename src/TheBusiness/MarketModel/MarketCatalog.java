@@ -23,9 +23,9 @@ public class MarketCatalog {
 
     }
 
-    public Market newMarket(String m) {
+    public Market newMarket(String m, String ch) {
 
-        Market market = new Market(m);
+        Market market = new Market(m,ch);
         markets.add(market);
         return market;
     }
@@ -36,6 +36,17 @@ public class MarketCatalog {
 
     public void setMarkets(ArrayList<Market> markets) {
         this.markets = markets;
+    }
+    
+        public Market findMarket(String type){
+        
+        for( Market m: markets ){
+            
+            if (m.getName().equalsIgnoreCase(type)) 
+                return m;
+            
+        }
+        return null; //not found
     }
 
 }

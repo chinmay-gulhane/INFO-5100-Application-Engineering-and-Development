@@ -17,6 +17,9 @@ import UserInterface.Main.WorkSpaceProfiles.BusinessManagerWorkAreaJPanel;
 import UserInterface.Main.WorkSpaceProfiles.MarketingManagerWorkAreaJPanel1;
 import UserInterface.Main.WorkSpaceProfiles.SalesPersonWorkAreaJPanel;
 import DataImport.DataImportFile;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +36,7 @@ public class PricingMainFrame extends javax.swing.JFrame {
      * Creates new form PricingMainFrame
      */
 
-    public PricingMainFrame() {
+    public PricingMainFrame() throws IOException {
         helper = new AnalysisHelper();
         initComponents();
         business = ConfigureABusiness.initialize();
@@ -182,7 +185,11 @@ public class PricingMainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PricingMainFrame().setVisible(true);
+                try {
+                    new PricingMainFrame().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(PricingMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

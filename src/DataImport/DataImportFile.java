@@ -63,7 +63,7 @@ public class DataImportFile {
             String name = row.getCell(0).getStringCellValue();
 
             System.out.println("Markets : " + name);
-            business.getMarketCatalog().newMarket(name);
+          //  business.getMarketCatalog().newMarket(name);
         }
         System.out.println("\nMarket file end \n");
     }
