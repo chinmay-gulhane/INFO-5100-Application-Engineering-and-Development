@@ -5,6 +5,8 @@
 package UserInterface.ManageTheBusiness;
 
 import TheBusiness.Business.Business;
+import TheBusiness.MarketModel.Channel;
+import TheBusiness.MarketModel.Market;
 import TheBusiness.MarketModel.MarketChannelAssignment;
 import TheBusiness.MarketModel.SolutionOffer;
 import TheBusiness.MarketModel.SolutionOfferCatalog;
@@ -129,7 +131,7 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        soName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         mcaCombo = new javax.swing.JComboBox<>();
 
@@ -248,7 +250,7 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(soName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4)
                     .addComponent(Next)
                     .addGroup(layout.createSequentialGroup()
@@ -286,7 +288,7 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(soName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -382,10 +384,12 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
             }
         }
         String[] mplusc = String.valueOf(mcaCombo.getSelectedItem()).split(" ");
-        //Market m = business.getMarketCatalog();
-        //SolutionOffer sof1 = new SolutionOffer(productcatalog, txtTPrice.getText(), txtFPrice.getText(), txtCPrice.getText(), "Offer1", mca);
+        Market m = business.getMarketCatalog().findMarket(mplusc[0]);
+        Channel c = business.getChannelCatalog().findChannel(mplusc[1]);
+        MarketChannelAssignment mca = business.getMarketChannelComboCatalog().finMarketChannelCombo(m, c);
+        SolutionOffer sof1 = new SolutionOffer(productcatalog, Integer.parseInt(txtTPrice.getText()), Integer.parseInt(txtFPrice.getText()), Integer.parseInt(txtCPrice.getText()), soName.getText(), mca);
         SolutionOfferCatalog soc =  business.getSolutionOfferCatalog();
-        //soc.newSolutionOffer(sof1);
+        soc.newSolutionOffer(sof1);
     }//GEN-LAST:event_NextActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -421,9 +425,9 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JComboBox<String> mcaCombo;
+    private javax.swing.JTextField soName;
     private javax.swing.JTextField txtCPrice;
     private javax.swing.JTextField txtFPrice;
     private javax.swing.JTextField txtTPrice;
