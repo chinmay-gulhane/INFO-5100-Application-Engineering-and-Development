@@ -203,17 +203,6 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnServeCustomersIdentifyResourceAssetsActionPerformed
 
-    private void btnManageProfielActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfielActionPerformed
-        // TODO add your handling code here:
-
-
-        SalesPersonProfileJPanel aos = new  SalesPersonProfileJPanel(business, CardSequencePanel);
-        // aos.setAgenda(businessunit.getRiskManagementAgenda());
-        CardSequencePanel.add("ManageVulns", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
-}//GEN-LAST:event_btnManageProfielActionPerformed
-
     private void btnReviewOrderStatusHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewOrderStatusHistoryActionPerformed
         // TODO add your handling code here:
         String customername = (String) optionsCustomer.getSelectedItem();
@@ -242,15 +231,24 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         CardSequencePanel.removeAll();
-//        ManageIncidents aos = new  ManageIncidents(businessunit, CardSequencePanel);
+        PerformancePanelJPanel ppj = new  PerformancePanelJPanel(business, CardSequencePanel);
         // aos.setAgenda(businessunit.getRiskManagementAgenda());
-//        CardSequencePanel.add("RiskAgendaObjectives", aos);
+        CardSequencePanel.add("ManageVulns", ppj);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 }//GEN-LAST:event_btnPerformanceReportsActionPerformed
 
     private void optionsCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsCustomerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_optionsCustomerActionPerformed
+
+    private void btnManageProfielActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfielActionPerformed
+        // TODO add your handling code here:
+
+        SalesPersonProfileJPanel aos = new  SalesPersonProfileJPanel(business, CardSequencePanel);
+        // aos.setAgenda(businessunit.getRiskManagementAgenda());
+        CardSequencePanel.add("ManageVulns", aos);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnManageProfielActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
