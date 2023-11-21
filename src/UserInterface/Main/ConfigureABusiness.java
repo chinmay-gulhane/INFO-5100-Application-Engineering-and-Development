@@ -66,7 +66,7 @@ class ConfigureABusiness {
         MarketCatalog mc = business.getMarketCatalog();
         MarketChannelComboCatalog mccc = business.getMarketChannelComboCatalog();
         String filePath = "src/data/Business.xlsx";
-        System.out.println("\n\n Reading from file \n");
+       // System.out.println("\n\n Reading from file \n");
         FileInputStream fileInputStream = new FileInputStream(new File(filePath));
         Workbook workbook = new XSSFWorkbook(fileInputStream);
 
@@ -80,13 +80,13 @@ class ConfigureABusiness {
             }
 
             String marketName = row.getCell(0).getStringCellValue();
-            System.out.println("Markets : " + marketName);
+         //   System.out.println("Markets : " + marketName);
             String characteristics = row.getCell(1).getStringCellValue();
 
-            System.out.println("Characteristics : " + characteristics);
+          //  System.out.println("Characteristics : " + characteristics);
             business.getMarketCatalog().newMarket(marketName, characteristics);
         }
-        System.out.println("Market file end \n");
+      //  System.out.println("Market file end \n");
 
 //        Market teenmarket = mc.newMarket("Teenagers");
 //        Market teenmarket2 = mc.newMarket("College Grads");
@@ -103,10 +103,10 @@ class ConfigureABusiness {
 
             String channelName = row.getCell(0).getStringCellValue();
 
-            System.out.println("Channels : " + channelName);
+          //   System.out.println("Channels : " + channelName);
             business.getChannelCatalog().newChannel(channelName);
         }
-        System.out.println("Channel file end \n");
+      //   System.out.println("Channel file end \n");
 
 //        Channel tvchannel = channelCatalog.newChannel("tv");
 //        Channel webchannel = channelCatalog.newChannel("web");
@@ -122,8 +122,8 @@ class ConfigureABusiness {
             String marketName = row.getCell(0).getStringCellValue();
             String channelName = row.getCell(1).getStringCellValue();
 
-            System.out.println("Market : " + marketName);
-            System.out.println("Channels : " + channelName);
+         //    System.out.println("Market : " + marketName);
+          //   System.out.println("Channels : " + channelName);
 
             Market m = business.getMarketcatalog().findMarket(marketName);
             Channel c = business.getChannelCatalog().findChannel(channelName);
@@ -132,7 +132,7 @@ class ConfigureABusiness {
 
             MarketChannelAssignment mca = mccc.newMarketChannelCombo(m, c);
         }
-        System.out.println("Market Channel file end \n");
+   //      System.out.println("Market Channel file end \n");
 
 //        teenmarket.addValidChannel(webchannel);
 //        teenmarket.addValidChannel(tvchannel);
@@ -167,12 +167,12 @@ class ConfigureABusiness {
 
             String salesPersonName = row.getCell(0).getStringCellValue();
 
-            System.out.println("Sales Person : " + salesPersonName);
+    //         System.out.println("Sales Person : " + salesPersonName);
             Person xeroxsalesperson001 = persondirectory.newPerson(salesPersonName);
             SalesPersonProfile salespersonprofile = salespersondirectory.newSalesPersonProfile(xeroxsalesperson001);
             UserAccount ua1 = uadirectory.newUserAccount(salespersonprofile, "Sales", "XXXX"); /// order products for one of the customers and performed by a sales person
         }
-        System.out.println("Sales Person file end \n");
+    //     System.out.println("Sales Person file end \n");
 
 // person representing sales organization        
 //        Person xeroxsalesperson001 = persondirectory.newPerson("Xerox sales1");
@@ -199,11 +199,11 @@ class ConfigureABusiness {
             Channel c = business.getChannelCatalog().findChannel(channelName);
             MarketChannelAssignment mca = business.getMarketChannelComboCatalog().finMarketChannelCombo(m, c);
 
-            System.out.println("Customer : " + customerName);
+       //      System.out.println("Customer : " + customerName);
             Person p = persondirectory.newPerson(customerName);
             CustomerProfile customerprofile1 = customedirectory.newCustomerProfile(p, mca);
         }
-        System.out.println("Customer file end \n");
+      //   System.out.println("Customer file end \n");
 // Create person objects to represent customer organizations. 
 //        Person person005 = persondirectory.newPerson("Dell");
 //        Person person006 = persondirectory.newPerson("Microsoft");
@@ -238,7 +238,7 @@ class ConfigureABusiness {
 
             String sName = row.getCell(0).getStringCellValue();
 
-            System.out.println("Supplier : " + sName);
+      //       System.out.println("Supplier : " + sName);
             Supplier supplier1 = suplierdirectory.newSupplier(sName);
 
         }
