@@ -52,6 +52,7 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(51, 51, 51));
 
         jButton4.setBackground(new java.awt.Color(102, 153, 255));
