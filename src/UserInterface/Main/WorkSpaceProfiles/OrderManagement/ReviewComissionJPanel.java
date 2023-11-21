@@ -66,17 +66,17 @@ public class ReviewComissionJPanel extends javax.swing.JPanel {
 
         SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Customer Name", "Market", "Channel", "Supplier", "Comission"
+                "Customer Name", "Market", "Channel", "Comission"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
