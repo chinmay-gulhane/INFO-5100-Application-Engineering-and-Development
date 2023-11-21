@@ -15,6 +15,7 @@ import UserInterface.ManageTheBusiness.AddSolutionOfferJPanel;
 import UserInterface.ManageTheBusiness.ManageSolutionJPanel;
 import UserInterface.ManageTheBusiness.ManageTheBusinessJPanel;
 import UserInterface.ManageTheBusiness.ManageTheChannelJPanel;
+import UserInterface.ManageTheBusiness.ManageTheMCAComboJPanel;
 import UserInterface.ProductManagement.ManageSuppliersJPanel;
 import javax.swing.JPanel;
 
@@ -192,6 +193,9 @@ public class MarketingManagerWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        ManageTheMCAComboJPanel mso = new ManageTheMCAComboJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("ManageTheMCAComboJPanel", mso);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton7IdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7IdentifyEventsActionPerformed

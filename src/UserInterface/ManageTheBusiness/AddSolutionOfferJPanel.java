@@ -266,8 +266,11 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtFPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Back))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRemove, jButton1});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -311,6 +314,9 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
                 .addComponent(Back)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnRemove, jButton1});
+
     }// </editor-fold>//GEN-END:initComponents
     public void refreshSupplierProductCatalogTable() {
 
@@ -390,6 +396,7 @@ public class AddSolutionOfferJPanel extends javax.swing.JPanel {
         SolutionOffer sof1 = new SolutionOffer(productcatalog, Integer.parseInt(txtTPrice.getText()), Integer.parseInt(txtFPrice.getText()), Integer.parseInt(txtCPrice.getText()), soName.getText(), mca);
         SolutionOfferCatalog soc =  business.getSolutionOfferCatalog();
         soc.newSolutionOffer(sof1);
+        JOptionPane.showMessageDialog(this, "Solution Offer Saved.");
     }//GEN-LAST:event_NextActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

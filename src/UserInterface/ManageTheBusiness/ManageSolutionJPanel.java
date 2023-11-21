@@ -5,7 +5,14 @@
 package UserInterface.ManageTheBusiness;
 
 import TheBusiness.Business.Business;
+import TheBusiness.MarketModel.SolutionOffer;
+import TheBusiness.ProductManagement.Product;
+import TheBusiness.Supplier.Supplier;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -16,13 +23,32 @@ public class ManageSolutionJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSolutionJPanel
      */
+    JPanel CardSequencePanel;
+    Business business;
+    DefaultTableModel dtm;
+    SolutionOffer selectedSolutionOffer;
 
 
     public ManageSolutionJPanel(Business business, JPanel CardSequencePanel) {
-initComponents();
+        initComponents();
+        this.CardSequencePanel = CardSequencePanel;
+        this.business = business;
+        dtm = (DefaultTableModel) SupplierCatalogTable.getModel();
+        initializeTable();
     }
 
+     private void initializeTable() {
+         dtm.setRowCount(0);
+         for (SolutionOffer so : business.getSolutionOfferCatalog().getSolutionoffers()) {
+            Object[] row = new Object[4];
+            row[0] = so;
+            row[1] = so.getFloorPrice();
+            row[2] = so.getCeilingPrice();
+            row[3] = so.getTargetPrice();
 
+            dtm.addRow(row);
+        }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,19 +59,226 @@ initComponents();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblHeader = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        SupplierCatalogTable = new javax.swing.JTable();
+        txtFPrice = new javax.swing.JTextField();
+        Next = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCPrice = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtTPrice = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        optionsProduct = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        Back = new javax.swing.JButton();
+
+        lblHeader.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblHeader.setText("Manage Solution Offer");
+
+        SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Name", "Floor", "Ceiling", "Target"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        SupplierCatalogTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SupplierCatalogTableMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SupplierCatalogTableMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SupplierCatalogTableMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(SupplierCatalogTable);
+        if (SupplierCatalogTable.getColumnModel().getColumnCount() > 0) {
+            SupplierCatalogTable.getColumnModel().getColumn(0).setResizable(false);
+            SupplierCatalogTable.getColumnModel().getColumn(1).setResizable(false);
+            SupplierCatalogTable.getColumnModel().getColumn(2).setResizable(false);
+            SupplierCatalogTable.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        Next.setText("Submit");
+        Next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Update Price:");
+
+        jLabel5.setText("Celing Price:");
+
+        jLabel6.setText("Target Price:");
+
+        jLabel7.setText("Floor Price:");
+
+        optionsProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionsProductActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Products in selected Solution Offer:");
+
+        Back.setText("<< Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(Next)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtFPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(optionsProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Back))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblHeader)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(optionsProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtCPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtTPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtFPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Next)
+                .addGap(18, 18, 18)
+                .addComponent(Back)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SupplierCatalogTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierCatalogTableMouseEntered
+
+    private void SupplierCatalogTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMousePressed
+
+    }//GEN-LAST:event_SupplierCatalogTableMousePressed
+
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+        // TODO add your handling code here:
+        int suppliertablesize = SupplierCatalogTable.getRowCount();
+        int selectedrow = SupplierCatalogTable.getSelectionModel().getLeadSelectionIndex();
+
+        if (selectedrow < 0 || selectedrow > suppliertablesize - 1) {
+            return;
+        }
+        selectedSolutionOffer = (SolutionOffer) SupplierCatalogTable.getValueAt(selectedrow, 0);
+        if (selectedSolutionOffer == null) {
+            return;
+        }
+        selectedSolutionOffer.setCeilingPrice(Integer.valueOf(txtCPrice.getText()));
+        selectedSolutionOffer.setTargetPrice(Integer.valueOf(txtTPrice.getText()));
+        selectedSolutionOffer.setFloorPrice(Integer.valueOf(txtFPrice.getText()));
+         JOptionPane.showMessageDialog(this, "Solution Offer Updated.");
+        initializeTable();
+    }//GEN-LAST:event_NextActionPerformed
+
+    private void optionsProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optionsProductActionPerformed
+
+    private void SupplierCatalogTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMouseClicked
+        // TODO add your handling code here:
+        int suppliertablesize = SupplierCatalogTable.getRowCount();
+        int selectedrow = SupplierCatalogTable.getSelectionModel().getLeadSelectionIndex();
+
+        if (selectedrow < 0 || selectedrow > suppliertablesize - 1) {
+            return;
+        }
+        selectedSolutionOffer = (SolutionOffer) SupplierCatalogTable.getValueAt(selectedrow, 0);
+        if (selectedSolutionOffer == null) {
+            return;
+        }
+
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (Product p : selectedSolutionOffer.getProductCatalog().getProductList()) {
+            model.addElement(p.toString());
+        }
+        optionsProduct.setModel(model);
+    }//GEN-LAST:event_SupplierCatalogTableMouseClicked
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_BackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Next;
+    private javax.swing.JTable SupplierCatalogTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JComboBox<String> optionsProduct;
+    private javax.swing.JTextField txtCPrice;
+    private javax.swing.JTextField txtFPrice;
+    private javax.swing.JTextField txtTPrice;
     // End of variables declaration//GEN-END:variables
 }

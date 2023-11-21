@@ -301,6 +301,12 @@ public class ProcessOrder extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("Product in the selected Soution Offer");
 
+        optionsProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionsProductActionPerformed(evt);
+            }
+        });
+
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setText("Order Items");
 
@@ -725,6 +731,10 @@ public class ProcessOrder extends javax.swing.JPanel {
         ((DefaultTableModel) OrderItemsTable.getModel()).addRow(row);
         }
     }//GEN-LAST:event_btnAdd2AddProductItemActionPerformed
+
+    private void optionsProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optionsProductActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
