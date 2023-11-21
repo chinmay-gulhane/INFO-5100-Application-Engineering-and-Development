@@ -79,9 +79,10 @@ class ConfigureABusiness {
             }
 
             String marketName = row.getCell(0).getStringCellValue();
+            System.out.println("Markets : " + marketName);
             String characteristics = row.getCell(1).getStringCellValue();
 
-            System.out.println("Markets : " + marketName);
+            
             System.out.println("Characteristics : " + characteristics);
             business.getMarketCatalog().newMarket(marketName, characteristics);
         }
