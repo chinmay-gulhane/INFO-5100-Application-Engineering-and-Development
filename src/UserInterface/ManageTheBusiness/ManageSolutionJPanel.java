@@ -4,6 +4,9 @@
  */
 package UserInterface.ManageTheBusiness;
 
+import TheBusiness.Business.Business;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
@@ -13,9 +16,13 @@ public class ManageSolutionJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSolutionJPanel
      */
-    public ManageSolutionJPanel() {
-        initComponents();
+
+
+    public ManageSolutionJPanel(Business business, JPanel CardSequencePanel) {
+initComponents();
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
