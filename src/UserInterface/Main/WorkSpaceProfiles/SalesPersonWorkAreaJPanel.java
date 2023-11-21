@@ -198,9 +198,9 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
 
-//        ManageVulns aos = new  ManageVulns(businessunit, CardSequencePanel);
+        SalesPersonProfileJPanel aos = new  SalesPersonProfileJPanel(business, CardSequencePanel);
         // aos.setAgenda(businessunit.getRiskManagementAgenda());
-//        CardSequencePanel.add("ManageVulns", aos);
+        CardSequencePanel.add("ManageVulns", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
 }//GEN-LAST:event_btnManageProfielActionPerformed
