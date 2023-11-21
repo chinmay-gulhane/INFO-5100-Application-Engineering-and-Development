@@ -69,20 +69,21 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
         productPricePerformanceTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Back.setText("<< Back");
+        Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
-        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Product Performance Summary");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 20, 630, -1));
 
         jLabel3.setText("Product name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, -1));
@@ -103,10 +104,10 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
                 productRevenueTextFieldActionPerformed(evt);
             }
         });
-        add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+        add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 150, -1));
 
         jLabel5.setText("Sales Revenues");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 110, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 110, -1));
         add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 150, -1));
 
         jLabel6.setText("Frequency Below Target");
@@ -117,10 +118,10 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
                 productPricePerformanceTextFieldActionPerformed(evt);
             }
         });
-        add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 150, -1));
+        add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 150, -1));
 
         jLabel7.setText("Marign around target");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 110, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 150, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

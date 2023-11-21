@@ -66,6 +66,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         optionsCustomer = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(51, 51, 51));
 
         btnServeCustomers.setBackground(new java.awt.Color(102, 153, 255));

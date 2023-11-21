@@ -43,7 +43,7 @@ public class SalesPersonProfileJPanel extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         Back1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Your Profile");
@@ -63,13 +63,19 @@ public class SalesPersonProfileJPanel extends javax.swing.JPanel {
 
         txtPassword.setEditable(false);
 
-        Back.setText("<< Back");
+        Back.setBackground(new java.awt.Color(0, 0, 0));
+        Back.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
 
+        Back1.setBackground(new java.awt.Color(0, 0, 0));
+        Back1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Back1.setForeground(new java.awt.Color(255, 255, 255));
         Back1.setText("Save");
         Back1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

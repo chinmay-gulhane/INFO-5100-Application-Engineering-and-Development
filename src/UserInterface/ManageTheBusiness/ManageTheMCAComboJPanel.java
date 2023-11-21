@@ -54,6 +54,8 @@ public class ManageTheMCAComboJPanel extends javax.swing.JPanel {
         ScrollPane = new javax.swing.JScrollPane();
         tblMarkets = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
