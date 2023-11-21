@@ -88,7 +88,6 @@ public class MarketingManagerWorkAreaJPanel1 extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Marketing ");
 
         jButton12.setBackground(new java.awt.Color(102, 153, 255));

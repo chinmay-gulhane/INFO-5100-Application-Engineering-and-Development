@@ -138,7 +138,7 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SuppliersComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +148,8 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         });
         add(SuppliersComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 180, -1));
 
-        Back.setText("<< Back");
+        Back.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
@@ -156,7 +157,8 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        Next.setText("Next >>");
+        Next.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Next.setText("Next ");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
@@ -164,6 +166,7 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         });
         add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 80, -1));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Suppliers");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, -1));
 
@@ -200,10 +203,11 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 580, 100));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel2.setText("Manage Suppliers");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 550, -1));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Product name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 110, -1));
 
@@ -215,8 +219,9 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 150, -1));
         add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 150, -1));
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Frequency Above Target");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 150, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 160, -1));
 
         productRevenueTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,12 +230,14 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         });
         add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 150, -1));
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Sales Revenues");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 110, -1));
-        add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 150, -1));
+        add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 150, -1));
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel6.setText("Frequency Below Target");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 150, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 180, -1));
 
         productPricePerformanceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,9 +246,11 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         });
         add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 150, -1));
 
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel7.setText("Marign around target");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 150, -1));
 
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel8.setText("Product");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
     }// </editor-fold>//GEN-END:initComponents
