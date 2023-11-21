@@ -141,6 +141,12 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Customer");
 
+        optionsCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionsCustomerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,8 +215,11 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnReviewOrderStatusHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewOrderStatusHistoryActionPerformed
         // TODO add your handling code here:
-
-        ManageSalesPersonOrders iet = new ManageSalesPersonOrders(business, CardSequencePanel);
+        String customername = (String) optionsCustomer.getSelectedItem();
+        if (customername.isEmpty()) return;
+        CustomerProfile selectedcustomer = business.getCustomerDirectory().findCustomer(customername);
+        
+        ManageSalesPersonOrders iet = new ManageSalesPersonOrders(business, CardSequencePanel, selectedcustomer);
 
         CardSequencePanel.add("FindResourceAsset", iet);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
@@ -237,6 +246,10 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 //        CardSequencePanel.add("RiskAgendaObjectives", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 }//GEN-LAST:event_btnPerformanceReportsActionPerformed
+
+    private void optionsCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsCustomerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optionsCustomerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
