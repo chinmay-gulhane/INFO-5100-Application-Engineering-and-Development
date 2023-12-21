@@ -1,3 +1,27 @@
 .DS_Store
 **/.DS_Store
 **/*.class
+<<<<<<< HEAD
+=======
+/Lab_3/nbproject/private/
+/Lab_3/build/
+/JavaApplication8/nbproject/private/
+/JavaApplication8/build/
+/Lab_3/dist/
+/Homework/nbproject/private/
+/Homework/build/
+/Lab_4_Skeleton/nbproject/private/
+/Lab_4_Skeleton/build/
+/Lab_4_Skeleton/dist/
+/Lab_5_Skeleton/nbproject/private/
+/Lab_5_Skeleton/build/
+/Lab_5_Skeleton/dist/
+/Lab_6_Skeleton/nbproject/private/
+/Lab_6_Skeleton/build/
+/Lab_6_Skeleton/dist/
+/Lab_6/dist/
+/Lab_6/nbproject/private/
+/Lab_7/nbproject/private/
+/Lab_7/build/
+/Lab_7/dist/
+>>>>>>> 6257ea5c4d76c000d367307ac6e7cff57bdd4cba
