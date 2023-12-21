@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .DS_Store
 **/.DS_Store
 **/*.class
@@ -36,10 +37,15 @@
 **/*.class
 >>>>>>> 578c151cf4ec0be196f5c1e5a8e900a4ccd04c81
 =======
+=======
+>>>>>>> cac1d8cb87ee17a6794580c9238786c386b2ef99
 /build/
 /dist/
 /nbproject/private/
 .DS_Store
 **/.DS_Store
 **/*.class
+<<<<<<< HEAD
 >>>>>>> 5b5dbbb1e9214517f8619cf14dc04fcb1560316a
+=======
+>>>>>>> cac1d8cb87ee17a6794580c9238786c386b2ef99
