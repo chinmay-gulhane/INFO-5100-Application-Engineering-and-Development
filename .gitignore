@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 **/.DS_Store
 **/*.class
@@ -25,3 +26,11 @@
 /Lab_7/build/
 /Lab_7/dist/
 >>>>>>> 6257ea5c4d76c000d367307ac6e7cff57bdd4cba
+=======
+/Assignment_2/nbproject/private/
+/Assignment_2/build/
+/Assignment_2_New/nbproject/private/
+.DS_Store
+**/.DS_Store
+**/*.class
+>>>>>>> 578c151cf4ec0be196f5c1e5a8e900a4ccd04c81
